@@ -6,17 +6,17 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-row justify-between p-24">
-      <div className="flex flex-col items-start justify-start">
-        <h1 className="text-6xl font-bold text-black-600">
+    <main className="flex min-h-screen text-center flex-col justify-between sm:p-24 p-8">
+      <div className="flex flex-col items-center justify-center">
+        <h1 className="text-4xl sm:text-6xl font-bold text-black-600">
           Hello my name is, Zisis
         </h1>
-        <h2 className="text-4xl font-bold text-black-600">
+        <h2 className="text-xl sm:text-4xl font-bold text-black-600 py-2 sm:py-4">
           I am Backend Software Engineer
         </h2>
 
         <Image
-          className="p-20 rounded-full"
+          className="p-10 rounded-full"
           src="/images/Profile.png"
           width={600}
           height={600}

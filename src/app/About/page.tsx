@@ -2,17 +2,19 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen  p-24">
+    <main className="sm:flex sm:min-h-screen sm:justify-between p-8 ">
       <div className="">
-        <h1 className="text-6xl font-bold mb-4 text-center">About Me</h1>
-        <h1 className="text-2xl font-semibold mb-2 text-center">
+        <h1 className="sm:text-6xl font-bold sm:mb-8 text-3xl text-center">
+          About Me
+        </h1>
+        <h1 className="text-m sm:text-2xl font-semibold mb-2 text-center">
           Software Engineer specializing in back end developement on AWS cloud
           with Python. Hands on experience on start-up company environment.
         </h1>
-        <h1 className="px-24 text-3xl mb-2 py-3 flex flex-row justify-between space-x-20">
+        <h1 className="sm:px-24 text-3xl mb-2 py-3 flex gap-10 flex-col text-center items-center sm:flex-row justify-between sm:space-x-20">
           <div>
             <h1 className="font-semibold">Programming Languages:</h1>
-            <ul className="list-disc list-inside flex flex-col space-y-4 py-4">
+            <ul className="list-disc list-inside items-center flex flex-col space-y-4 py-4">
               <div className="flex space-x-2">
                 <Image
                   src="/images/python-logo-only.png"
@@ -62,7 +64,7 @@ export default function Home() {
           </div>
           <div>
             <h1 className="font-semibold">Cloud:</h1>
-            <ul className="list-disc list-inside flex flex-col space-y-4 py-4">
+            <ul className="list-disc list-inside items-center flex flex-col space-y-4 py-4">
               <div className="flex space-x-2">
                 <Image
                   src="/images/icons8-amazon-web-services.svg"
@@ -89,7 +91,7 @@ export default function Home() {
           </div>
           <div>
             <h1 className="font-semibold">Frameworks:</h1>
-            <ul className="list-disc list-inside flex flex-col space-y-4 py-4">
+            <ul className="list-disc list-inside items-center flex flex-col space-y-4 py-4">
               <div className="flex space-x-2">
                 <Image
                   src="/images/icons8-flask.svg"
@@ -107,61 +109,36 @@ export default function Home() {
           </div>
           <div>
             <h1 className="font-semibold">Cloud Specific Technologies:</h1>
-            <ul className="list-disc list-inside flex flex-col space-y-4 py-4">
-              <div className="flex justify-center ">
-                <div className="flex-col space-y-4">
-                  <h1>AWS</h1>
-
-                  <div className="flex flex-row space-x-3">
-                    <Image
-                      src="/images/ec2.svg"
-                      width={40}
-                      height={40}
-                      alt=""
-                    />
-                    <h1>EC2</h1>
-                  </div>
-                  <div className="flex flex-row space-x-3">
-                    <Image
-                      src="/images/lambda.svg"
-                      width={40}
-                      height={40}
-                      alt=""
-                    />
-                    <h1>Lambda</h1>
-                  </div>
-                  <div className="flex flex-row space-x-3">
-                    <Image src="/images/s3.svg" width={40} height={40} alt="" />
-                    <h1>S3</h1>
-                  </div>
-                  <div className="flex flex-row space-x-3">
-                    <Image
-                      src="/images/dynamodb.svg"
-                      width={40}
-                      height={40}
-                      alt=""
-                    />
-                    <h1>DynamoDB</h1>
-                  </div>
-                  <div className="flex flex-row space-x-3">
-                    <Image
-                      src="/images/iam.svg"
-                      width={40}
-                      height={40}
-                      alt=""
-                    />
-                    <h1>IAM</h1>
-                  </div>
-                  <div className="flex flex-row space-x-3">
-                    <Image
-                      src="/images/api.svg"
-                      width={40}
-                      height={40}
-                      alt=""
-                    />
-                    <h1>API Gateway</h1>
-                  </div>
-                </div>
+            <ul className="list-disc list-inside items-center flex flex-col space-y-4 py-4">
+              <h1>AWS</h1>
+              <div className="flex space-x-2">
+                <Image src="/images/ec2.svg" width={40} height={40} alt="" />
+                <h1>EC2</h1>
+              </div>
+              <div className="flex space-x-2">
+                <Image src="/images/lambda.svg" width={40} height={40} alt="" />
+                <h1>Lambda</h1>
+              </div>
+              <div className="flex space-x-2">
+                <Image src="/images/s3.svg" width={40} height={40} alt="" />
+                <h1>S3</h1>
+              </div>
+              <div className="flex space-x-2">
+                <Image
+                  src="/images/dynamodb.svg"
+                  width={40}
+                  height={40}
+                  alt=""
+                />
+                <h1>DynamoDB</h1>
+              </div>
+              <div className="flex space-x-2">
+                <Image src="/images/iam.svg" width={40} height={40} alt="" />
+                <h1>IAM</h1>
+              </div>
+              <div className="flex space-x-2">
+                <Image src="/images/api.svg" width={40} height={40} alt="" />
+                <h1>API Gateway</h1>
               </div>
             </ul>
           </div>

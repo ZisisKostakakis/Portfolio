@@ -6,13 +6,13 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen justify-between p-24">
+    <main className="sm:flex sm:min-h-screen sm:justify-between p-8">
       <div className="">
-        <h1 className="text-6xl font-bold mb-8">
+        <h1 className="sm:text-6xl font-bold sm:mb-8 text-3xl text-start">
           Camera OCR
           <Link
             href="https://github.com/ZisisKostakakis/CameraOCR"
-            className="text-2xl mb-8 text-red-900 flex space-x-2 items-center p-2"
+            className="text-xl sm:text-2xl mb-8 text-red-900 flex space-x-2 sm:items-center p-2"
           >
             <Image
               src="/images/github-mark.png"
@@ -25,7 +25,7 @@ export default function Home() {
             </h1>
           </Link>
         </h1>
-        <p className="text-2xl mb-8">
+        <p className="text-m sm:text-2xl sm:mb-8">
           IOS app that uses the Optical Character Recognition, used for taking
           pictures and converting the picture into text that can be used for
           text-to-speech, automaticaly detecting an email address and filling it
@@ -40,15 +40,19 @@ export default function Home() {
           patients and prioritise help where its needed.
         </p>
 
-        <div className="flex flex-row justify-center space-x-10">
+        <div className="flex flex-col sm:flex-row sm:justify-center items-center sm:space-x-10 py-2">
           <div>
-            <h2 className="text-center font-bold text-2xl">First Demo</h2>
+            <h2 className="text-center font-bold text-xl sm:text-2xl">
+              First Demo
+            </h2>
             <video width={400} height={400} controls>
               <source src="/videos/CameraOCR-one.mp4" type="video/mp4" />
             </video>
           </div>
           <div>
-            <h2 className="text-center font-bold text-2xl">Second Demo</h2>
+            <h2 className="text-center font-bold text-xl sm:text-2xl">
+              Second Demo
+            </h2>
             <video width={400} height={400} controls>
               <source src="/videos/CameraOCR-two.mp4" type="video/mp4" />
             </video>
