@@ -24,12 +24,6 @@ export default function Home() {
               Email
             </h1>
           </a>
-
-          <a href="tel: +44 7512199758">
-            <h1 className="text-center text-4xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110  hover:text-green-500">
-              Phone
-            </h1>
-          </a>
         </div>
       </div>
     </main>
