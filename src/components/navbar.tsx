@@ -1,26 +1,68 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 
 interface navbarProps {}
 
 const Navbar: React.FC<navbarProps> = ({}) => {
+  useEffect(() => {
+    const toggleButton = document.querySelector("[data-collapse-toggle]");
+    const menu = document.querySelector("#navbar-default");
+
+    toggleButton?.addEventListener("click", () => {
+      menu?.classList.toggle("hidden");
+    });
+
+    return () => {
+      toggleButton?.removeEventListener("click", () => {
+        menu?.classList.toggle("hidden");
+      });
+    };
+  }, []);
+
   return (
     <nav className="border-gray-200 bg-yellow-950">
-      <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
-        <a href="/" className="flex items-center ">
-          <i className="fa-solid fa-bus fa-beat fa-2xl mr-3"></i>
-          <span className="self-center whitespace-nowrap text-2xl font-bold text-white transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:text-green-500">
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="/" className="flex items-center">
+          <span className="self-center text-2xl font-semibold whitespace-nowrap text-white transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:text-green-500">
             Zisis Kostakakis
           </span>
         </a>
-        <div className=" w-full md:block md:w-auto">
+        <button
+          data-collapse-toggle="navbar-default"
+          type="button"
+          className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span className="sr-only">Open main menu</span>
+          <svg
+            className="w-6 h-6"
+            aria-hidden="true"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+
+        <div
+          className=" md:block md:w-auto text-center justify-between items-center hidden"
+          id="navbar-default"
+        >
           <ul
-            className="mt-4 flex flex-col p-4 
-          font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0  md:p-0"
+            className="mx-auto mt-4 flex flex-row p-4 max-w-screen-xl
+            font-medium sm:mt-0 sm:flex-row sm:space-x-8 sm:border-0 sm:p-0
+              rounded-lg"
           >
             <li>
               <a
                 href="/"
-                className="block rounded py-2 pl-3 pr-4 font-bold text-2xl text-white md:bg-transparent md:p-0 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110  hover:text-green-500"
+                className="block rounded py-2 pl-3 pr-4 font-bold md:text-2xl text-white md:bg-transparent md:p-0 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110  hover:text-green-500"
                 aria-current="page"
               >
                 Home
@@ -32,7 +74,8 @@ const Navbar: React.FC<navbarProps> = ({}) => {
                 href="/About"
                 className="block rounded py-2 pl-3 pr-4 text-white
                  md:border-0  md:p-0 md:hover:bg-transparent font-bold
-                 hover:text-green-500 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 text-2xl"
+                 hover:text-green-500 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 md:text-2xl
+                 "
               >
                 About
               </a>
@@ -42,7 +85,7 @@ const Navbar: React.FC<navbarProps> = ({}) => {
                 href="/Contact"
                 className="block rounded py-2 pl-3 pr-4 text-white
                   md:border-0 md:p-0 md:hover:bg-transparent font-bold
-                   hover:text-green-500 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 text-2xl"
+                   hover:text-green-500 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 md:text-2xl"
               >
                 Contact
               </a>

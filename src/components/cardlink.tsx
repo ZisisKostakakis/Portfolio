@@ -10,7 +10,7 @@ const CardLink: React.FC<cardLinkProps> = ({ href, title, description }) => {
     <div className="rounded-lg shadow-md bg-yellow-950 border-yellow-950">
       <div className="p-5 ">
         <a href={href}>
-          <h5 className="mb-2 text-2xl font-bold  text-white transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-10 hover:text-green-500">
+          <h5 className="mb-2 text-2xl font-bold text-white transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-10 hover:text-green-500">
             {title}
           </h5>
         </a>

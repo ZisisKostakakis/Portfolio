@@ -6,9 +6,9 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen justify-between p-24">
+    <main className="flex flex-col min-h-screen text-start justify-between p-8 sm:p-24">
       <div>
-        <h1 className="text-6xl font-bold mb-8">
+        <h1 className="text-4xl sm:text-6xl font-bold mb-8">
           Transport Info
           <Link
             href="https://github.com/ZisisKostakakis/Transport-Info"
@@ -25,7 +25,7 @@ export default function Home() {
             </h1>
           </Link>
         </h1>
-        <p className="text-2xl mb-8">
+        <p className="text-m sm:text-2xl mb-8">
           Transport-Info Full Stack project utilising a frontend and a backend
           Backend is served by an AWS EC2 server running flask using gunicorn
           and nginx as webservers. Frontend is server by Vercel using NextJS 13
@@ -33,9 +33,9 @@ export default function Home() {
           authentication keys The data are store on S3 and DynamoDB and are
           fetched by the backend server upon request from the frontend.
         </p>
-        <div className="flex items-center flex-row justify-center">
+        <div className="flex flex-col items-center sm:flex-row sm:justify-center sm:h-500">
           <Link href="https://transport-info.vercel.app/">
-            <h1 className="text-center font-bold text-2xl animate-bounce-slow">
+            <h1 className="text-center font-bold text-m sm:text-2xl animate-bounce-slow">
               Click Image
             </h1>
             <Image

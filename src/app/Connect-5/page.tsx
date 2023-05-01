@@ -6,9 +6,9 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen justify-between p-24">
+    <main className="flex flex-col min-h-screen text-start justify-between p-8 sm:p-24">
       <div className="">
-        <h1 className="text-6xl font-bold mb-8">
+        <h1 className="text-4xl sm:text-6xl font-bold mb-8">
           Connect 5
           <Link
             href="https://github.com/ZisisKostakakis/Connect-5-game"
@@ -25,7 +25,7 @@ export default function Home() {
             </h1>
           </Link>
         </h1>
-        <p className="text-2xl mb-8">
+        <p className="text-m sm:text-2xl mb-8">
           Connect-Five is a tic-tac-toe-like two-player game in which players
           alternately place pieces on a vertical board 8 columns across and 7
           rows high. Each player uses pieces of a particular color (commonly
@@ -37,16 +37,14 @@ export default function Home() {
           in the column.
         </p>
 
-        <div className="flex flex-row justify-center h-500">
+        <div className="flex flex-col items-center sm:flex-row sm:justify-center sm:h-500">
           <Image
             src="/images/Connect-5-one.png"
             width={500}
             height={500}
+            className="w-full sm:w-1/2 sm:h-auto sm:mr-2"
             style={{
-              width: "50%",
-              height: "100%",
               objectFit: "cover",
-              marginLeft: "20px",
             }}
             alt=""
           />
@@ -54,11 +52,9 @@ export default function Home() {
             src="/images/Connect-5-two.png"
             width={500}
             height={500}
+            className="w-full sm:w-1/2 sm:h-auto sm:ml-2"
             style={{
-              width: "50%",
-              height: "100%",
               objectFit: "cover",
-              marginLeft: "20px",
             }}
             alt=""
           />
