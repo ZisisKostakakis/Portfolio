@@ -9,21 +9,40 @@ export default function Home() {
     <main className="flex flex-col min-h-screen text-start justify-between p-8 sm:p-24">
       <div>
         <h1 className="text-4xl sm:text-6xl font-bold mb-8">
-          Transport Info
-          <Link
-            href="https://github.com/ZisisKostakakis/Transport-Info"
-            className="text-2xl mb-8 text-red-900 flex space-x-2 items-center p-2"
-          >
-            <Image
-              src="/images/github-mark.png"
-              width={30}
-              height={30}
-              alt=""
-            />{" "}
-            <h1 className=" transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-              Github
-            </h1>
-          </Link>
+          <div className="flex flex-row">
+            <h1>Transport Info</h1>
+            <h1 className="text-xl animate-pulse"> Work in Progress</h1>
+          </div>
+          <div className="flex-row flex">
+            <Link
+              href="https://github.com/ZisisKostakakis/Transport-Info"
+              className="text-2xl mb-8 text-red-900 flex space-x-2 items-center p-2"
+            >
+              <Image
+                src="/images/github-mark.png"
+                width={30}
+                height={30}
+                alt=""
+              />{" "}
+              <h1 className=" transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+                Github Frontend
+              </h1>
+            </Link>
+            <Link
+              href="https://github.com/ZisisKostakakis/Web-app-python"
+              className="text-2xl mb-8 text-red-900 flex space-x-2 items-center p-2"
+            >
+              <Image
+                src="/images/github-mark.png"
+                width={30}
+                height={30}
+                alt=""
+              />{" "}
+              <h1 className=" transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+                Github Backend
+              </h1>
+            </Link>
+          </div>
         </h1>
         <p className="text-m sm:text-2xl mb-8">
           Transport-Info Full Stack project utilising a frontend and a backend
