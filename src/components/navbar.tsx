@@ -20,10 +20,10 @@ const Navbar: React.FC<navbarProps> = ({}) => {
   }, []);
 
   return (
-    <nav className="border-gray-200 bg-yellow-950">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav className="border-gray-200 bg-yellow-950 ">
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 font-sans">
         <a href="/" className="flex items-center">
-          <span className="self-center text-2xl font-semibold whitespace-nowrap text-white transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:text-green-500">
+          <span className="self-center text-2xl whitespace-nowrap text-white transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:text-green-500">
             Zisis Kostakakis
           </span>
         </a>
@@ -51,18 +51,18 @@ const Navbar: React.FC<navbarProps> = ({}) => {
         </button>
 
         <div
-          className=" md:block md:w-auto text-center justify-between items-center hidden"
+          className=" md:block md:w-auto text-center justify-between items-center hidden font-sans "
           id="navbar-default"
         >
           <ul
             className="mx-auto mt-4 flex flex-row p-4 max-w-screen-xl
-            font-medium sm:mt-0 sm:flex-row sm:space-x-8 sm:border-0 sm:p-0
+             sm:mt-0 sm:flex-row sm:space-x-8 sm:border-0 sm:p-0
               rounded-lg"
           >
             <li>
               <a
                 href="/"
-                className="block rounded py-2 pl-3 pr-4 font-bold md:text-2xl text-white md:bg-transparent md:p-0 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110  hover:text-green-500"
+                className="block rounded py-2 pl-3 pr-4 md:text-2xl text-white md:bg-transparent md:p-0 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110  hover:text-green-500"
                 aria-current="page"
               >
                 Home
@@ -73,7 +73,7 @@ const Navbar: React.FC<navbarProps> = ({}) => {
               <a
                 href="/About"
                 className="block rounded py-2 pl-3 pr-4 text-white
-                 md:border-0  md:p-0 md:hover:bg-transparent font-bold
+                 md:border-0  md:p-0 md:hover:bg-transparent 
                  hover:text-green-500 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 md:text-2xl
                  "
               >
@@ -84,7 +84,7 @@ const Navbar: React.FC<navbarProps> = ({}) => {
               <a
                 href="/Contact"
                 className="block rounded py-2 pl-3 pr-4 text-white
-                  md:border-0 md:p-0 md:hover:bg-transparent font-bold
+                  md:border-0 md:p-0 md:hover:bg-transparent
                    hover:text-green-500 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 md:text-2xl"
               >
                 Contact
