@@ -53,7 +53,7 @@ export default function Home() {
           fetched by the backend server upon request from the frontend.
         </p>
         <div className="flex flex-col items-center sm:flex-row sm:justify-center sm:h-500">
-          <Link href="https://transport-info.vercel.app/">
+          <Link href="https://www.transports-info.com/">
             <h1 className="text-center font-bold text-m sm:text-2xl animate-bounce-slow">
               Click Image
             </h1>
