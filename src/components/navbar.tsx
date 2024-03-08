@@ -20,10 +20,10 @@ const Navbar: React.FC<navbarProps> = ({}) => {
   }, []);
 
   return (
-    <nav className="border-gray-200 bg-yellow-950 ">
+    <nav className="border-gray-200 bg-slate-600 ">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 font-sans">
         <a href="/" className="flex items-center">
-          <span className="self-center text-2xl whitespace-nowrap text-white transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:text-green-500">
+          <span className="self-center text-2xl whitespace-nowrap text-white transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:text-blue-400">
             Zisis Kostakakis
           </span>
         </a>
@@ -62,7 +62,7 @@ const Navbar: React.FC<navbarProps> = ({}) => {
             <li>
               <a
                 href="/"
-                className="block rounded py-2 pl-3 pr-4 md:text-2xl text-white md:bg-transparent md:p-0 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110  hover:text-green-500"
+                className="block rounded py-2 pl-3 pr-4 md:text-2xl text-white md:bg-transparent md:p-0 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110  hover:text-blue-400"
                 aria-current="page"
               >
                 Home
@@ -74,7 +74,7 @@ const Navbar: React.FC<navbarProps> = ({}) => {
                 href="/About"
                 className="block rounded py-2 pl-3 pr-4 text-white
                  md:border-0  md:p-0 md:hover:bg-transparent 
-                 hover:text-green-500 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 md:text-2xl
+                 hover:text-blue-400 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 md:text-2xl
                  "
               >
                 About
@@ -85,7 +85,7 @@ const Navbar: React.FC<navbarProps> = ({}) => {
                 href="/Contact"
                 className="block rounded py-2 pl-3 pr-4 text-white
                   md:border-0 md:p-0 md:hover:bg-transparent
-                   hover:text-green-500 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 md:text-2xl"
+                   hover:text-blue-400 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 md:text-2xl"
               >
                 Contact
               </a>

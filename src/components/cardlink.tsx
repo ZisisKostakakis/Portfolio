@@ -8,17 +8,17 @@ interface cardLinkProps {
 const CardLink: React.FC<cardLinkProps> = ({ href, title, description }) => {
   return (
     <div className="flex flex-col items-center">
-      <div className="rounded-lg shadow-md bg-yellow-950 border-yellow-950 max-w-md block tracking-tight ">
+      <div className="rounded-lg shadow-md bg-slate-600 border-blue-950 max-w-md block tracking-tight ">
         <div className="p-5">
           <a href={href}>
-            <h5 className="mb-2 text-2xl font-sans font-semibold text-white transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-10 hover:text-green-500">
+            <h5 className="mb-2 text-2xl font-sans font-semibold text-white transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-10 hover:text-blue-400">
               {title}
             </h5>
           </a>
           <p className="mb-3 font-sans text-white text-l ">{description}</p>
           <a
             href={href}
-            className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-black bg-white rounded-lg hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-green-300 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+            className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-black bg-white rounded-lg hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-blue-300 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
           >
             Read more
             <svg
