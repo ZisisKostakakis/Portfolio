@@ -11,7 +11,6 @@ export default function Home() {
         <h1 className="text-4xl sm:text-6xl font-bold mb-8">
           <div className="flex flex-row">
             <h1>Transport Info</h1>
-            <h1 className="text-xl animate-pulse"> Work in Progress</h1>
           </div>
           <div className="flex-row flex">
             <Link
