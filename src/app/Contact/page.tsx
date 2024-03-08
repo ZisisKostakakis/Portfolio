@@ -10,17 +10,17 @@ export default function Home() {
             className=""
             href="https://www.linkedin.com/in/zisis-kostakakis-5b85961b7/"
           >
-            <h1 className="text-center text-4xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110  hover:text-green-500">
+            <h1 className="text-center text-4xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110  hover:text-blue-400">
               LinkedIn
             </h1>
           </Link>
           <Link className="" href="https://github.com/ZisisKostakakis">
-            <h1 className="text-center text-4xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110  hover:text-green-500">
+            <h1 className="text-center text-4xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110  hover:text-blue-400">
               Github
             </h1>
           </Link>
           <a href="mailto: kostakakiszisis@gmail.com">
-            <h1 className="text-center text-4xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110  hover:text-green-500">
+            <h1 className="text-center text-4xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110  hover:text-blue-400">
               Email
             </h1>
           </a>
