@@ -9,10 +9,10 @@ export default function Home() {
     <main className="flex min-h-screen text-center flex-col justify-between sm:p-24 p-8 font-sans">
       <div className="flex flex-col items-center justify-center">
         <h1 className="text-4xl sm:text-6xl font-semibold text-black-600">
-          Hello my name is, Zisis
+          Hi, I am Zisis
         </h1>
         <h2 className="text-xl sm:text-4xl text-black-600 py-2 sm:py-4">
-          I am Backend Software Engineer
+          Full Stack Software Engineer
         </h2>
 
         <Image
