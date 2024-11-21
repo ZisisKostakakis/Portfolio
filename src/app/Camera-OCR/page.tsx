@@ -37,7 +37,7 @@ export default function CameraOCR() {
             text, particularly useful when sending emails. For example, less
             tech-savvy individuals could write a letter to their doctor, take a
             picture, and send it as an email with the detected emotion attached.
-            This helps doctors understand their patients' emotional state and
+            This helps doctors understand their patients emotional state and
             prioritize care accordingly.
           </p>
         </div>
