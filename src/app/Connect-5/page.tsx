@@ -1,63 +1,68 @@
 import Image from "next/image";
-import { Inter } from "next/font/google";
 import Link from "next/link";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export default function Home() {
+export default function Connect5() {
   return (
-    <main className="flex flex-col min-h-screen text-start justify-between p-8 sm:p-24">
-      <div className="">
-        <h1 className="text-4xl sm:text-6xl font-bold mb-8">
-          Connect 5
+    <main className="min-h-screen bg-primary-gray py-24 px-4 sm:px-8 lg:px-16">
+      <div className="max-w-4xl mx-auto">
+        <div className="animate-fade-in">
+          <h1 className="text-4xl sm:text-6xl font-bold text-primary-black mb-6">
+            Connect 5
+          </h1>
           <Link
             href="https://github.com/ZisisKostakakis/Connect-5-game"
-            className="text-2xl mb-8 text-red-900 flex space-x-2 items-center p-2"
+            className="inline-flex items-center space-x-2 text-xl text-primary-navy hover:text-primary-orange transition-colors duration-300 mb-8 group"
           >
             <Image
               src="/images/github-mark.png"
               width={30}
               height={30}
-              alt=""
-            />{" "}
-            <h1 className=" transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-              Github
-            </h1>
+              alt="GitHub"
+              className="transition-transform group-hover:scale-110 duration-300"
+            />
+            <span className="font-semibold">View on GitHub</span>
           </Link>
-        </h1>
-        <p className="text-m sm:text-2xl mb-8">
-          Connect-Five is a tic-tac-toe-like two-player game in which players
-          alternately place pieces on a vertical board 8 columns across and 7
-          rows high. Each player uses pieces of a particular color (commonly
-          black and red, or sometimes yellow and red), and the object is to be
-          the first to obtain five pieces in a horizontal, vertical, or diagonal
-          line. Because the board is vertical, pieces inserted in a given column
-          always drop to the lowest unoccupied row of that column. As soon as a
-          column contains 7 pieces, it is full and no other piece can be placed
-          in the column.
-        </p>
+        </div>
 
-        <div className="flex flex-col items-center sm:flex-row sm:justify-center sm:h-500">
-          <Image
-            src="/images/Connect-5-one.png"
-            width={500}
-            height={500}
-            className="w-full sm:w-1/2 sm:h-auto sm:mr-2"
-            style={{
-              objectFit: "cover",
-            }}
-            alt=""
-          />
-          <Image
-            src="/images/Connect-5-two.png"
-            width={500}
-            height={500}
-            className="w-full sm:w-1/2 sm:h-auto sm:ml-2"
-            style={{
-              objectFit: "cover",
-            }}
-            alt=""
-          />
+        <div className="prose max-w-none animate-slide-up">
+          <p className="text-lg sm:text-xl text-primary-navy mb-12 leading-relaxed">
+            Connect-Five is a tic-tac-toe-like two-player game in which players
+            alternately place pieces on a vertical board 8 columns across and 7
+            rows high. Each player uses pieces of a particular color (commonly
+            black and red, or sometimes yellow and red), and the object is to be
+            the first to obtain five pieces in a horizontal, vertical, or
+            diagonal line. Because the board is vertical, pieces inserted in a
+            given column always drop to the lowest unoccupied row of that
+            column. As soon as a column contains 7 pieces, it is full and no
+            other piece can be placed in the column.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 gap-8 animate-fade-in delay-[200ms]">
+          <div className="group">
+            <div className="relative rounded-xl overflow-hidden shadow-custom-lg transition-all duration-300 hover:-translate-y-1">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-orange/0 to-primary-orange/10 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+              <Image
+                src="/images/Connect-5-one.png"
+                width={500}
+                height={500}
+                className="w-full h-auto"
+                alt="Connect 5 Game Screenshot 1"
+              />
+            </div>
+          </div>
+          <div className="group">
+            <div className="relative rounded-xl overflow-hidden shadow-custom-lg transition-all duration-300 hover:-translate-y-1">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-orange/0 to-primary-orange/10 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+              <Image
+                src="/images/Connect-5-two.png"
+                width={500}
+                height={500}
+                className="w-full h-auto"
+                alt="Connect 5 Game Screenshot 2"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </main>
