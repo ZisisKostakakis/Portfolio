@@ -20,7 +20,7 @@
 
   /* Focus visible styles for accessibility */
   *:focus-visible {
-    @apply outline-none ring-2 ring-primary-gold ring-offset-2 ring-offset-primary-gray;
+    @apply outline-none ring-2 ring-primary-cyan ring-offset-2 ring-offset-primary-gray;
   }
 
   /* Reduced motion support */
@@ -48,7 +48,7 @@
 
   /* Text gradient utility */
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-gold;
+    @apply bg-clip-text text-transparent bg-gradient-cyan;
   }
 
   /* Shimmer effect for loading states */
@@ -63,7 +63,7 @@
 
   /* Skip to content link for accessibility */
   .skip-to-content {
-    @apply absolute left-0 top-0 -translate-y-full bg-primary-gold px-4 py-2 text-white transition-transform focus:translate-y-0 z-50;
+    @apply absolute left-0 top-0 -translate-y-full bg-primary-cyan px-4 py-2 text-white transition-transform focus:translate-y-0 z-50;
   }
 }
 
@@ -102,6 +102,6 @@
   }
 
   .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary-gold;
+    @apply bg-primary-cyan;
   }
 }

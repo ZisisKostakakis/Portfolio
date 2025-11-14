@@ -83,7 +83,7 @@ export default function HomeContent() {
       {/* Tech Stack Marquee */}
       <section className="mb-24 relative z-10">
         <div className="relative overflow-hidden bg-primary-navy/5 py-6 backdrop-blur-sm">
-          <div className="flex gap-8 whitespace-nowrap will-change-transform" style={{animation: 'marquee 25s linear infinite'}}>
+          <div className="flex gap-8 whitespace-nowrap animate-marquee">
             {['Python', 'TypeScript', 'AWS', 'React', 'Next.js', 'Docker', 'Terraform', 'Flask'].map(
               (tech, i) => (
                 <Badge key={`${tech}-${i}`} variant="secondary" size="lg" className="shrink-0">

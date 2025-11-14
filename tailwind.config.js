@@ -14,10 +14,16 @@ module.exports = {
           'navy-light': '#2C4A7C',
           'navy-dark': '#0F1F3D',
 
-          // Gold/Amber accent
-          gold: '#D4AF37', // Gold (Accent)
-          'gold-light': '#E8C55B',
-          'gold-dark': '#B8941F',
+          // Electric Blue/Cyan accent (replacing gold)
+          gold: '#00D9FF', // Electric Cyan (Accent) - keeping 'gold' name for backwards compatibility
+          'gold-light': '#33E3FF',
+          'gold-dark': '#00B8D9',
+
+          // New electric blue variants
+          cyan: '#00D9FF',
+          'cyan-light': '#33E3FF',
+          'cyan-dark': '#00B8D9',
+          electric: '#00D9FF',
 
           // Neutral colors
           charcoal: '#2C3E50', // Dark text
@@ -67,11 +73,12 @@ module.exports = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "gradient-gold": "linear-gradient(135deg, #E8C55B 0%, #D4AF37 50%, #B8941F 100%)",
+        "gradient-gold": "linear-gradient(135deg, #33E3FF 0%, #00D9FF 50%, #00B8D9 100%)",
+        "gradient-cyan": "linear-gradient(135deg, #33E3FF 0%, #00D9FF 50%, #00B8D9 100%)",
         "gradient-navy": "linear-gradient(135deg, #2C4A7C 0%, #1B365D 50%, #0F1F3D 100%)",
-        "gradient-mesh": "radial-gradient(at 40% 20%, rgba(212, 175, 55, 0.2) 0, transparent 50%), radial-gradient(at 80% 0%, rgba(27, 54, 93, 0.3) 0, transparent 50%), radial-gradient(at 80% 50%, rgba(212, 175, 55, 0.15) 0, transparent 50%), radial-gradient(at 0% 100%, rgba(27, 54, 93, 0.2) 0, transparent 50%)",
-        // Keep orange for backwards compatibility
-        "gradient-orange": "linear-gradient(135deg, #E8C55B 0%, #D4AF37 50%, #B8941F 100%)",
+        "gradient-mesh": "radial-gradient(at 40% 20%, rgba(0, 217, 255, 0.2) 0, transparent 50%), radial-gradient(at 80% 0%, rgba(27, 54, 93, 0.3) 0, transparent 50%), radial-gradient(at 80% 50%, rgba(0, 217, 255, 0.15) 0, transparent 50%), radial-gradient(at 0% 100%, rgba(27, 54, 93, 0.2) 0, transparent 50%)",
+        // Keep orange for backwards compatibility (now cyan)
+        "gradient-orange": "linear-gradient(135deg, #33E3FF 0%, #00D9FF 50%, #00B8D9 100%)",
       },
       animation: {
         // Existing
@@ -138,8 +145,8 @@ module.exports = {
           '50%': { transform: 'translateY(-20px)' },
         },
         glow: {
-          '0%': { boxShadow: '0 0 20px rgba(212, 175, 55, 0.4)' },
-          '100%': { boxShadow: '0 0 30px rgba(212, 175, 55, 0.6), 0 0 40px rgba(212, 175, 55, 0.4)' },
+          '0%': { boxShadow: '0 0 20px rgba(0, 217, 255, 0.4)' },
+          '100%': { boxShadow: '0 0 30px rgba(0, 217, 255, 0.6), 0 0 40px rgba(0, 217, 255, 0.4)' },
         },
         blob: {
           '0%, 100%': { transform: 'translate(0px, 0px) scale(1)' },
@@ -159,10 +166,10 @@ module.exports = {
       boxShadow: {
         'custom': '0 4px 6px -1px rgba(27, 54, 93, 0.1), 0 2px 4px -1px rgba(27, 54, 93, 0.06)',
         'custom-lg': '0 10px 15px -3px rgba(27, 54, 93, 0.1), 0 4px 6px -2px rgba(27, 54, 93, 0.05)',
-        'glow-sm': '0 0 10px rgba(212, 175, 55, 0.3)',
-        'glow': '0 0 20px rgba(212, 175, 55, 0.4)',
-        'glow-lg': '0 0 30px rgba(212, 175, 55, 0.5)',
-        'inner-glow': 'inset 0 0 20px rgba(212, 175, 55, 0.15)',
+        'glow-sm': '0 0 10px rgba(0, 217, 255, 0.3)',
+        'glow': '0 0 20px rgba(0, 217, 255, 0.4)',
+        'glow-lg': '0 0 30px rgba(0, 217, 255, 0.5)',
+        'inner-glow': 'inset 0 0 20px rgba(0, 217, 255, 0.15)',
       },
       backdropBlur: {
         xs: '2px',
