@@ -1,6 +1,6 @@
 import { Project } from '@/lib/types';
 
-export const projects: Project[] = [
+const projectsData: Project[] = [
   {
     id: 'connect-5',
     href: '/Connect-5',
@@ -92,7 +92,7 @@ export const projects: Project[] = [
       'Vercel',
     ],
     category: 'Full Stack',
-    date: '2024',
+    date: '2025',
     delay: 'delay-[400ms]',
     features: [
       'Flexible date range management with intuitive range picker',
@@ -106,6 +106,13 @@ export const projects: Project[] = [
     ],
   },
 ];
+
+// Sort projects by date in descending order (newest first)
+export const projects: Project[] = [...projectsData].sort((a, b) => {
+  const dateA = a.date || '0';
+  const dateB = b.date || '0';
+  return dateB.localeCompare(dateA);
+});
 
 export const getProjectById = (id: string): Project | undefined => {
   return projects.find((project) => project.id === id);
