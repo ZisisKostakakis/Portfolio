@@ -24,6 +24,12 @@ The backend is a RESTful API built with Flask (Python) and deployed as a serverl
 
 The frontend is containerized with Docker and deployed to Vercel, while the backend is deployed as a containerized Lambda function using AWS CloudFormation/SAM templates.`,
     githubUrl: 'https://github.com/ZisisKostakakis/date-calculator',
+    additionalRepos: [
+      {
+        label: 'Backend Repository',
+        url: 'https://github.com/ZisisKostakakis/date-calculator-backend-app',
+      },
+    ],
     liveUrl: 'https://date-calc.zisiskostakakis.com',
     technologies: [
       'Next.js 15',
@@ -40,7 +46,7 @@ The frontend is containerized with Docker and deployed to Vercel, while the back
       'Flatpickr',
     ],
     category: 'Full Stack',
-    date: '2024',
+    date: '2025',
     features: [
       'Flexible date range management with intuitive range picker interface',
       'Custom anchor periods - configure any anchor date (month/day) to define custom yearly periods',
