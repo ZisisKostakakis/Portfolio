@@ -26,13 +26,6 @@ export const socialLinks: SocialLink[] = [
     color: '#181717',
     ariaLabel: 'Visit Zisis Kostakakis GitHub profile',
   },
-  {
-    name: 'Email',
-    url: 'mailto:business@zisiskostakakis.com',
-    icon: 'email',
-    color: '#EA4335',
-    ariaLabel: 'Send email to Zisis Kostakakis',
-  },
 ];
 
 export const navItems: NavItem[] = [
