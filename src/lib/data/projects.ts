@@ -69,6 +69,42 @@ export const projects: Project[] = [
       'Scalable data storage with DynamoDB',
     ],
   },
+  {
+    id: 'date-calculator',
+    href: '/Date-Calculator',
+    title: 'Date Calculator',
+    description:
+      'Modern web application for calculating and tracking days across custom date ranges with configurable anchor periods.',
+    longDescription:
+      'A full-stack date calculation tool with a Next.js 15/React 19 frontend and a Flask (Python) backend deployed on AWS Lambda. Perfect for tracking travel days, residency requirements, or any time-based calculations that need to be measured against custom yearly periods. Features include flexible date range management, custom anchor periods, smart overlap merging, visual heatmap visualization, and threshold validation.',
+    githubUrl: 'https://github.com/ZisisKostakakis/date-calculator',
+    liveUrl: 'https://date-calc.zisiskostakakis.com',
+    technologies: [
+      'Next.js',
+      'React',
+      'TypeScript',
+      'Tailwind CSS',
+      'Flask',
+      'Python',
+      'AWS Lambda',
+      'AWS API Gateway',
+      'Docker',
+      'Vercel',
+    ],
+    category: 'Full Stack',
+    date: '2024',
+    delay: 'delay-[400ms]',
+    features: [
+      'Flexible date range management with intuitive range picker',
+      'Custom anchor periods (e.g., Sept 17 - Sept 16)',
+      'Smart overlap merging for accurate calculations',
+      'Visual heatmap to see which days fall within each period',
+      'Threshold validation with pass/fail indicators',
+      'Quick presets for common ranges',
+      'Persistent storage with localStorage',
+      'Modern dark UI with responsive design',
+    ],
+  },
 ];
 
 export const getProjectById = (id: string): Project | undefined => {
