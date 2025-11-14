@@ -2,9 +2,9 @@ import { PersonalInfo, SocialLink, NavItem } from '@/lib/types';
 
 export const personalInfo: PersonalInfo = {
   name: 'Zisis Kostakakis',
-  title: 'Full Stack Engineer',
+  title: 'Software Engineer',
   tagline: 'Passionate about building innovative solutions and turning complex problems into elegant applications',
-  email: 'kostakakiszisis@gmail.com',
+  email: 'business@zisiskostakakis.com',
   location: 'United Kingdom',
   availability: 'Open to opportunities',
   yearsOfExperience: 3,
@@ -27,7 +27,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: 'Email',
-    url: 'mailto:kostakakiszisis@gmail.com',
+    url: 'mailto:business@zisiskostakakis.com',
     icon: 'email',
     color: '#EA4335',
     ariaLabel: 'Send email to Zisis Kostakakis',

@@ -22,18 +22,6 @@ export default function HomeContent() {
       {/* Hero Section */}
       <section className="max-w-5xl mx-auto mb-32 relative z-10">
         <div className="text-center space-y-8">
-          {/* Greeting with wave animation */}
-          <div className="animate-fade-in">
-            <span className="inline-block text-6xl sm:text-7xl animate-float">👋</span>
-          </div>
-
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-primary-charcoal animate-slide-up">
-            Hi, I&apos;m{' '}
-            <span className="text-gradient bg-gradient-gold bg-[length:200%_100%] animate-gradient">
-              {personalInfo.name.split(' ')[0]}
-            </span>
-          </h1>
-
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-primary-navy animate-slide-up delay-[100ms]">
             {personalInfo.title}
           </h2>
@@ -84,26 +72,76 @@ export default function HomeContent() {
       <section className="mb-24 relative z-10">
         <div className="relative overflow-hidden bg-primary-navy/5 py-6 backdrop-blur-sm">
           <div className="flex gap-8 whitespace-nowrap animate-marquee">
-            {['Python', 'TypeScript', 'AWS', 'React', 'Next.js', 'Docker', 'Terraform', 'Flask'].map(
-              (tech, i) => (
-                <Badge key={`${tech}-${i}`} variant="secondary" size="lg" className="shrink-0">
-                  {tech}
-                </Badge>
-              )
-            )}
+            {[
+              'AWS',
+              'DevOps',
+              'GitOps',
+              'Data Pipelines',
+              'Docker',
+              'CI/DC',
+              'Python',
+              'Next.js',
+              'Terraform',
+              'Tailscale',
+              'TypeScript',
+              'PostgreSQL',
+              'DynamoDB',
+              'Git',
+              'TailwindCSS',
+            ].map((tech, i) => (
+              <Badge key={`${tech}-${i}`} variant="secondary" size="lg" className="shrink-0">
+                {tech}
+              </Badge>
+            ))}
             {/* Duplicate for seamless loop */}
-            {['Python', 'TypeScript', 'AWS', 'React', 'Next.js', 'Docker', 'Terraform', 'Flask'].map(
-              (tech, i) => (
-                <Badge
-                  key={`${tech}-duplicate-${i}`}
-                  variant="secondary"
-                  size="lg"
-                  className="shrink-0"
-                >
-                  {tech}
-                </Badge>
-              )
-            )}
+            {[
+              'AWS',
+              'DevOps',
+              'GitOps',
+              'Data Pipelines',
+              'Docker',
+              'CI/DC',
+              'Python',
+              'Next.js',
+              'Terraform',
+              'Tailscale',
+              'TypeScript',
+              'PostgreSQL',
+              'DynamoDB',
+              'Git',
+              'TailwindCSS',
+            ].map((tech, i) => (
+              <Badge
+                key={`${tech}-duplicate-${i}`}
+                variant="secondary"
+                size="lg"
+                className="shrink-0"
+              >
+                {tech}
+              </Badge>
+            ))}
+            {/* Triple for extra smoothness */}
+            {[
+              'AWS',
+              'DevOps',
+              'GitOps',
+              'Data Pipelines',
+              'Docker',
+              'CI/DC',
+              'Python',
+              'Next.js',
+              'Terraform',
+              'Tailscale',
+              'TypeScript',
+              'PostgreSQL',
+              'DynamoDB',
+              'Git',
+              'TailwindCSS',
+            ].map((tech, i) => (
+              <Badge key={`${tech}-triple-${i}`} variant="secondary" size="lg" className="shrink-0">
+                {tech}
+              </Badge>
+            ))}
           </div>
         </div>
       </section>
