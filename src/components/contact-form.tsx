@@ -115,7 +115,9 @@ export default function ContactForm() {
           className="p-4 rounded-lg bg-green-50 border border-green-200 text-green-800"
         >
           <p className="font-medium">Message sent successfully!</p>
-          <p className="text-sm mt-1">Thank you for reaching out. I&apos;ll get back to you soon.</p>
+          <p className="text-sm mt-1">
+            Thank you for reaching out. I&apos;ll get back to you soon.
+          </p>
         </motion.div>
       )}
 

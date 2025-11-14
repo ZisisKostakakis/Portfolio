@@ -16,12 +16,9 @@ export default function NotFound() {
 
         {/* Content */}
         <div className="space-y-6 animate-fade-in">
-          <h2 className="text-3xl sm:text-4xl font-bold text-primary-black">
-            Page Not Found
-          </h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-primary-black">Page Not Found</h2>
           <p className="text-lg sm:text-xl text-primary-navy/70 max-w-md mx-auto">
-            Oops! The page you&apos;re looking for seems to have wandered off into the digital
-            void.
+            Oops! The page you&apos;re looking for seems to have wandered off into the digital void.
           </p>
 
           {/* Navigation Options */}

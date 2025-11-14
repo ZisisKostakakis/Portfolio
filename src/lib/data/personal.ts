@@ -3,7 +3,8 @@ import { PersonalInfo, SocialLink, NavItem } from '@/lib/types';
 export const personalInfo: PersonalInfo = {
   name: 'Zisis Kostakakis',
   title: 'Software Engineer',
-  tagline: 'Passionate about building innovative solutions and turning complex problems into elegant applications',
+  tagline:
+    'Passionate about building innovative solutions and turning complex problems into elegant applications',
   email: 'business@zisiskostakakis.com',
   location: 'United Kingdom',
   availability: 'Open to opportunities',

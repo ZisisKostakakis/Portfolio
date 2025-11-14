@@ -62,26 +62,17 @@ const Navbar: React.FC = () => {
       <nav
         className={cn(
           'fixed w-full top-0 z-50 transition-all duration-300',
-          isScrolled
-            ? 'bg-primary-black/95 backdrop-blur-md shadow-custom-lg'
-            : 'bg-primary-black'
+          isScrolled ? 'bg-primary-black/95 backdrop-blur-md shadow-custom-lg' : 'bg-primary-black'
         )}
       >
         <div className="max-w-screen-xl flex items-center justify-between mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20">
           {/* Logo / Brand */}
-          <Link
-            href="/"
-            className="flex items-center group"
-            aria-label="Zisis Kostakakis - Home"
-          >
+          <Link href="/" className="flex items-center group" aria-label="Zisis Kostakakis - Home">
             <span className="text-xl sm:text-2xl font-semibold text-primary-white transition-colors duration-300 group-hover:text-primary-gold">
               <span className="inline-block transform transition-transform duration-300 group-hover:scale-105">
                 ZK
               </span>
-              <span className="hidden sm:inline-block ml-1">
-                {' '}
-                · Zisis Kostakakis
-              </span>
+              <span className="hidden sm:inline-block ml-1"> · Zisis Kostakakis</span>
             </span>
           </Link>
 

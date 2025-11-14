@@ -17,6 +17,7 @@ This is a personal portfolio website for Zisis Kostakakis built with Next.js 13 
 ## Common Commands
 
 ### Development
+
 ```bash
 npm run dev        # Start development server (http://localhost:3000)
 npm run build      # Build production bundle
@@ -49,6 +50,7 @@ npm run lint       # Run ESLint (next/core-web-vitals config)
 The site uses a custom Tailwind theme defined in `tailwind.config.js`:
 
 **Color Palette** (primary namespace):
+
 - `primary-black`: #000000 (backgrounds, text)
 - `primary-navy`: #000000 (secondary backgrounds)
 - `primary-orange`: #FCA311 (accent color, CTAs)
@@ -56,12 +58,14 @@ The site uses a custom Tailwind theme defined in `tailwind.config.js`:
 - `primary-white`: #FFFFFF (text on dark backgrounds)
 
 **Custom Animations**:
+
 - `fade-in` - 0.5s fade-in effect
 - `slide-up` - 0.5s slide-up with fade
 - `bounce-slow` - 50s slow bounce
 - `pulse-slow` - 3s pulse
 
 **Custom Shadows**:
+
 - `shadow-custom` - Soft shadow with navy tint
 - `shadow-custom-lg` - Larger shadow with navy tint
 
@@ -72,6 +76,7 @@ The site uses a custom Tailwind theme defined in `tailwind.config.js`:
 **Server Components**: Page components are server components by default unless they need client-side interactivity.
 
 **Navigation**: The Navbar component is included in the root layout and appears on all pages with:
+
 - Fixed positioning with scroll-based styling changes
 - Mobile responsive hamburger menu
 - Links to Home, About, and Contact pages
@@ -81,6 +86,7 @@ The site uses a custom Tailwind theme defined in `tailwind.config.js`:
 ### Page Routing
 
 Next.js 13 App Router uses file-based routing:
+
 - `/` - Home page with project showcase
 - `/About` - Skills and experience
 - `/Contact` - Social links and email
@@ -98,6 +104,7 @@ Next.js 13 App Router uses file-based routing:
 ## Development Guidelines
 
 ### Adding New Pages
+
 1. Create new directory under `src/app/[PageName]/`
 2. Add `page.tsx` file in the new directory
 3. Use TypeScript and follow existing patterns
@@ -105,6 +112,7 @@ Next.js 13 App Router uses file-based routing:
 5. Apply custom color palette and animations
 
 ### Adding Components
+
 1. Place in `src/components/` directory
 2. Use TypeScript with proper interfaces
 3. Add `"use client"` directive if using hooks or browser APIs
@@ -112,6 +120,7 @@ Next.js 13 App Router uses file-based routing:
 5. Export as default
 
 ### Styling
+
 - Use Tailwind utility classes exclusively
 - Reference custom colors via `primary-*` namespace
 - Apply custom animations via `animate-*` classes
@@ -119,6 +128,7 @@ Next.js 13 App Router uses file-based routing:
 - Use `transition-*` utilities for smooth hover effects
 
 ### Images
+
 - Place all images in `public/images/`
 - Use Next.js `<Image>` component for optimization
 - Specify width/height for proper aspect ratio
