@@ -1,10 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // App Router (experimental in Next.js 13.3.3, stable in 13.4+)
-  experimental: {
-    appDir: true,
-  },
-
   // Image optimization
   images: {
     formats: ['image/avif', 'image/webp'],
@@ -59,9 +54,6 @@ const nextConfig = {
 
   // Strict mode
   reactStrictMode: true,
-
-  // SWC minification (faster than Terser)
-  swcMinify: true,
 };
 
 module.exports = nextConfig;

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { skillSections } from '@/lib/data/skills';
 import { personalInfo } from '@/lib/data/personal';
@@ -166,12 +167,12 @@ export default function AboutContent() {
               be part of your vision.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/Contact">
+              <Link href="/Contact">
                 <Button variant="primary" size="lg">
                   Get In Touch
                 </Button>
-              </a>
-              <a href="/">
+              </Link>
+              <Link href="/">
                 <Button
                   variant="outline"
                   size="lg"
@@ -179,7 +180,7 @@ export default function AboutContent() {
                 >
                   View Projects
                 </Button>
-              </a>
+              </Link>
             </div>
           </Card>
         </motion.div>
