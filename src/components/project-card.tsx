@@ -19,14 +19,14 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
           'relative h-full rounded-xl overflow-hidden',
           'bg-white border border-primary-gray-dark shadow-custom',
           'transition-all duration-300',
-          'hover:shadow-glow hover:border-primary-orange/30',
+          'hover:shadow-glow hover:border-primary-gold/30',
           className
         )}
         whileHover={{ y: -8 }}
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
       >
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-orange/0 via-primary-orange/0 to-primary-orange/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-gold/0 via-primary-gold/0 to-primary-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
         {/* Content */}
         <div className="relative p-6 h-full flex flex-col">
@@ -40,12 +40,12 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
           )}
 
           {/* Title */}
-          <h3 className="text-xl sm:text-2xl font-bold text-primary-black mb-3 group-hover:text-primary-orange transition-colors duration-300">
+          <h3 className="text-xl sm:text-2xl font-bold text-primary-charcoal mb-3 group-hover:text-primary-gold transition-colors duration-300">
             {project.title}
           </h3>
 
           {/* Description */}
-          <p className="text-primary-navy/70 mb-4 flex-grow line-clamp-3">
+          <p className="text-primary-slate mb-4 flex-grow line-clamp-3">
             {project.description}
           </p>
 
@@ -66,7 +66,7 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
           )}
 
           {/* Arrow Indicator */}
-          <div className="flex items-center text-primary-orange font-medium mt-auto pt-4">
+          <div className="flex items-center text-primary-gold font-medium mt-auto pt-4">
             <span className="mr-2 group-hover:mr-4 transition-all duration-300">View Project</span>
             <svg
               className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300"

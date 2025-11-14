@@ -14,9 +14,9 @@ export default function HomeContent() {
     <main className="min-h-screen py-24 px-4 sm:px-6 lg:px-8 bg-primary-gray relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary-orange/10 rounded-full blur-3xl animate-blob" />
-        <div className="absolute top-40 right-10 w-96 h-96 bg-primary-navy/10 rounded-full blur-3xl animate-blob animation-delay-2000" />
-        <div className="absolute bottom-20 left-1/2 w-80 h-80 bg-primary-orange/10 rounded-full blur-3xl animate-blob animation-delay-4000" />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary-gold/10 rounded-full blur-3xl animate-blob" />
+        <div className="absolute top-40 right-10 w-96 h-96 bg-primary-navy/10 rounded-full blur-3xl animate-blob delay-[2000ms]" />
+        <div className="absolute bottom-20 left-1/2 w-80 h-80 bg-primary-gold/10 rounded-full blur-3xl animate-blob delay-[4000ms]" />
       </div>
 
       {/* Hero Section */}
@@ -27,9 +27,9 @@ export default function HomeContent() {
             <span className="inline-block text-6xl sm:text-7xl animate-float">👋</span>
           </div>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-primary-black animate-slide-up">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-primary-charcoal animate-slide-up">
             Hi, I&apos;m{' '}
-            <span className="text-gradient bg-gradient-orange bg-[length:200%_100%] animate-gradient">
+            <span className="text-gradient bg-gradient-gold bg-[length:200%_100%] animate-gradient">
               {personalInfo.name.split(' ')[0]}
             </span>
           </h1>
@@ -38,7 +38,7 @@ export default function HomeContent() {
             {personalInfo.title}
           </h2>
 
-          <p className="text-lg sm:text-xl lg:text-2xl text-primary-navy/80 max-w-3xl mx-auto leading-relaxed animate-slide-up delay-[200ms]">
+          <p className="text-lg sm:text-xl lg:text-2xl text-primary-slate max-w-3xl mx-auto leading-relaxed animate-slide-up delay-[200ms]">
             {personalInfo.tagline}
           </p>
 
@@ -59,22 +59,22 @@ export default function HomeContent() {
           {/* Quick Stats */}
           <div className="flex flex-wrap justify-center gap-6 sm:gap-8 pt-8 animate-fade-in delay-[400ms]">
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-primary-orange">
+              <div className="text-3xl sm:text-4xl font-bold text-primary-gold">
                 {projects.length}+
               </div>
-              <div className="text-sm sm:text-base text-primary-navy/70">Projects</div>
+              <div className="text-sm sm:text-base text-primary-slate">Projects</div>
             </div>
-            <div className="w-px bg-primary-navy/20" />
+            <div className="w-px bg-primary-slate/30" />
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-primary-orange">
+              <div className="text-3xl sm:text-4xl font-bold text-primary-gold">
                 {personalInfo.yearsOfExperience}+
               </div>
-              <div className="text-sm sm:text-base text-primary-navy/70">Years Exp</div>
+              <div className="text-sm sm:text-base text-primary-slate">Years Exp</div>
             </div>
-            <div className="w-px bg-primary-navy/20" />
+            <div className="w-px bg-primary-slate/30" />
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-primary-orange">10+</div>
-              <div className="text-sm sm:text-base text-primary-navy/70">Technologies</div>
+              <div className="text-3xl sm:text-4xl font-bold text-primary-gold">10+</div>
+              <div className="text-sm sm:text-base text-primary-slate">Technologies</div>
             </div>
           </div>
         </div>
@@ -83,7 +83,7 @@ export default function HomeContent() {
       {/* Tech Stack Marquee */}
       <section className="mb-24 relative z-10">
         <div className="relative overflow-hidden bg-primary-navy/5 py-6 backdrop-blur-sm">
-          <div className="flex gap-8 animate-marquee whitespace-nowrap">
+          <div className="flex gap-8 whitespace-nowrap will-change-transform" style={{animation: 'marquee 25s linear infinite'}}>
             {['Python', 'TypeScript', 'AWS', 'React', 'Next.js', 'Docker', 'Terraform', 'Flask'].map(
               (tech, i) => (
                 <Badge key={`${tech}-${i}`} variant="secondary" size="lg" className="shrink-0">
@@ -111,10 +111,10 @@ export default function HomeContent() {
       {/* Projects Section */}
       <section className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-black mb-4 animate-fade-in">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-charcoal mb-4 animate-fade-in">
             Featured Projects
           </h2>
-          <p className="text-lg sm:text-xl text-primary-navy/70 max-w-2xl mx-auto animate-fade-in delay-[100ms]">
+          <p className="text-lg sm:text-xl text-primary-slate max-w-2xl mx-auto animate-fade-in delay-[100ms]">
             Explore my recent work and side projects
           </p>
         </div>
@@ -133,7 +133,7 @@ export default function HomeContent() {
 
         {/* View All Projects CTA */}
         <div className="text-center mt-12 animate-fade-in delay-[500ms]">
-          <p className="text-primary-navy/70 mb-4">Interested in seeing more of my work?</p>
+          <p className="text-primary-slate mb-4">Interested in seeing more of my work?</p>
           <Link href="/Contact">
             <Button variant="ghost" size="lg">
               Let&apos;s Connect →

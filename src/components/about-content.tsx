@@ -44,10 +44,10 @@ export default function AboutContent() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-primary-black mb-6">
-            About <span className="text-gradient bg-gradient-orange bg-[length:200%_100%] animate-gradient">Me</span>
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-primary-charcoal mb-6">
+            About <span className="text-gradient bg-gradient-gold bg-[length:200%_100%] animate-gradient">Me</span>
           </h1>
-          <p className="text-lg sm:text-xl lg:text-2xl text-primary-navy/80 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl lg:text-2xl text-primary-slate max-w-3xl mx-auto leading-relaxed">
             {personalInfo.title} specializing in back end development on AWS cloud with Python.
             Hands on experience in start-up company environment.
           </p>
@@ -61,20 +61,20 @@ export default function AboutContent() {
           transition={{ delay: 0.2 }}
         >
           <Card className="p-6 text-center hover:shadow-glow transition-shadow duration-300">
-            <div className="text-4xl font-bold text-primary-orange mb-2">
+            <div className="text-4xl font-bold text-primary-gold mb-2">
               {personalInfo.yearsOfExperience}+
             </div>
-            <div className="text-sm text-primary-navy/70">Years Experience</div>
+            <div className="text-sm text-primary-slate">Years Experience</div>
           </Card>
           <Card className="p-6 text-center hover:shadow-glow transition-shadow duration-300">
-            <div className="text-4xl font-bold text-primary-orange mb-2">
+            <div className="text-4xl font-bold text-primary-gold mb-2">
               {skillSections.reduce((acc, section) => acc + section.skills.length, 0)}+
             </div>
-            <div className="text-sm text-primary-navy/70">Technologies</div>
+            <div className="text-sm text-primary-slate">Technologies</div>
           </Card>
           <Card className="p-6 text-center hover:shadow-glow transition-shadow duration-300">
-            <div className="text-4xl font-bold text-primary-orange mb-2">3+</div>
-            <div className="text-sm text-primary-navy/70">Projects Completed</div>
+            <div className="text-4xl font-bold text-primary-gold mb-2">3+</div>
+            <div className="text-sm text-primary-slate">Projects Completed</div>
           </Card>
         </motion.div>
 
@@ -86,10 +86,10 @@ export default function AboutContent() {
           className="mb-12"
         >
           <Card className="p-6 sm:p-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-primary-black mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-primary-charcoal mb-4">
               My Journey
             </h2>
-            <div className="space-y-4 text-primary-navy/80 leading-relaxed">
+            <div className="space-y-4 text-primary-slate leading-relaxed">
               <p>
                 I&apos;m a passionate {personalInfo.title} with expertise in building scalable,
                 cloud-native applications. My journey in software development has been driven by
@@ -117,10 +117,10 @@ export default function AboutContent() {
         >
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-primary-black mb-2">
+              <h2 className="text-3xl sm:text-4xl font-bold text-primary-charcoal mb-2">
                 Technical Skills
               </h2>
-              <p className="text-primary-navy/70">
+              <p className="text-primary-slate">
                 Technologies and tools I work with
               </p>
             </div>

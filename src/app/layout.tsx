@@ -1,6 +1,5 @@
 import { Analytics } from '@vercel/analytics/react';
 import Navbar from '@/components/navbar';
-import { ThemeProvider } from '@/components/theme-provider';
 import './globals.css';
 import { Inter } from 'next/font/google';
 
@@ -48,17 +47,15 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.variable} suppressHydrationWarning>
+    <html lang="en" className={inter.variable}>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
-          {/* Skip to main content link for accessibility */}
-          <a href="#main-content" className="skip-to-content">
-            Skip to main content
-          </a>
-          <Navbar />
-          <main id="main-content">{children}</main>
-          <Analytics />
-        </ThemeProvider>
+        {/* Skip to main content link for accessibility */}
+        <a href="#main-content" className="skip-to-content">
+          Skip to main content
+        </a>
+        <Navbar />
+        <main id="main-content">{children}</main>
+        <Analytics />
       </body>
     </html>
   );

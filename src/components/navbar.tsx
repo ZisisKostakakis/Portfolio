@@ -6,7 +6,6 @@ import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { navItems } from '@/lib/data/personal';
 import { cn } from '@/lib/utils/cn';
-import { ThemeToggle } from '@/components/theme-toggle';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -75,7 +74,7 @@ const Navbar: React.FC = () => {
             className="flex items-center group"
             aria-label="Zisis Kostakakis - Home"
           >
-            <span className="text-xl sm:text-2xl font-semibold text-primary-white transition-colors duration-300 group-hover:text-primary-orange">
+            <span className="text-xl sm:text-2xl font-semibold text-primary-white transition-colors duration-300 group-hover:text-primary-gold">
               <span className="inline-block transform transition-transform duration-300 group-hover:scale-105">
                 ZK
               </span>
@@ -98,14 +97,14 @@ const Navbar: React.FC = () => {
                       className={cn(
                         'relative px-4 py-2 text-base lg:text-lg font-medium transition-colors duration-300',
                         isActive
-                          ? 'text-primary-orange'
-                          : 'text-primary-white hover:text-primary-orange'
+                          ? 'text-primary-gold'
+                          : 'text-primary-white hover:text-primary-gold'
                       )}
                     >
                       {item.label}
                       {isActive && (
                         <motion.div
-                          className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-orange"
+                          className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-gold"
                           layoutId="navbar-indicator"
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
@@ -121,7 +120,6 @@ const Navbar: React.FC = () => {
                 );
               })}
             </ul>
-            <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
@@ -198,8 +196,8 @@ const Navbar: React.FC = () => {
                         className={cn(
                           'block px-4 py-3 rounded-lg text-lg font-medium transition-all duration-300',
                           isActive
-                            ? 'bg-primary-orange text-white'
-                            : 'text-primary-white hover:bg-primary-navy hover:text-primary-orange'
+                            ? 'bg-primary-gold text-white'
+                            : 'text-primary-white hover:bg-primary-navy hover:text-primary-gold'
                         )}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
