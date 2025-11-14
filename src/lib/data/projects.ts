@@ -105,6 +105,35 @@ const projectsData: Project[] = [
       'Modern dark UI with responsive design',
     ],
   },
+  {
+    id: 'student-loan-checker',
+    href: '/Student-Loan-Checker',
+    title: 'Student Loan Checker',
+    description:
+      'Automated Python bot using Playwright to log into the Student Loans Company portal and retrieve loan balance information.',
+    longDescription:
+      'A Python automation bot built with Playwright that securely logs into the Student Loans Company (SLC) portal to retrieve comprehensive loan information. The bot handles authentication, two-factor authentication, and scrapes detailed loan data including balance, repayments, interest rates, and more. Features secure credential management through environment variables, robust error handling, and support for both headless and visible browser modes.',
+    githubUrl: 'https://github.com/ZisisKostakakis/student-loan-checker',
+    technologies: [
+      'Python',
+      'Playwright',
+      'Web Scraping',
+      'Automation',
+      'Environment Variables',
+    ],
+    category: 'Automation',
+    date: '2025',
+    delay: 'delay-[500ms]',
+    features: [
+      'Automated login with email and password',
+      'Two-factor authentication (2FA) / secret code support',
+      'Comprehensive data scraping (balance, repayments, interest)',
+      'Secure credential management via environment variables',
+      'Robust error handling and cookie consent management',
+      'Headless and visible browser modes',
+      'Programmatic API for integration',
+    ],
+  },
 ];
 
 // Sort projects by date in descending order (newest first)
