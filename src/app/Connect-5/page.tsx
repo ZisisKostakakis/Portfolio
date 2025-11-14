@@ -1,70 +1,58 @@
-import Image from "next/image";
-import Link from "next/link";
+import ProjectTemplate from '@/components/project-template';
+import { Metadata } from 'next';
+
+export const dynamic = 'force-dynamic';
+
+export const metadata: Metadata = {
+  title: 'Connect 5 Game | Zisis Kostakakis',
+  description: 'Java Game with Graphical User Interface and AI Implementation.',
+};
 
 export default function Connect5() {
-  return (
-    <main className="min-h-screen bg-primary-gray py-24 px-4 sm:px-8 lg:px-16">
-      <div className="max-w-4xl mx-auto">
-        <div className="animate-fade-in">
-          <h1 className="text-4xl sm:text-6xl font-bold text-primary-black mb-6">
-            Connect 5
-          </h1>
-          <Link
-            href="https://github.com/ZisisKostakakis/Connect-5-game"
-            className="inline-flex items-center space-x-2 text-xl text-primary-navy hover:text-primary-orange transition-colors duration-300 mb-8 group"
-          >
-            <Image
-              src="/images/github-mark.png"
-              width={30}
-              height={30}
-              alt="GitHub"
-              className="transition-transform group-hover:scale-110 duration-300"
-            />
-            <span className="font-semibold">View on GitHub</span>
-          </Link>
-        </div>
+  const project = {
+    id: 'connect-5',
+    href: '/Connect-5',
+    title: 'Connect 5 Java Game',
+    description: 'Java Game with Graphical User Interface and AI Implementation.',
+    longDescription: `Connect-Five is a strategic two-player board game similar to tic-tac-toe, featuring an 8-column by 7-row vertical board. Players take turns placing colored pieces (typically black and red) with the goal of being the first to align five pieces horizontally, vertically, or diagonally.
 
-        <div className="prose max-w-none animate-slide-up">
-          <p className="text-lg sm:text-xl text-primary-navy mb-12 leading-relaxed">
-            Connect-Five is a tic-tac-toe-like two-player game in which players
-            alternately place pieces on a vertical board 8 columns across and 7
-            rows high. Each player uses pieces of a particular color (commonly
-            black and red, or sometimes yellow and red), and the object is to be
-            the first to obtain five pieces in a horizontal, vertical, or
-            diagonal line. Because the board is vertical, pieces inserted in a
-            given column always drop to the lowest unoccupied row of that
-            column. As soon as a column contains 7 pieces, it is full and no
-            other piece can be placed in the column.
-          </p>
-        </div>
+The game implements a sophisticated AI opponent using the minimax algorithm with alpha-beta pruning optimization, providing challenging gameplay at multiple difficulty levels. The vertical board design adds a unique twist where pieces drop to the lowest available position in each column, creating strategic depth and requiring players to think several moves ahead.
 
-        <div className="grid sm:grid-cols-2 gap-8 animate-fade-in delay-[200ms]">
-          <div className="group">
-            <div className="relative rounded-xl overflow-hidden shadow-custom-lg transition-all duration-300 hover:-translate-y-1">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary-orange/0 to-primary-orange/10 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-              <Image
-                src="/images/Connect-5-one.png"
-                width={500}
-                height={500}
-                className="w-full h-auto"
-                alt="Connect 5 Game Screenshot 1"
-              />
-            </div>
-          </div>
-          <div className="group">
-            <div className="relative rounded-xl overflow-hidden shadow-custom-lg transition-all duration-300 hover:-translate-y-1">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary-orange/0 to-primary-orange/10 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-              <Image
-                src="/images/Connect-5-two.png"
-                width={500}
-                height={500}
-                className="w-full h-auto"
-                alt="Connect 5 Game Screenshot 2"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-  );
+Built with Java and Swing, the game features a polished graphical user interface that makes gameplay intuitive and enjoyable. The AI implementation showcases advanced game theory concepts and provides an excellent demonstration of algorithmic problem-solving in game development.`,
+    githubUrl: 'https://github.com/ZisisKostakakis/Connect-5-game',
+    technologies: [
+      'Java',
+      'Swing',
+      'AI/ML',
+      'Minimax Algorithm',
+      'Alpha-Beta Pruning',
+      'Game Theory',
+    ],
+    category: 'Game Development',
+    date: '2023',
+    features: [
+      'Custom graphical user interface using Java Swing',
+      'Intelligent AI opponent with minimax algorithm',
+      'Alpha-beta pruning for optimal move calculation',
+      'Multiple difficulty levels',
+      'Two-player mode support',
+      'Win detection for horizontal, vertical, and diagonal alignments',
+      'Smooth piece dropping animations',
+      'Strategic gameplay with depth and complexity',
+    ],
+    screenshots: [
+      {
+        src: '/images/Connect-5-one.png',
+        alt: 'Connect 5 Game - Main Gameplay',
+        caption: 'Active Game Session',
+      },
+      {
+        src: '/images/Connect-5-two.png',
+        alt: 'Connect 5 Game - AI Move',
+        caption: 'AI Opponent in Action',
+      },
+    ],
+  };
+
+  return <ProjectTemplate project={project} />;
 }

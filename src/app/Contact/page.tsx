@@ -1,31 +1,14 @@
-import Link from "next/link";
+import { personalInfo, socialLinks } from '@/lib/data/personal';
+import ContactContent from '@/components/contact-content';
+import { Metadata } from 'next';
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen justify-center items-center p-24">
-      <div>
-        <h1 className="text-6xl font-semibold mb-4 text-center">Contact Me</h1>
-        <div className="flex flex-col justify-between py-4 space-y-4">
-          <Link
-            className=""
-            href="https://www.linkedin.com/in/zisis-kostakakis-5b85961b7/"
-          >
-            <h1 className="text-center text-4xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110  hover:text-blue-400">
-              LinkedIn
-            </h1>
-          </Link>
-          <Link className="" href="https://github.com/ZisisKostakakis">
-            <h1 className="text-center text-4xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110  hover:text-blue-400">
-              Github
-            </h1>
-          </Link>
-          <a href="mailto: kostakakiszisis@gmail.com">
-            <h1 className="text-center text-4xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110  hover:text-blue-400">
-              Email
-            </h1>
-          </a>
-        </div>
-      </div>
-    </main>
-  );
+export const dynamic = 'force-dynamic';
+
+export const metadata: Metadata = {
+  title: 'Contact | Zisis Kostakakis',
+  description: `Get in touch with ${personalInfo.name}. Available for opportunities and collaborations.`,
+};
+
+export default function Contact() {
+  return <ContactContent />;
 }
