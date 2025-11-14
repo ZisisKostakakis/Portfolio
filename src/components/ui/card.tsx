@@ -20,7 +20,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
     const hoverProps = hover
       ? {
           whileHover: { y: -4, scale: 1.02 },
-          transition: { type: 'spring', stiffness: 300, damping: 20 },
+          transition: { type: 'spring' as const, stiffness: 300, damping: 20 },
         }
       : {};
 
