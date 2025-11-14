@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/react';
 import Navbar from '@/components/navbar';
 import './globals.css';
 import { Inter } from 'next/font/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -53,6 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#main-content" className="skip-to-content">
           Skip to main content
         </a>
+        <SpeedInsights />
         <Navbar />
         <main id="main-content">{children}</main>
         <Analytics />
