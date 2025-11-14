@@ -2,6 +2,9 @@
   "name": "zisis-portfolio",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,7 +15,7 @@
   "dependencies": {
     "@emotion/is-prop-valid": "^1.4.0",
     "@hookform/resolvers": "^5.2.2",
-    "@types/node": "18.16.3",
+    "@types/node": "^22.0.0",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.1",
     "@vercel/analytics": "^1.0.0",
