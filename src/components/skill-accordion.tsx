@@ -18,10 +18,17 @@ export default function SkillAccordion({ section, isOpen, onToggle, index }: Ski
   const [height, setHeight] = useState(0);
 
   useEffect(() => {
-    if (contentRef.current) {
-      setHeight(contentRef.current.scrollHeight);
+    if (isOpen && contentRef.current) {
+      // Use requestAnimationFrame to ensure DOM has updated before measuring
+      requestAnimationFrame(() => {
+        if (contentRef.current) {
+          setHeight(contentRef.current.scrollHeight);
+        }
+      });
+    } else {
+      setHeight(0);
     }
-  }, [section.skills]);
+  }, [isOpen, section.skills]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -59,19 +66,12 @@ export default function SkillAccordion({ section, isOpen, onToggle, index }: Ski
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </motion.div>
           <h3 className="text-lg sm:text-xl font-semibold">
             {section.title}
-            <span className="ml-2 text-sm text-primary-navy/60">
-              ({section.skills.length})
-            </span>
+            <span className="ml-2 text-sm text-primary-navy/60">({section.skills.length})</span>
           </h3>
         </div>
         <motion.span
