@@ -27,11 +27,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
     return (
       <motion.div
         ref={ref}
-        className={cn(
-          'rounded-xl p-6 transition-all duration-300',
-          variants[variant],
-          className
-        )}
+        className={cn('rounded-xl p-6 transition-all duration-300', variants[variant], className)}
         {...hoverProps}
         {...props}
       >
@@ -44,9 +40,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
 Card.displayName = 'Card';
 
 const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn('mb-4', className)} {...props} />
-  )
+  ({ className, ...props }, ref) => <div ref={ref} className={cn('mb-4', className)} {...props} />
 );
 CardHeader.displayName = 'CardHeader';
 
@@ -70,9 +64,7 @@ const CardDescription = React.forwardRef<
 CardDescription.displayName = 'CardDescription';
 
 const CardContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn('', className)} {...props} />
-  )
+  ({ className, ...props }, ref) => <div ref={ref} className={cn('', className)} {...props} />
 );
 CardContent.displayName = 'CardContent';
 

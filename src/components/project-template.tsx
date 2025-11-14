@@ -126,9 +126,7 @@ export default function ProjectTemplate({ project }: ProjectTemplateProps) {
           className="mb-12"
         >
           <Card className="p-6 sm:p-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-primary-black mb-4">
-              Overview
-            </h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-primary-black mb-4">Overview</h2>
             <p className="text-lg text-primary-navy/80 leading-relaxed whitespace-pre-line">
               {project.longDescription || project.description}
             </p>
@@ -143,9 +141,7 @@ export default function ProjectTemplate({ project }: ProjectTemplateProps) {
             transition={{ delay: 0.2 }}
             className="mb-12"
           >
-            <h3 className="text-2xl sm:text-3xl font-bold text-primary-black mb-6">
-              Tech Stack
-            </h3>
+            <h3 className="text-2xl sm:text-3xl font-bold text-primary-black mb-6">Tech Stack</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
               {project.technologies.map((tech, index) => (
                 <motion.div
@@ -154,10 +150,7 @@ export default function ProjectTemplate({ project }: ProjectTemplateProps) {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.3 + index * 0.05 }}
                 >
-                  <Card
-                    hover
-                    className="p-4 text-center cursor-default"
-                  >
+                  <Card hover className="p-4 text-center cursor-default">
                     <span className="text-primary-navy font-medium">{tech}</span>
                   </Card>
                 </motion.div>
@@ -287,14 +280,10 @@ export default function ProjectTemplate({ project }: ProjectTemplateProps) {
         >
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <Link href="/">
-              <Button variant="ghost">
-                ← View All Projects
-              </Button>
+              <Button variant="ghost">← View All Projects</Button>
             </Link>
             <Link href="/Contact">
-              <Button variant="primary">
-                Interested? Let&apos;s Talk →
-              </Button>
+              <Button variant="primary">Interested? Let&apos;s Talk →</Button>
             </Link>
           </div>
         </motion.div>

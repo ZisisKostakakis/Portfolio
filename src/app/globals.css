@@ -10,7 +10,9 @@
 
   body {
     @apply bg-primary-gray text-primary-black;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
   }
 
   /* Smooth scrolling */

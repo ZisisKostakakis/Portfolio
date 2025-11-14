@@ -5,7 +5,8 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Transport Info | Zisis Kostakakis',
-  description: 'Full Stack Web App on AWS that uses public transport data to provide information to users.',
+  description:
+    'Full Stack Web App on AWS that uses public transport data to provide information to users.',
 };
 
 export default function TransportInfo() {
@@ -13,7 +14,8 @@ export default function TransportInfo() {
     id: 'transport-info',
     href: '/Transport-Info',
     title: 'Transport Info',
-    description: 'Full Stack Web App on AWS that uses public transport data to provide information to users.',
+    description:
+      'Full Stack Web App on AWS that uses public transport data to provide information to users.',
     longDescription: `Transport-Info is a Full Stack project utilizing both frontend and backend technologies.
 
 The backend is served by an AWS EC2 server running Flask with Gunicorn and Nginx as web servers. The frontend is served by Vercel using Next.js 13 and TypeScript.

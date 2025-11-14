@@ -45,9 +45,7 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
           </h3>
 
           {/* Description */}
-          <p className="text-primary-slate mb-4 flex-grow line-clamp-3">
-            {project.description}
-          </p>
+          <p className="text-primary-slate mb-4 flex-grow line-clamp-3">{project.description}</p>
 
           {/* Technologies */}
           {project.technologies && project.technologies.length > 0 && (
