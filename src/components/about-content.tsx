@@ -77,7 +77,7 @@ export default function AboutContent() {
             <div className="text-sm text-primary-slate">Technologies</div>
           </Card>
           <Card className="p-6 text-center hover:shadow-glow transition-shadow duration-300">
-            <div className="text-4xl font-bold text-primary-gold mb-2">3+</div>
+            <div className="text-4xl font-bold text-primary-gold mb-2">5+</div>
             <div className="text-sm text-primary-slate">Projects Completed</div>
           </Card>
         </motion.div>
