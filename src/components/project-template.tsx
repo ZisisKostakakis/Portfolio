@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import { Project } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -21,11 +20,7 @@ export default function ProjectTemplate({ project }: ProjectTemplateProps) {
     <main className="min-h-screen bg-primary-gray py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         {/* Back Button */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="mb-8"
-        >
+        <div className="mb-8">
           <Link href="/">
             <Button variant="ghost" size="sm" className="group">
               <svg
@@ -44,14 +39,10 @@ export default function ProjectTemplate({ project }: ProjectTemplateProps) {
               Back to Projects
             </Button>
           </Link>
-        </motion.div>
+        </div>
 
         {/* Header Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-12"
-        >
+        <div className="mb-12">
           <div className="flex flex-wrap items-center gap-3 mb-4">
             {project.category && <Badge variant="outline">{project.category}</Badge>}
             {project.date && (
@@ -116,70 +107,42 @@ export default function ProjectTemplate({ project }: ProjectTemplateProps) {
               </Link>
             )}
           </div>
-        </motion.div>
+        </div>
 
         {/* Description */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="mb-12"
-        >
+        <div className="mb-12">
           <Card className="p-6 sm:p-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-primary-black mb-4">Overview</h2>
             <p className="text-lg text-primary-navy/80 leading-relaxed whitespace-pre-line">
               {project.longDescription || project.description}
             </p>
           </Card>
-        </motion.div>
+        </div>
 
         {/* Tech Stack */}
         {project.technologies && project.technologies.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="mb-12"
-          >
+          <div className="mb-12">
             <h3 className="text-2xl sm:text-3xl font-bold text-primary-black mb-6">Tech Stack</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-              {project.technologies.map((tech, index) => (
-                <motion.div
-                  key={tech}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.3 + index * 0.05 }}
-                >
-                  <Card hover className="p-4 text-center cursor-default">
-                    <span className="text-primary-navy font-medium">{tech}</span>
-                  </Card>
-                </motion.div>
+              {project.technologies.map((tech) => (
+                <Card key={tech} hover className="p-4 text-center cursor-default">
+                  <span className="text-primary-navy font-medium">{tech}</span>
+                </Card>
               ))}
             </div>
-          </motion.div>
+          </div>
         )}
 
         {/* Features */}
         {project.features && project.features.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="mb-12"
-          >
+          <div className="mb-12">
             <Card className="p-6 sm:p-8">
               <h3 className="text-2xl sm:text-3xl font-bold text-primary-black mb-6">
                 Key Features
               </h3>
               <ul className="space-y-3">
                 {project.features.map((feature, index) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.4 + index * 0.1 }}
-                    className="flex items-start gap-3"
-                  >
+                  <li key={index} className="flex items-start gap-3">
                     <svg
                       className="w-6 h-6 text-primary-orange flex-shrink-0 mt-0.5"
                       fill="none"
@@ -194,21 +157,16 @@ export default function ProjectTemplate({ project }: ProjectTemplateProps) {
                       />
                     </svg>
                     <span className="text-primary-navy/80">{feature}</span>
-                  </motion.li>
+                  </li>
                 ))}
               </ul>
             </Card>
-          </motion.div>
+          </div>
         )}
 
         {/* Demo Videos */}
         {project.demoVideos && project.demoVideos.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="mb-12"
-          >
+          <div className="mb-12">
             <h3 className="text-2xl sm:text-3xl font-bold text-primary-black mb-6 text-center">
               Demo Videos
             </h3>
@@ -219,7 +177,7 @@ export default function ProjectTemplate({ project }: ProjectTemplateProps) {
                     {video.title}
                   </h4>
                   <div className="rounded-xl overflow-hidden shadow-custom-lg">
-                    <video className="w-full" controls>
+                    <video className="w-full" controls preload="metadata">
                       <source src={video.src} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
@@ -227,36 +185,24 @@ export default function ProjectTemplate({ project }: ProjectTemplateProps) {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         )}
 
         {/* Screenshots */}
         {project.screenshots && project.screenshots.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="mb-12"
-          >
+          <div className="mb-12">
             <h3 className="text-2xl sm:text-3xl font-bold text-primary-black mb-6 text-center">
               Screenshots
             </h3>
             <div className="grid gap-8">
               {project.screenshots.map((screenshot, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 + index * 0.1 }}
-                  className="space-y-4"
-                >
+                <div key={index} className="space-y-4">
                   {screenshot.caption && (
                     <h4 className="text-xl text-primary-navy text-center font-semibold">
                       {screenshot.caption}
                     </h4>
                   )}
-                  <div className="relative rounded-xl overflow-hidden shadow-custom-lg group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary-orange/0 to-primary-orange/10 opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                  <div className="relative rounded-xl overflow-hidden shadow-custom-lg">
                     <Image
                       src={screenshot.src}
                       width={1200}
@@ -265,19 +211,14 @@ export default function ProjectTemplate({ project }: ProjectTemplateProps) {
                       className="w-full h-auto"
                     />
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         )}
 
         {/* Navigation Footer */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7 }}
-          className="mt-16 pt-8 border-t border-primary-gray-dark"
-        >
+        <div className="mt-16 pt-8 border-t border-primary-gray-dark">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <Link href="/">
               <Button variant="ghost">← View All Projects</Button>
@@ -286,7 +227,7 @@ export default function ProjectTemplate({ project }: ProjectTemplateProps) {
               <Button variant="primary">Interested? Let&apos;s Talk →</Button>
             </Link>
           </div>
-        </motion.div>
+        </div>
       </div>
     </main>
   );
