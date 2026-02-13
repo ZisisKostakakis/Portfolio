@@ -15,10 +15,10 @@
       'calt' 1;
   }
 
-  /* Smooth scrolling */
-  html {
+  /* Smooth scrolling - disabled for performance */
+  /* html {
     scroll-behavior: smooth;
-  }
+  } */
 
   /* Focus visible styles for accessibility */
   *:focus-visible {

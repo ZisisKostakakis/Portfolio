@@ -1,37 +1,28 @@
 'use client';
 
-import { Suspense } from 'react';
 import Link from 'next/link';
 import { projects } from '@/lib/data/projects';
 import { personalInfo } from '@/lib/data/personal';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { SkeletonCard } from '@/components/ui/skeleton';
 import ProjectCard from '@/components/project-card';
 
 export default function HomeContent() {
   return (
-    <main className="min-h-screen py-24 px-4 sm:px-6 lg:px-8 bg-primary-gray relative overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary-gold/10 rounded-full blur-3xl animate-blob" />
-        <div className="absolute top-40 right-10 w-96 h-96 bg-primary-navy/10 rounded-full blur-3xl animate-blob delay-[2000ms]" />
-        <div className="absolute bottom-20 left-1/2 w-80 h-80 bg-primary-gold/10 rounded-full blur-3xl animate-blob delay-[4000ms]" />
-      </div>
-
+    <main className="min-h-screen py-24 px-4 sm:px-6 lg:px-8 bg-primary-gray">
       {/* Hero Section */}
-      <section className="max-w-5xl mx-auto mb-32 relative z-10">
+      <section className="max-w-5xl mx-auto mb-32">
         <div className="text-center space-y-8">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-primary-navy animate-slide-up delay-[100ms]">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-primary-navy">
             {personalInfo.title}
           </h2>
 
-          <p className="text-lg sm:text-xl lg:text-2xl text-primary-slate max-w-3xl mx-auto leading-relaxed animate-slide-up delay-[200ms]">
+          <p className="text-lg sm:text-xl lg:text-2xl text-primary-slate max-w-3xl mx-auto leading-relaxed">
             {personalInfo.tagline}
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4 animate-scale-in delay-[300ms]">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
             <Link href="/Contact">
               <Button variant="gradient" size="lg">
                 Get In Touch
@@ -45,7 +36,7 @@ export default function HomeContent() {
           </div>
 
           {/* Quick Stats */}
-          <div className="flex flex-wrap justify-center gap-6 sm:gap-8 pt-8 animate-fade-in delay-[400ms]">
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-8 pt-8">
             <div className="text-center">
               <div className="text-3xl sm:text-4xl font-bold text-primary-gold">
                 {projects.length}+
@@ -71,7 +62,7 @@ export default function HomeContent() {
       {/* Tech Stack Marquee */}
       <section className="mb-24 relative z-10">
         <div className="relative overflow-hidden bg-primary-navy/5 py-6 backdrop-blur-sm">
-          <div className="flex gap-8 whitespace-nowrap animate-marquee">
+          <div className="flex gap-8 whitespace-nowrap animate-marquee will-change-transform">
             {[
               'AWS',
               'DevOps',
@@ -120,28 +111,6 @@ export default function HomeContent() {
                 {tech}
               </Badge>
             ))}
-            {/* Triple for extra smoothness */}
-            {[
-              'AWS',
-              'DevOps',
-              'GitOps',
-              'Data Pipelines',
-              'Docker',
-              'CI/DC',
-              'Python',
-              'Next.js',
-              'Terraform',
-              'Tailscale',
-              'TypeScript',
-              'PostgreSQL',
-              'DynamoDB',
-              'Git',
-              'TailwindCSS',
-            ].map((tech, i) => (
-              <Badge key={`${tech}-triple-${i}`} variant="secondary" size="lg" className="shrink-0">
-                {tech}
-              </Badge>
-            ))}
           </div>
         </div>
       </section>
@@ -149,28 +118,22 @@ export default function HomeContent() {
       {/* Projects Section */}
       <section className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-charcoal mb-4 animate-fade-in">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-charcoal mb-4">
             Featured Projects
           </h2>
-          <p className="text-lg sm:text-xl text-primary-slate max-w-2xl mx-auto animate-fade-in delay-[100ms]">
+          <p className="text-lg sm:text-xl text-primary-slate max-w-2xl mx-auto">
             Explore my recent work and side projects
           </p>
         </div>
 
         <div className="grid gap-8 sm:gap-10 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <div
-              key={project.id}
-              className="animate-scale-in"
-              style={{ animationDelay: `${index * 100 + 200}ms` }}
-            >
-              <ProjectCard project={project} />
-            </div>
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
           ))}
         </div>
 
         {/* View All Projects CTA */}
-        <div className="text-center mt-12 animate-fade-in delay-[500ms]">
+        <div className="text-center mt-12">
           <p className="text-primary-slate mb-4">Interested in seeing more of my work?</p>
           <Link href="/Contact">
             <Button variant="ghost" size="lg">
