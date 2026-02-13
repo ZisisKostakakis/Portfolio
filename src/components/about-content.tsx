@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { skillSections } from '@/lib/data/skills';
 import { personalInfo } from '@/lib/data/personal';
 import { Button } from '@/components/ui/button';
@@ -40,30 +39,18 @@ export default function AboutContent() {
     <main className="min-h-screen py-24 px-4 sm:px-6 lg:px-8 bg-primary-gray">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
+        <div className="text-center mb-16">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-primary-charcoal mb-6">
-            About{' '}
-            <span className="text-gradient bg-gradient-gold bg-[length:200%_100%] animate-gradient">
-              Me
-            </span>
+            About <span className="text-gradient bg-gradient-gold bg-[length:200%_100%]">Me</span>
           </h1>
           <p className="text-lg sm:text-xl lg:text-2xl text-primary-slate max-w-3xl mx-auto leading-relaxed">
             {personalInfo.title} specializing in back end development on AWS cloud with Python.
             Hands on experience in start-up company environment.
           </p>
-        </motion.div>
+        </div>
 
         {/* Stats Cards */}
-        <motion.div
-          className="grid sm:grid-cols-3 gap-6 mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-        >
+        <div className="grid sm:grid-cols-3 gap-6 mb-16">
           <Card className="p-6 text-center hover:shadow-glow transition-shadow duration-300">
             <div className="text-4xl font-bold text-primary-gold mb-2">
               {personalInfo.yearsOfExperience}+
@@ -80,15 +67,10 @@ export default function AboutContent() {
             <div className="text-4xl font-bold text-primary-gold mb-2">5+</div>
             <div className="text-sm text-primary-slate">Projects Completed</div>
           </Card>
-        </motion.div>
+        </div>
 
         {/* About Description */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="mb-12"
-        >
+        <div className="mb-12">
           <Card className="p-6 sm:p-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-primary-charcoal mb-4">
               My Journey
@@ -112,14 +94,10 @@ export default function AboutContent() {
               </p>
             </div>
           </Card>
-        </motion.div>
+        </div>
 
         {/* Technical Skills Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-        >
+        <div className="animate-fade-in">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
             <div>
               <h2 className="text-3xl sm:text-4xl font-bold text-primary-charcoal mb-2">
@@ -151,15 +129,10 @@ export default function AboutContent() {
               />
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* CTA Section */}
-        <motion.div
-          className="mt-16 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-        >
+        <div className="mt-16 text-center">
           <Card className="p-8 sm:p-12 bg-gradient-to-br from-primary-navy to-primary-navy-dark text-white">
             <h2 className="text-2xl sm:text-3xl font-bold mb-4">Interested in working together?</h2>
             <p className="text-white/80 mb-6 max-w-2xl mx-auto">
@@ -183,7 +156,7 @@ export default function AboutContent() {
               </Link>
             </div>
           </Card>
-        </motion.div>
+        </div>
       </div>
     </main>
   );

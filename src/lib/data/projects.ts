@@ -134,6 +134,38 @@ const projectsData: Project[] = [
       'Programmatic API for integration',
     ],
   },
+  {
+    id: 'property-pal-scraper',
+    href: '/Property-Pal-Scraper',
+    title: 'PropertyPal Investment Analyzer',
+    description:
+      'Scrapy-based web scraper for extracting property listings with AI-powered investment ratings and geocoding analysis.',
+    longDescription:
+      'A production-grade web scraper built with Scrapy that extracts property listings from PropertyPal.com and provides AI-powered investment analysis using Perplexity API. Features automated geocoding with distance calculations, mortgage payment estimations, interactive CLI with multi-select search functionality, and comprehensive data export pipelines with Pydantic validation. Implements ethical scraping practices with rate limiting and robots.txt compliance.',
+    githubUrl: 'https://github.com/ZisisKostakakis/property-pal-scraper',
+    technologies: [
+      'Python',
+      'Scrapy',
+      'Perplexity API',
+      'Pydantic',
+      'Web Scraping',
+      'Data Pipelines',
+      'Geocoding',
+    ],
+    category: 'Automation',
+    date: '2026',
+    delay: 'delay-[600ms]',
+    features: [
+      'Automated property data extraction with pagination support',
+      'AI-powered investment ratings via Perplexity Housing Agent',
+      'Geocoding with distance calculations from custom destinations',
+      'Interactive CLI with multi-select search functionality',
+      'Automated mortgage payment calculations',
+      'CSV/JSON export pipelines with Pydantic validation',
+      'Ethical scraping with rate limiting and robots.txt compliance',
+      'Comprehensive error handling and retry mechanisms',
+    ],
+  },
 ];
 
 // Sort projects by date in descending order (newest first)

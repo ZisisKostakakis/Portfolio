@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { Project } from '@/lib/types';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils/cn';
@@ -14,20 +13,15 @@ interface ProjectCardProps {
 export default function ProjectCard({ project, className }: ProjectCardProps) {
   return (
     <Link href={project.href} className="block h-full group">
-      <motion.div
+      <div
         className={cn(
           'relative h-full rounded-xl overflow-hidden',
           'bg-white border border-primary-gray-dark shadow-custom',
-          'transition-all duration-300',
-          'hover:shadow-glow hover:border-primary-gold/30',
+          'transition-all duration-200',
+          'hover:shadow-glow hover:border-primary-gold/30 hover:-translate-y-2',
           className
         )}
-        whileHover={{ y: -8 }}
-        transition={{ type: 'spring', stiffness: 300, damping: 20 }}
       >
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-gold/0 via-primary-gold/0 to-primary-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
         {/* Content */}
         <div className="relative p-6 h-full flex flex-col">
           {/* Category Badge */}
@@ -65,9 +59,9 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
 
           {/* Arrow Indicator */}
           <div className="flex items-center text-primary-gold font-medium mt-auto pt-4">
-            <span className="mr-2 group-hover:mr-4 transition-all duration-300">View Project</span>
+            <span className="mr-2">View Project</span>
             <svg
-              className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300"
+              className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-150"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -81,12 +75,7 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
             </svg>
           </div>
         </div>
-
-        {/* Shine Effect */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-        </div>
-      </motion.div>
+      </div>
     </Link>
   );
 }
