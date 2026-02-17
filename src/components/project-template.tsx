@@ -17,7 +17,7 @@ interface ProjectTemplateProps {
 
 export default function ProjectTemplate({ project }: ProjectTemplateProps) {
   return (
-    <main className="min-h-screen bg-primary-gray py-24 px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-primary-navy py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         {/* Back Button */}
         <div className="mb-8">
@@ -52,7 +52,7 @@ export default function ProjectTemplate({ project }: ProjectTemplateProps) {
             )}
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-black mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-white mb-6">
             {project.title}
           </h1>
 
@@ -112,8 +112,8 @@ export default function ProjectTemplate({ project }: ProjectTemplateProps) {
         {/* Description */}
         <div className="mb-12">
           <Card className="p-6 sm:p-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-primary-black mb-4">Overview</h2>
-            <p className="text-lg text-primary-navy/80 leading-relaxed whitespace-pre-line">
+            <h2 className="text-2xl sm:text-3xl font-bold text-primary-white mb-4">Overview</h2>
+            <p className="text-lg text-primary-slate leading-relaxed whitespace-pre-line">
               {project.longDescription || project.description}
             </p>
           </Card>
@@ -122,11 +122,11 @@ export default function ProjectTemplate({ project }: ProjectTemplateProps) {
         {/* Tech Stack */}
         {project.technologies && project.technologies.length > 0 && (
           <div className="mb-12">
-            <h3 className="text-2xl sm:text-3xl font-bold text-primary-black mb-6">Tech Stack</h3>
+            <h3 className="text-2xl sm:text-3xl font-bold text-primary-white mb-6">Tech Stack</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
               {project.technologies.map((tech) => (
                 <Card key={tech} hover className="p-4 text-center cursor-default">
-                  <span className="text-primary-navy font-medium">{tech}</span>
+                  <span className="text-primary-charcoal font-medium">{tech}</span>
                 </Card>
               ))}
             </div>
@@ -137,14 +137,14 @@ export default function ProjectTemplate({ project }: ProjectTemplateProps) {
         {project.features && project.features.length > 0 && (
           <div className="mb-12">
             <Card className="p-6 sm:p-8">
-              <h3 className="text-2xl sm:text-3xl font-bold text-primary-black mb-6">
+              <h3 className="text-2xl sm:text-3xl font-bold text-primary-white mb-6">
                 Key Features
               </h3>
               <ul className="space-y-3">
                 {project.features.map((feature, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <svg
-                      className="w-6 h-6 text-primary-orange flex-shrink-0 mt-0.5"
+                      className="w-6 h-6 text-primary-gold flex-shrink-0 mt-0.5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -156,7 +156,7 @@ export default function ProjectTemplate({ project }: ProjectTemplateProps) {
                         d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
-                    <span className="text-primary-navy/80">{feature}</span>
+                    <span className="text-primary-slate">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -167,13 +167,13 @@ export default function ProjectTemplate({ project }: ProjectTemplateProps) {
         {/* Demo Videos */}
         {project.demoVideos && project.demoVideos.length > 0 && (
           <div className="mb-12">
-            <h3 className="text-2xl sm:text-3xl font-bold text-primary-black mb-6 text-center">
+            <h3 className="text-2xl sm:text-3xl font-bold text-primary-white mb-6 text-center">
               Demo Videos
             </h3>
             <div className="grid sm:grid-cols-2 gap-8">
               {project.demoVideos.map((video, index) => (
                 <div key={index} className="space-y-4">
-                  <h4 className="text-xl text-primary-navy text-center font-semibold">
+                  <h4 className="text-xl text-primary-charcoal text-center font-semibold">
                     {video.title}
                   </h4>
                   <div className="rounded-xl overflow-hidden shadow-custom-lg">
@@ -191,14 +191,14 @@ export default function ProjectTemplate({ project }: ProjectTemplateProps) {
         {/* Screenshots */}
         {project.screenshots && project.screenshots.length > 0 && (
           <div className="mb-12">
-            <h3 className="text-2xl sm:text-3xl font-bold text-primary-black mb-6 text-center">
+            <h3 className="text-2xl sm:text-3xl font-bold text-primary-white mb-6 text-center">
               Screenshots
             </h3>
             <div className="grid gap-8">
               {project.screenshots.map((screenshot, index) => (
                 <div key={index} className="space-y-4">
                   {screenshot.caption && (
-                    <h4 className="text-xl text-primary-navy text-center font-semibold">
+                    <h4 className="text-xl text-primary-charcoal text-center font-semibold">
                       {screenshot.caption}
                     </h4>
                   )}
@@ -221,10 +221,10 @@ export default function ProjectTemplate({ project }: ProjectTemplateProps) {
         <div className="mt-16 pt-8 border-t border-primary-gray-dark">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <Link href="/">
-              <Button variant="ghost">← View All Projects</Button>
+              <Button variant="ghost">&larr; View All Projects</Button>
             </Link>
-            <Link href="/Contact">
-              <Button variant="primary">Interested? Let&apos;s Talk →</Button>
+            <Link href="/#contact">
+              <Button variant="primary">Interested? Let&apos;s Talk &rarr;</Button>
             </Link>
           </div>
         </div>

@@ -6,10 +6,14 @@ import { usePathname } from 'next/navigation';
 import { navItems } from '@/lib/data/personal';
 import { cn } from '@/lib/utils/cn';
 
+const sectionIds = ['about', 'experience', 'projects', 'contact'];
+
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
   const pathname = usePathname();
+  const isHomePage = pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +22,29 @@ const Navbar: React.FC = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // IntersectionObserver for active section highlighting
+  useEffect(() => {
+    if (!isHomePage) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        }
+      },
+      { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+    );
+
+    for (const id of sectionIds) {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    }
+
+    return () => observer.disconnect();
+  }, [isHomePage]);
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -43,9 +70,30 @@ const Navbar: React.FC = () => {
     setIsMobileMenuOpen((prev) => !prev);
   }, []);
 
-  const isActiveRoute = (href: string) => {
-    if (href === '/') return pathname === '/';
-    return pathname.startsWith(href);
+  const isActive = (href: string) => {
+    if (!isHomePage) return false;
+    const id = href.replace('#', '');
+    return activeSection === id;
+  };
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#') && isHomePage) {
+      e.preventDefault();
+      const el = document.getElementById(href.replace('#', ''));
+      if (el) {
+        const navHeight = window.innerWidth >= 640 ? 80 : 64;
+        const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+      setIsMobileMenuOpen(false);
+    }
+  };
+
+  const scrollToTop = (e: React.MouseEvent) => {
+    if (isHomePage) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -53,12 +101,16 @@ const Navbar: React.FC = () => {
       <nav
         className={cn(
           'fixed w-full top-0 z-50 transition-all duration-200',
-          isScrolled ? 'bg-primary-black/95 backdrop-blur-md shadow-custom-lg' : 'bg-primary-black'
+          isScrolled ? 'bg-primary-navy/95 backdrop-blur-md shadow-custom-lg' : 'bg-transparent'
         )}
       >
         <div className="max-w-screen-xl flex items-center justify-between mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20">
-          {/* Logo / Brand */}
-          <Link href="/" className="flex items-center group" aria-label="Zisis Kostakakis - Home">
+          <Link
+            href="/"
+            onClick={scrollToTop}
+            className="flex items-center group"
+            aria-label="Zisis Kostakakis - Home"
+          >
             <span className="text-xl sm:text-2xl font-semibold text-primary-white transition-colors duration-150 group-hover:text-primary-gold">
               ZK
               <span className="hidden sm:inline ml-1"> · Zisis Kostakakis</span>
@@ -69,23 +121,23 @@ const Navbar: React.FC = () => {
           <div className="hidden md:flex items-center gap-4">
             <ul className="flex items-center space-x-1 lg:space-x-2">
               {navItems.map((item) => {
-                const isActive = isActiveRoute(item.href);
+                const active = isActive(item.href);
+                const linkHref = isHomePage ? item.href : `/${item.href}`;
                 return (
                   <li key={item.href}>
-                    <Link
-                      href={item.href}
+                    <a
+                      href={linkHref}
+                      onClick={(e) => handleNavClick(e, item.href)}
                       className={cn(
                         'relative px-4 py-2 text-base lg:text-lg font-medium transition-colors duration-150',
-                        isActive
-                          ? 'text-primary-gold'
-                          : 'text-primary-white hover:text-primary-gold'
+                        active ? 'text-primary-gold' : 'text-primary-white hover:text-primary-gold'
                       )}
                     >
                       {item.label}
-                      {isActive && (
+                      {active && (
                         <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-gold" />
                       )}
-                    </Link>
+                    </a>
                   </li>
                 );
               })}
@@ -96,7 +148,7 @@ const Navbar: React.FC = () => {
           <button
             type="button"
             onClick={toggleMobileMenu}
-            className="inline-flex items-center justify-center p-2 rounded-lg md:hidden text-primary-white hover:bg-primary-navy/50 transition-colors duration-150"
+            className="inline-flex items-center justify-center p-2 rounded-lg md:hidden text-primary-white hover:bg-primary-gray-light transition-colors duration-150"
             aria-controls="mobile-menu"
             aria-expanded={isMobileMenuOpen}
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
@@ -131,34 +183,32 @@ const Navbar: React.FC = () => {
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <>
-          {/* Backdrop */}
           <div
             className="fixed inset-0 bg-black/60 z-40 md:hidden"
             onClick={() => setIsMobileMenuOpen(false)}
           />
-
-          {/* Mobile Menu */}
           <div
             id="mobile-menu"
-            className="fixed top-16 sm:top-20 right-0 bottom-0 w-64 bg-primary-black border-l border-primary-navy z-40 md:hidden"
+            className="fixed top-16 sm:top-20 right-0 bottom-0 w-64 bg-primary-navy border-l border-primary-gray-dark z-40 md:hidden"
           >
             <nav className="flex flex-col p-6 space-y-2" aria-label="Mobile navigation">
               {navItems.map((item) => {
-                const isActive = isActiveRoute(item.href);
+                const active = isActive(item.href);
+                const linkHref = isHomePage ? item.href : `/${item.href}`;
                 return (
-                  <Link
+                  <a
                     key={item.href}
-                    href={item.href}
+                    href={linkHref}
+                    onClick={(e) => handleNavClick(e, item.href)}
                     className={cn(
                       'block px-4 py-3 rounded-lg text-lg font-medium transition-colors duration-150',
-                      isActive
+                      active
                         ? 'bg-primary-gold text-white'
-                        : 'text-primary-white hover:bg-primary-navy hover:text-primary-gold'
+                        : 'text-primary-white hover:bg-primary-gray-light hover:text-primary-gold'
                     )}
-                    onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.label}
-                  </Link>
+                  </a>
                 );
               })}
             </nav>

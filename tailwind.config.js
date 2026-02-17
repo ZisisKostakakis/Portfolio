@@ -9,45 +9,30 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          // Professional Navy Blue palette
-          navy: '#1B365D', // Deep Navy Blue (Primary)
-          'navy-light': '#2C4A7C',
-          'navy-dark': '#0F1F3D',
+          navy: '#0A0A0A',
+          'navy-light': '#111111',
+          'navy-dark': '#060606',
 
-          // Electric Blue/Cyan accent (replacing gold) - Toned down
-          gold: '#0099CC', // Muted Cyan (Accent) - keeping 'gold' name for backwards compatibility
-          'gold-light': '#00B8E6',
-          'gold-dark': '#007AA3',
+          gold: '#7C3AED',
+          'gold-light': '#8B5CF6',
+          'gold-dark': '#6D28D9',
 
-          // New electric blue variants - Toned down
-          cyan: '#0099CC',
-          'cyan-light': '#00B8E6',
-          'cyan-dark': '#007AA3',
-          electric: '#0099CC',
+          charcoal: '#E5E7EB',
+          slate: '#9CA3AF',
+          'slate-light': '#D1D5DB',
 
-          // Neutral colors
-          charcoal: '#2C3E50', // Dark text
-          slate: '#7F8C9D', // Secondary text
-          'slate-light': '#A3AEB9',
+          gray: '#111827',
+          'gray-light': '#1F2937',
+          'gray-dark': '#374151',
 
-          // Backgrounds
-          gray: '#F8F9FA', // Off-white background
-          'gray-light': '#FFFFFF', // Pure white
-          'gray-dark': '#E9ECEF', // Light gray
-
-          // Legacy aliases for backwards compatibility
-          black: '#2C3E50',
+          black: '#0A0A0A',
           white: '#FFFFFF',
-          'white-soft': '#F8F9FA',
-        },
-        // Glass-morphism colors
-        glass: {
-          DEFAULT: 'rgba(255, 255, 255, 0.1)',
-          dark: 'rgba(44, 62, 80, 0.1)',
+          'white-soft': '#F9FAFB',
         },
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
       },
       fontSize: {
         xs: ['0.75rem', { lineHeight: '1rem' }],
@@ -73,36 +58,28 @@ module.exports = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'gradient-gold': 'linear-gradient(135deg, #00B8E6 0%, #0099CC 50%, #007AA3 100%)',
-        'gradient-cyan': 'linear-gradient(135deg, #00B8E6 0%, #0099CC 50%, #007AA3 100%)',
-        'gradient-navy': 'linear-gradient(135deg, #2C4A7C 0%, #1B365D 50%, #0F1F3D 100%)',
+        'gradient-gold': 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 50%, #6D28D9 100%)',
+        'gradient-violet': 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 50%, #6D28D9 100%)',
+        'gradient-navy': 'linear-gradient(135deg, #111111 0%, #0A0A0A 50%, #060606 100%)',
         'gradient-mesh':
-          'radial-gradient(at 40% 20%, rgba(0, 153, 204, 0.2) 0, transparent 50%), radial-gradient(at 80% 0%, rgba(27, 54, 93, 0.3) 0, transparent 50%), radial-gradient(at 80% 50%, rgba(0, 153, 204, 0.15) 0, transparent 50%), radial-gradient(at 0% 100%, rgba(27, 54, 93, 0.2) 0, transparent 50%)',
-        // Keep orange for backwards compatibility (now cyan)
-        'gradient-orange': 'linear-gradient(135deg, #00B8E6 0%, #0099CC 50%, #007AA3 100%)',
+          'radial-gradient(at 40% 20%, rgba(124, 58, 237, 0.15) 0, transparent 50%), radial-gradient(at 80% 0%, rgba(139, 92, 246, 0.1) 0, transparent 50%), radial-gradient(at 80% 50%, rgba(109, 40, 217, 0.1) 0, transparent 50%), radial-gradient(at 0% 100%, rgba(124, 58, 237, 0.08) 0, transparent 50%)',
       },
       animation: {
         shimmer: 'shimmer 2s linear infinite',
-        marquee: 'marquee 20s linear infinite',
       },
       keyframes: {
         shimmer: {
           '0%': { transform: 'translateX(-100%)' },
           '100%': { transform: 'translateX(100%)' },
         },
-        marquee: {
-          '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-50%)' },
-        },
       },
       boxShadow: {
-        custom: '0 4px 6px -1px rgba(27, 54, 93, 0.1), 0 2px 4px -1px rgba(27, 54, 93, 0.06)',
-        'custom-lg':
-          '0 10px 15px -3px rgba(27, 54, 93, 0.1), 0 4px 6px -2px rgba(27, 54, 93, 0.05)',
-        'glow-sm': '0 0 10px rgba(0, 153, 204, 0.3)',
-        glow: '0 0 20px rgba(0, 153, 204, 0.4)',
-        'glow-lg': '0 0 30px rgba(0, 153, 204, 0.5)',
-        'inner-glow': 'inset 0 0 20px rgba(0, 153, 204, 0.15)',
+        custom: '0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2)',
+        'custom-lg': '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2)',
+        'glow-sm': '0 0 10px rgba(124, 58, 237, 0.3)',
+        glow: '0 0 20px rgba(124, 58, 237, 0.4)',
+        'glow-lg': '0 0 30px rgba(124, 58, 237, 0.5)',
+        'inner-glow': 'inset 0 0 20px rgba(124, 58, 237, 0.15)',
       },
       backdropBlur: {
         xs: '2px',

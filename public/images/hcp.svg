@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="32" fill="#000000"/>
+  <path d="M128 40L72 70v50l56 30 56-30V70L128 40z" fill="#7C3AED"/>
+  <path d="M128 40L72 70v50l56-30V40z" fill="#8B5CF6"/>
+  <path d="M128 120l56-30V70l-56 30v20z" fill="#6D28D9"/>
+  <path d="M72 120v30l56 30 56-30v-30l-56 30-56-30z" fill="#9F7AEA" opacity="0.8"/>
+  <text x="128" y="215" font-family="monospace" font-size="24" font-weight="bold" fill="white" text-anchor="middle">HCP</text>
+</svg>

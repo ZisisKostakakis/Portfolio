@@ -37,9 +37,7 @@ export default function ContactForm() {
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
 
@@ -52,7 +50,6 @@ export default function ContactForm() {
       setSubmitStatus('success');
       reset();
 
-      // Reset success message after 5 seconds
       setTimeout(() => {
         setSubmitStatus('idle');
       }, 5000);
@@ -108,20 +105,21 @@ export default function ContactForm() {
         {isSubmitting ? 'Sending...' : 'Send Message'}
       </Button>
 
-      {/* Status Messages */}
       {submitStatus === 'success' && (
-        <div className="p-4 rounded-lg bg-green-50 border border-green-200 text-green-800">
+        <div className="p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400">
           <p className="font-medium">Message sent successfully!</p>
-          <p className="text-sm mt-1">
+          <p className="text-sm mt-1 text-green-400/80">
             Thank you for reaching out. I&apos;ll get back to you soon.
           </p>
         </div>
       )}
 
       {submitStatus === 'error' && (
-        <div className="p-4 rounded-lg bg-red-50 border border-red-200 text-red-800">
+        <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400">
           <p className="font-medium">Oops! Something went wrong.</p>
-          <p className="text-sm mt-1">Please try again or contact me directly via email.</p>
+          <p className="text-sm mt-1 text-red-400/80">
+            Please try again or contact me directly via email.
+          </p>
         </div>
       )}
     </form>

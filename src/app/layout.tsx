@@ -12,23 +12,24 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: 'Zisis Kostakakis - Full Stack Engineer',
+  title: 'Zisis Kostakakis - Software Engineer',
   description:
-    'Full Stack Engineer specializing in AWS cloud development with Python and TypeScript. Portfolio showcasing innovative projects and technical expertise.',
+    'Software Engineer specializing in AWS cloud development with Python and TypeScript. Portfolio showcasing innovative projects and technical expertise.',
   keywords: [
-    'Full Stack Developer',
     'Software Engineer',
     'AWS',
     'Python',
     'TypeScript',
     'Next.js',
     'React',
+    'Cloud Computing',
+    'Terraform',
   ],
   authors: [{ name: 'Zisis Kostakakis' }],
   openGraph: {
-    title: 'Zisis Kostakakis - Full Stack Engineer',
+    title: 'Zisis Kostakakis - Software Engineer',
     description:
-      'Full Stack Engineer specializing in AWS cloud development. View my portfolio of innovative projects.',
+      'Software Engineer specializing in AWS cloud development. View my portfolio of innovative projects.',
     url: 'https://www.zisiskostakakis.com',
     siteName: 'Zisis Kostakakis Portfolio',
     locale: 'en_US',
@@ -36,9 +37,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Zisis Kostakakis - Full Stack Engineer',
+    title: 'Zisis Kostakakis - Software Engineer',
     description:
-      'Full Stack Engineer specializing in AWS cloud development. View my portfolio of innovative projects.',
+      'Software Engineer specializing in AWS cloud development. View my portfolio of innovative projects.',
   },
   robots: {
     index: true,
@@ -50,7 +51,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={inter.variable}>
       <body className={inter.className} suppressHydrationWarning>
-        {/* Skip to main content link for accessibility */}
         <a href="#main-content" className="skip-to-content">
           Skip to main content
         </a>

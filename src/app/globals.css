@@ -3,29 +3,28 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --foreground-rgb: 0, 0, 0;
-    --background-rgb: 248, 249, 250;
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 64px;
+  }
+
+  @screen sm {
+    html {
+      scroll-padding-top: 80px;
+    }
   }
 
   body {
-    @apply bg-primary-gray text-primary-black;
+    @apply bg-primary-navy text-primary-charcoal;
     font-feature-settings:
       'rlig' 1,
       'calt' 1;
   }
 
-  /* Smooth scrolling - disabled for performance */
-  /* html {
-    scroll-behavior: smooth;
-  } */
-
-  /* Focus visible styles for accessibility */
   *:focus-visible {
-    @apply outline-none ring-2 ring-primary-cyan ring-offset-2 ring-offset-primary-gray;
+    @apply outline-none ring-2 ring-primary-gold ring-offset-2 ring-offset-primary-navy;
   }
 
-  /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -39,71 +38,39 @@
 }
 
 @layer components {
-  /* Glass morphism utility */
-  .glass {
-    @apply bg-white/10 backdrop-blur-md border border-white/20;
-  }
-
-  .glass-dark {
-    @apply bg-black/10 backdrop-blur-md border border-black/20;
-  }
-
-  /* Text gradient utility */
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-cyan;
+    @apply bg-clip-text text-transparent bg-gradient-gold;
   }
 
-  /* Shimmer effect for loading states */
   .shimmer {
     @apply relative overflow-hidden;
   }
 
   .shimmer::after {
-    @apply absolute inset-0 translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer;
+    @apply absolute inset-0 translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer;
     content: '';
   }
 
-  /* Skip to content link for accessibility */
   .skip-to-content {
-    @apply absolute left-0 top-0 -translate-y-full bg-primary-cyan px-4 py-2 text-white transition-transform focus:translate-y-0 z-50;
+    @apply absolute left-0 top-0 -translate-y-full bg-primary-gold px-4 py-2 text-white transition-transform focus:translate-y-0 z-50;
   }
 }
 
 @layer utilities {
-  /* Animation delay utilities */
-  .delay-75 {
-    animation-delay: 75ms;
-  }
-
-  .delay-150 {
-    animation-delay: 150ms;
-  }
-
-  /* Marquee animation keyframe */
-  @keyframes marquee {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-
-  /* Custom scrollbar */
   .scrollbar-thin::-webkit-scrollbar {
     width: 8px;
     height: 8px;
   }
 
   .scrollbar-thin::-webkit-scrollbar-track {
-    @apply bg-primary-gray;
+    @apply bg-primary-navy;
   }
 
   .scrollbar-thin::-webkit-scrollbar-thumb {
-    @apply bg-primary-navy rounded-full;
+    @apply bg-primary-gray-dark rounded-full;
   }
 
   .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary-cyan;
+    @apply bg-primary-gold;
   }
 }

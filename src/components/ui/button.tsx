@@ -27,17 +27,17 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseStyles =
-      'inline-flex items-center justify-center font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-gold focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 rounded-lg';
+      'inline-flex items-center justify-center font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-gold focus-visible:ring-offset-2 focus-visible:ring-offset-primary-navy disabled:pointer-events-none disabled:opacity-50 rounded-lg';
 
     const variants = {
       primary:
         'bg-primary-gold text-white hover:bg-primary-gold-dark shadow-glow hover:shadow-glow-lg',
-      secondary: 'bg-primary-navy text-white hover:bg-primary-navy-light',
-      ghost: 'bg-transparent text-primary-charcoal hover:bg-primary-gray-dark',
+      secondary: 'bg-primary-gray-light text-primary-charcoal hover:bg-primary-gray-dark',
+      ghost: 'bg-transparent text-primary-charcoal hover:bg-primary-gray-light',
       outline:
         'border-2 border-primary-gold text-primary-gold hover:bg-primary-gold hover:text-white',
       gradient:
-        'bg-gradient-gold text-white shadow-glow hover:shadow-glow-lg bg-[length:200%_100%] hover:bg-right animate-gradient',
+        'bg-gradient-gold text-white shadow-glow hover:shadow-glow-lg bg-[length:200%_100%] hover:bg-right',
     };
 
     const sizes = {

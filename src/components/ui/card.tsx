@@ -11,10 +11,10 @@ export interface CardProps extends HTMLMotionProps<'div'> {
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
   ({ className, variant = 'default', hover = false, children, ...props }, ref) => {
     const variants = {
-      default: 'bg-white border border-primary-gray-dark shadow-custom',
-      glass: 'glass border-white/20 shadow-custom-lg',
-      gradient: 'bg-gradient-to-br from-primary-navy to-primary-navy-dark text-white',
-      elevated: 'bg-white shadow-custom-lg hover:shadow-glow',
+      default: 'bg-primary-navy-light border border-primary-gray-dark shadow-custom',
+      glass: 'bg-white/5 backdrop-blur-md border border-white/10 shadow-custom-lg',
+      gradient: 'bg-gradient-to-br from-primary-navy-light to-primary-navy text-primary-charcoal',
+      elevated: 'bg-primary-navy-light shadow-custom-lg hover:shadow-glow',
     };
 
     const hoverProps = hover
@@ -48,7 +48,10 @@ const CardTitle = React.forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTML
   ({ className, ...props }, ref) => (
     <h3
       ref={ref}
-      className={cn('text-2xl font-semibold leading-none tracking-tight', className)}
+      className={cn(
+        'text-2xl font-semibold leading-none tracking-tight text-primary-white',
+        className
+      )}
       {...props}
     />
   )
@@ -59,7 +62,7 @@ const CardDescription = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <p ref={ref} className={cn('text-sm text-primary-navy/70 mt-2', className)} {...props} />
+  <p ref={ref} className={cn('text-sm text-primary-slate mt-2', className)} {...props} />
 ));
 CardDescription.displayName = 'CardDescription';
 
@@ -70,7 +73,11 @@ CardContent.displayName = 'CardContent';
 
 const CardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn('flex items-center mt-4 pt-4 border-t', className)} {...props} />
+    <div
+      ref={ref}
+      className={cn('flex items-center mt-4 pt-4 border-t border-primary-gray-dark', className)}
+      {...props}
+    />
   )
 );
 CardFooter.displayName = 'CardFooter';

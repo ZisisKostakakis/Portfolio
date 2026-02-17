@@ -23,13 +23,14 @@ export const socialLinks: SocialLink[] = [
     name: 'GitHub',
     url: 'https://github.com/ZisisKostakakis',
     icon: 'github',
-    color: '#181717',
+    color: '#FFFFFF',
     ariaLabel: 'Visit Zisis Kostakakis GitHub profile',
   },
 ];
 
 export const navItems: NavItem[] = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/About' },
-  { label: 'Contact', href: '/Contact' },
+  { label: 'About', href: '#about' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Contact', href: '#contact' },
 ];
