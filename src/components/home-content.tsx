@@ -34,28 +34,6 @@ export default function HomeContent() {
               </Button>
             </Link>
           </div>
-
-          {/* Quick Stats */}
-          <div className="flex flex-wrap justify-center gap-6 sm:gap-8 pt-8">
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-primary-gold">
-                {projects.length}+
-              </div>
-              <div className="text-sm sm:text-base text-primary-slate">Projects</div>
-            </div>
-            <div className="w-px bg-primary-slate/30" />
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-primary-gold">
-                {personalInfo.yearsOfExperience}+
-              </div>
-              <div className="text-sm sm:text-base text-primary-slate">Years Exp</div>
-            </div>
-            <div className="w-px bg-primary-slate/30" />
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-primary-gold">10+</div>
-              <div className="text-sm sm:text-base text-primary-slate">Technologies</div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -69,7 +47,7 @@ export default function HomeContent() {
               'GitOps',
               'Data Pipelines',
               'Docker',
-              'CI/DC',
+              'CI/CD',
               'Python',
               'Next.js',
               'Terraform',
@@ -91,7 +69,7 @@ export default function HomeContent() {
               'GitOps',
               'Data Pipelines',
               'Docker',
-              'CI/DC',
+              'CI/CD',
               'Python',
               'Next.js',
               'Terraform',

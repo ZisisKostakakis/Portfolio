@@ -4,7 +4,7 @@ export const personalInfo: PersonalInfo = {
   name: 'Zisis Kostakakis',
   title: 'Software Engineer',
   tagline:
-    'Passionate about building innovative solutions and turning complex problems into elegant applications',
+    'Backend engineer specialising in Python and AWS — I build cloud-native services, automate infrastructure with Terraform, and ship full-stack products end to end.',
   email: 'business@zisiskostakakis.com',
   location: 'United Kingdom',
   availability: 'Open to opportunities',

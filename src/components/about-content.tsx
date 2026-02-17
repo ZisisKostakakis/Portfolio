@@ -49,26 +49,6 @@ export default function AboutContent() {
           </p>
         </div>
 
-        {/* Stats Cards */}
-        <div className="grid sm:grid-cols-3 gap-6 mb-16">
-          <Card className="p-6 text-center hover:shadow-glow transition-shadow duration-300">
-            <div className="text-4xl font-bold text-primary-gold mb-2">
-              {personalInfo.yearsOfExperience}+
-            </div>
-            <div className="text-sm text-primary-slate">Years Experience</div>
-          </Card>
-          <Card className="p-6 text-center hover:shadow-glow transition-shadow duration-300">
-            <div className="text-4xl font-bold text-primary-gold mb-2">
-              {skillSections.reduce((acc, section) => acc + section.skills.length, 0)}+
-            </div>
-            <div className="text-sm text-primary-slate">Technologies</div>
-          </Card>
-          <Card className="p-6 text-center hover:shadow-glow transition-shadow duration-300">
-            <div className="text-4xl font-bold text-primary-gold mb-2">5+</div>
-            <div className="text-sm text-primary-slate">Projects Completed</div>
-          </Card>
-        </div>
-
         {/* About Description */}
         <div className="mb-12">
           <Card className="p-6 sm:p-8">
