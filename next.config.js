@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  allowedDevOrigins: ['100.82.171.122'],
+
   // Image optimization
   images: {
     formats: ['image/avif', 'image/webp'],

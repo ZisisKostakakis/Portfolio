@@ -7,7 +7,6 @@ import * as z from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { motion } from 'framer-motion';
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -66,13 +65,7 @@ export default function ContactForm() {
   };
 
   return (
-    <motion.form
-      onSubmit={handleSubmit(onSubmit)}
-      className="space-y-6"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.2 }}
-    >
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <div className="grid gap-6 sm:grid-cols-2">
         <Input
           label="Name"
@@ -117,28 +110,20 @@ export default function ContactForm() {
 
       {/* Status Messages */}
       {submitStatus === 'success' && (
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="p-4 rounded-lg bg-green-50 border border-green-200 text-green-800"
-        >
+        <div className="p-4 rounded-lg bg-green-50 border border-green-200 text-green-800">
           <p className="font-medium">Message sent successfully!</p>
           <p className="text-sm mt-1">
             Thank you for reaching out. I&apos;ll get back to you soon.
           </p>
-        </motion.div>
+        </div>
       )}
 
       {submitStatus === 'error' && (
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="p-4 rounded-lg bg-red-50 border border-red-200 text-red-800"
-        >
+        <div className="p-4 rounded-lg bg-red-50 border border-red-200 text-red-800">
           <p className="font-medium">Oops! Something went wrong.</p>
           <p className="text-sm mt-1">Please try again or contact me directly via email.</p>
-        </motion.div>
+        </div>
       )}
-    </motion.form>
+    </form>
   );
 }

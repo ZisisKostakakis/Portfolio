@@ -39,6 +39,7 @@
     "zod": "^4.1.12"
   },
   "devDependencies": {
+    "baseline-browser-mapping": "^2.9.19",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
     "husky": "^9.1.7",
