@@ -2,7 +2,9 @@ import ProjectTemplate from '@/components/project-template';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-const projectDetails: Record<
+export const revalidate = false;
+
+export const projectDetails: Record<
   string,
   {
     title: string;

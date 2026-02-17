@@ -1,3 +1,4 @@
+import { cache } from 'react';
 import { Project } from '@/lib/types';
 
 const projectsData: Project[] = [
@@ -136,10 +137,10 @@ export const projects: Project[] = [...projectsData].sort((a, b) => {
   return dateB.localeCompare(dateA);
 });
 
-export const getProjectById = (id: string): Project | undefined => {
+export const getProjectById = cache((id: string): Project | undefined => {
   return projects.find((project) => project.id === id);
-};
+});
 
-export const getProjectsByCategory = (category: string): Project[] => {
+export const getProjectsByCategory = cache((category: string): Project[] => {
   return projects.filter((project) => project.category === category);
-};
+});

@@ -12,6 +12,7 @@ const inter = Inter({
 });
 
 export const metadata = {
+  metadataBase: new URL('https://www.zisiskostakakis.com'),
   title: 'Zisis Kostakakis - Software Engineer',
   description:
     'Software Engineer specializing in AWS cloud development with Python and TypeScript. Portfolio showcasing innovative projects and technical expertise.',
