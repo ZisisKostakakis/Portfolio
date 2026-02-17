@@ -2,59 +2,44 @@
 const nextConfig = {
   allowedDevOrigins: ['100.82.171.122'],
 
-  // Image optimization
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
 
-  // Security headers
   async headers() {
     return [
       {
         source: '/:path*',
         headers: [
-          {
-            key: 'X-DNS-Prefetch-Control',
-            value: 'on',
-          },
-          {
-            key: 'Strict-Transport-Security',
-            value: 'max-age=63072000; includeSubDomains; preload',
-          },
-          {
-            key: 'X-Frame-Options',
-            value: 'SAMEORIGIN',
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block',
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin',
-          },
-          {
-            key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=()',
-          },
+          { key: 'X-DNS-Prefetch-Control', value: 'on' },
+          { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'X-XSS-Protection', value: '1; mode=block' },
+          { key: 'Referrer-Policy', value: 'origin-when-cross-origin' },
+          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
         ],
       },
     ];
   },
 
-  // Compression
+  async redirects() {
+    return [
+      { source: '/About', destination: '/#about', permanent: true },
+      { source: '/Contact', destination: '/#contact', permanent: true },
+      { source: '/Connect-5', destination: '/projects/connect-5', permanent: true },
+      { source: '/Camera-OCR', destination: '/projects/camera-ocr', permanent: true },
+      { source: '/Transport-Info', destination: '/projects/transport-info', permanent: true },
+      { source: '/Date-Calculator', destination: '/projects/date-calculator', permanent: true },
+      { source: '/Student-Loan-Checker', destination: '/projects/student-loan-checker', permanent: true },
+      { source: '/Property-Pal-Scraper', destination: '/projects/property-pal-scraper', permanent: true },
+    ];
+  },
+
   compress: true,
-
-  // Power by header
   poweredByHeader: false,
-
-  // Strict mode
   reactStrictMode: true,
 };
 

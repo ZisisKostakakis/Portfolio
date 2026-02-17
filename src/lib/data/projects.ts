@@ -3,16 +3,16 @@ import { Project } from '@/lib/types';
 const projectsData: Project[] = [
   {
     id: 'connect-5',
-    href: '/Connect-5',
+    href: '/projects/connect-5',
     title: 'Connect 5 Java Game',
     description: 'Java Game with Graphical User Interface and AI Implementation.',
     longDescription:
       'A strategic board game built with Java featuring a custom GUI and intelligent AI opponent. Implements minimax algorithm with alpha-beta pruning for optimal gameplay.',
+    image: '/images/Connect-5-one.png',
     githubUrl: 'https://github.com/ZisisKostakakis',
     technologies: ['Java', 'Swing', 'AI/ML'],
     category: 'Game Development',
     date: '2023',
-    delay: 'delay-[100ms]',
     features: [
       'Graphical User Interface using Java Swing',
       'AI opponent with minimax algorithm',
@@ -22,7 +22,7 @@ const projectsData: Project[] = [
   },
   {
     id: 'camera-ocr',
-    href: '/Camera-OCR',
+    href: '/projects/camera-ocr',
     title: 'CameraOCR',
     description: 'IOS App that uses OCR to detect text from camera and ML Emotion Detection.',
     longDescription:
@@ -31,7 +31,6 @@ const projectsData: Project[] = [
     technologies: ['Swift', 'CoreML', 'Vision', 'OCR', 'Machine Learning'],
     category: 'Mobile Development',
     date: '2023',
-    delay: 'delay-[200ms]',
     features: [
       'Real-time OCR text detection',
       'Emotion recognition using CoreML',
@@ -41,26 +40,17 @@ const projectsData: Project[] = [
   },
   {
     id: 'transport-info',
-    href: '/Transport-Info',
+    href: '/projects/transport-info',
     title: 'Transport Info',
     description:
       'Full Stack Web App on AWS that uses public transport data to provide information to users.',
     longDescription:
       'A comprehensive full-stack application deployed on AWS infrastructure that aggregates and displays real-time public transportation data to help users plan their journeys.',
+    image: '/images/Transport-Info.png',
     githubUrl: 'https://github.com/ZisisKostakakis',
-    technologies: [
-      'Python',
-      'Flask',
-      'AWS Lambda',
-      'DynamoDB',
-      'API Gateway',
-      'S3',
-      'CloudWatch',
-      'Terraform',
-    ],
+    technologies: ['Python', 'Flask', 'AWS Lambda', 'DynamoDB', 'API Gateway', 'S3', 'CloudWatch', 'Terraform'],
     category: 'Full Stack',
     date: '2023',
-    delay: 'delay-[300ms]',
     features: [
       'Real-time transport data integration',
       'Serverless architecture with AWS Lambda',
@@ -71,29 +61,17 @@ const projectsData: Project[] = [
   },
   {
     id: 'date-calculator',
-    href: '/Date-Calculator',
+    href: '/projects/date-calculator',
     title: 'Date Calculator',
     description:
       'Modern web application for calculating and tracking days across custom date ranges with configurable anchor periods.',
     longDescription:
-      'A full-stack date calculation tool with a Next.js 15/React 19 frontend and a Flask (Python) backend deployed on AWS Lambda. Perfect for tracking travel days, residency requirements, or any time-based calculations that need to be measured against custom yearly periods. Features include flexible date range management, custom anchor periods, smart overlap merging, visual heatmap visualization, and threshold validation.',
+      'A full-stack date calculation tool with a Next.js 15/React 19 frontend and a Flask (Python) backend deployed on AWS Lambda. Perfect for tracking travel days, residency requirements, or any time-based calculations that need to be measured against custom yearly periods.',
     githubUrl: 'https://github.com/ZisisKostakakis/date-calculator',
     liveUrl: 'https://date-calc.zisiskostakakis.com',
-    technologies: [
-      'Next.js',
-      'React',
-      'TypeScript',
-      'Tailwind CSS',
-      'Flask',
-      'Python',
-      'AWS Lambda',
-      'AWS API Gateway',
-      'Docker',
-      'Vercel',
-    ],
+    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Flask', 'Python', 'AWS Lambda', 'AWS API Gateway', 'Docker', 'Vercel'],
     category: 'Full Stack',
     date: '2025',
-    delay: 'delay-[400ms]',
     features: [
       'Flexible date range management with intuitive range picker',
       'Custom anchor periods (e.g., Sept 17 - Sept 16)',
@@ -107,23 +85,16 @@ const projectsData: Project[] = [
   },
   {
     id: 'student-loan-checker',
-    href: '/Student-Loan-Checker',
+    href: '/projects/student-loan-checker',
     title: 'Student Loan Checker',
     description:
       'Automated Python bot using Playwright to log into the Student Loans Company portal and retrieve loan balance information.',
     longDescription:
-      'A Python automation bot built with Playwright that securely logs into the Student Loans Company (SLC) portal to retrieve comprehensive loan information. The bot handles authentication, two-factor authentication, and scrapes detailed loan data including balance, repayments, interest rates, and more. Features secure credential management through environment variables, robust error handling, and support for both headless and visible browser modes.',
+      'A Python automation bot built with Playwright that securely logs into the Student Loans Company (SLC) portal to retrieve comprehensive loan information. The bot handles authentication, two-factor authentication, and scrapes detailed loan data including balance, repayments, interest rates, and more.',
     githubUrl: 'https://github.com/ZisisKostakakis/student-loan-checker',
-    technologies: [
-      'Python',
-      'Playwright',
-      'Web Scraping',
-      'Automation',
-      'Environment Variables',
-    ],
+    technologies: ['Python', 'Playwright', 'Web Scraping', 'Automation', 'Environment Variables'],
     category: 'Automation',
     date: '2025',
-    delay: 'delay-[500ms]',
     features: [
       'Automated login with email and password',
       'Two-factor authentication (2FA) / secret code support',
@@ -136,25 +107,16 @@ const projectsData: Project[] = [
   },
   {
     id: 'property-pal-scraper',
-    href: '/Property-Pal-Scraper',
+    href: '/projects/property-pal-scraper',
     title: 'PropertyPal Investment Analyzer',
     description:
       'Scrapy-based web scraper for extracting property listings with AI-powered investment ratings and geocoding analysis.',
     longDescription:
-      'A production-grade web scraper built with Scrapy that extracts property listings from PropertyPal.com and provides AI-powered investment analysis using Perplexity API. Features automated geocoding with distance calculations, mortgage payment estimations, interactive CLI with multi-select search functionality, and comprehensive data export pipelines with Pydantic validation. Implements ethical scraping practices with rate limiting and robots.txt compliance.',
+      'A production-grade web scraper built with Scrapy that extracts property listings from PropertyPal.com and provides AI-powered investment analysis using Perplexity API. Features automated geocoding with distance calculations, mortgage payment estimations, and comprehensive data export pipelines with Pydantic validation.',
     githubUrl: 'https://github.com/ZisisKostakakis/property-pal-scraper',
-    technologies: [
-      'Python',
-      'Scrapy',
-      'Perplexity API',
-      'Pydantic',
-      'Web Scraping',
-      'Data Pipelines',
-      'Geocoding',
-    ],
+    technologies: ['Python', 'Scrapy', 'Perplexity API', 'Pydantic', 'Web Scraping', 'Data Pipelines', 'Geocoding'],
     category: 'Automation',
     date: '2026',
-    delay: 'delay-[600ms]',
     features: [
       'Automated property data extraction with pagination support',
       'AI-powered investment ratings via Perplexity Housing Agent',
@@ -168,7 +130,6 @@ const projectsData: Project[] = [
   },
 ];
 
-// Sort projects by date in descending order (newest first)
 export const projects: Project[] = [...projectsData].sort((a, b) => {
   const dateA = a.date || '0';
   const dateB = b.date || '0';

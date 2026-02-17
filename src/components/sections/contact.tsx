@@ -3,11 +3,10 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { personalInfo, socialLinks } from '@/lib/data/personal';
-import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import ContactForm from '@/components/contact-form';
 
-export default function ContactContent() {
+export default function ContactSection() {
   const [copied, setCopied] = useState(false);
 
   const copyEmail = async () => {
@@ -26,41 +25,30 @@ export default function ContactContent() {
   };
 
   return (
-    <main className="min-h-screen py-24 px-4 sm:px-6 lg:px-8 bg-primary-gray">
+    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-primary-black mb-6">
-            Let&apos;s <span className="text-gradient bg-gradient-orange">Connect</span>
-          </h1>
-          <p className="text-lg sm:text-xl text-primary-navy/70 max-w-2xl mx-auto">
-            I&apos;m always open to discussing new projects, creative ideas, or opportunities to be
-            part of your vision.
-          </p>
-        </div>
+        <h2 className="text-4xl sm:text-5xl font-bold text-primary-white mb-16">
+          Get In <span className="text-gradient">Touch</span>
+        </h2>
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Left Column - Contact Form */}
-          <div className="lg:col-span-2">
-            <Card className="p-6 sm:p-8">
-              <h2 className="text-2xl sm:text-3xl font-bold text-primary-black mb-2">
-                Send a Message
-              </h2>
-              <p className="text-primary-navy/70 mb-6">
-                Fill out the form below and I&apos;ll get back to you as soon as possible.
-              </p>
-              <ContactForm />
-            </Card>
+        <div className="grid lg:grid-cols-2 gap-12">
+          {/* Left - Contact Form */}
+          <div className="p-6 sm:p-8 rounded-xl bg-primary-navy-light border border-primary-gray-dark">
+            <h3 className="text-2xl font-bold text-primary-white mb-2">Send a Message</h3>
+            <p className="text-primary-slate mb-6">
+              Fill out the form below and I&apos;ll get back to you as soon as possible.
+            </p>
+            <ContactForm />
           </div>
 
-          {/* Right Column - Contact Info & Social Links */}
+          {/* Right - Contact info */}
           <div className="space-y-6">
-            {/* Direct Email Card */}
-            <Card className="p-6 hover:shadow-glow transition-shadow duration-300">
+            {/* Email */}
+            <div className="p-6 rounded-xl bg-primary-navy-light border border-primary-gray-dark">
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-orange/10 flex items-center justify-center">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-gold/10 flex items-center justify-center">
                   <svg
-                    className="w-6 h-6 text-primary-orange"
+                    className="w-6 h-6 text-primary-gold"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -74,22 +62,22 @@ export default function ContactContent() {
                   </svg>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-sm font-semibold text-primary-navy mb-1">Email</h3>
-                  <p className="text-sm text-primary-black break-all mb-3">{personalInfo.email}</p>
+                  <h4 className="text-sm font-semibold text-primary-charcoal mb-1">Email</h4>
+                  <p className="text-sm text-primary-slate break-all mb-3">{personalInfo.email}</p>
                   <Button variant="ghost" size="sm" onClick={copyEmail} className="text-xs">
                     {copied ? 'Copied!' : 'Copy Email'}
                   </Button>
                 </div>
               </div>
-            </Card>
+            </div>
 
-            {/* Location Card */}
+            {/* Location */}
             {personalInfo.location && (
-              <Card className="p-6">
+              <div className="p-6 rounded-xl bg-primary-navy-light border border-primary-gray-dark">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-navy/10 flex items-center justify-center">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-gray-light flex items-center justify-center">
                     <svg
-                      className="w-6 h-6 text-primary-navy"
+                      className="w-6 h-6 text-primary-charcoal"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -109,20 +97,20 @@ export default function ContactContent() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-sm font-semibold text-primary-navy mb-1">Location</h3>
-                    <p className="text-sm text-primary-black">{personalInfo.location}</p>
+                    <h4 className="text-sm font-semibold text-primary-charcoal mb-1">Location</h4>
+                    <p className="text-sm text-primary-slate">{personalInfo.location}</p>
                   </div>
                 </div>
-              </Card>
+              </div>
             )}
 
-            {/* Availability Card */}
+            {/* Availability */}
             {personalInfo.availability && (
-              <Card className="p-6 bg-gradient-to-br from-primary-orange/10 to-primary-orange/5">
+              <div className="p-6 rounded-xl bg-primary-gold/5 border border-primary-gold/20">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-orange/20 flex items-center justify-center">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-gold/10 flex items-center justify-center">
                     <svg
-                      className="w-6 h-6 text-primary-orange"
+                      className="w-6 h-6 text-primary-gold"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -136,16 +124,18 @@ export default function ContactContent() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-sm font-semibold text-primary-black mb-1">Availability</h3>
-                    <p className="text-sm text-primary-navy">{personalInfo.availability}</p>
+                    <h4 className="text-sm font-semibold text-primary-charcoal mb-1">
+                      Availability
+                    </h4>
+                    <p className="text-sm text-primary-slate">{personalInfo.availability}</p>
                   </div>
                 </div>
-              </Card>
+              </div>
             )}
 
-            {/* Social Links Card */}
-            <Card className="p-6">
-              <h3 className="text-lg font-semibold text-primary-black mb-4">Connect with me</h3>
+            {/* Social Links */}
+            <div className="p-6 rounded-xl bg-primary-navy-light border border-primary-gray-dark">
+              <h4 className="text-lg font-semibold text-primary-white mb-4">Connect with me</h4>
               <div className="space-y-3">
                 {socialLinks.map((social) => (
                   <Link
@@ -153,17 +143,13 @@ export default function ContactContent() {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary-gray-light transition-colors duration-300 group"
+                    className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary-gray-light transition-colors duration-200 group"
                     aria-label={social.ariaLabel}
                   >
-                    <div
-                      className="w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
-                      style={{ backgroundColor: `${social.color}15` }}
-                    >
+                    <div className="w-10 h-10 rounded-full bg-primary-gray-light flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
                       {social.name === 'LinkedIn' && (
                         <svg
-                          className="w-5 h-5"
-                          style={{ color: social.color }}
+                          className="w-5 h-5 text-[#0077B5]"
                           fill="currentColor"
                           viewBox="0 0 24 24"
                         >
@@ -172,41 +158,24 @@ export default function ContactContent() {
                       )}
                       {social.name === 'GitHub' && (
                         <svg
-                          className="w-5 h-5"
-                          style={{ color: social.color }}
+                          className="w-5 h-5 text-primary-white"
                           fill="currentColor"
                           viewBox="0 0 24 24"
                         >
                           <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
                         </svg>
                       )}
-                      {social.name === 'Email' && (
-                        <svg
-                          className="w-5 h-5"
-                          style={{ color: social.color }}
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                          />
-                        </svg>
-                      )}
                     </div>
-                    <span className="font-medium text-primary-black group-hover:text-primary-orange transition-colors duration-300">
+                    <span className="font-medium text-primary-charcoal group-hover:text-primary-gold transition-colors duration-200">
                       {social.name}
                     </span>
                   </Link>
                 ))}
               </div>
-            </Card>
+            </div>
           </div>
         </div>
       </div>
-    </main>
+    </section>
   );
 }

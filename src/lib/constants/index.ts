@@ -1,20 +1,9 @@
-// Site-wide constants and configuration
-
 export const SITE_CONFIG = {
   name: 'Zisis Kostakakis Portfolio',
   url: 'https://www.zisiskostakakis.com',
-  description: 'Full Stack Engineer specializing in AWS cloud solutions and modern web development',
+  description: 'Software Engineer specializing in AWS cloud solutions and modern web development',
   author: 'Zisis Kostakakis',
-  keywords: [
-    'Full Stack Developer',
-    'Software Engineer',
-    'AWS',
-    'Python',
-    'TypeScript',
-    'Next.js',
-    'React',
-    'Cloud Computing',
-  ],
+  keywords: ['Software Engineer', 'AWS', 'Python', 'TypeScript', 'Next.js', 'React', 'Cloud Computing', 'Terraform'],
 } as const;
 
 export const ANIMATION_DELAYS = {
@@ -34,11 +23,12 @@ export const BREAKPOINTS = {
 
 export const ROUTES = {
   HOME: '/',
-  ABOUT: '/About',
-  CONTACT: '/Contact',
   PROJECTS: {
-    CONNECT_5: '/Connect-5',
-    CAMERA_OCR: '/Camera-OCR',
-    TRANSPORT_INFO: '/Transport-Info',
+    CONNECT_5: '/projects/connect-5',
+    CAMERA_OCR: '/projects/camera-ocr',
+    TRANSPORT_INFO: '/projects/transport-info',
+    DATE_CALCULATOR: '/projects/date-calculator',
+    STUDENT_LOAN_CHECKER: '/projects/student-loan-checker',
+    PROPERTY_PAL_SCRAPER: '/projects/property-pal-scraper',
   },
 } as const;

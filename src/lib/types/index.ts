@@ -25,15 +25,15 @@ export interface Skill {
   src: string;
   name: string;
   category: SkillCategory;
+  invert?: boolean;
 }
 
-export type SkillCategory = 'languages' | 'cloud' | 'frameworks' | 'aws';
+export type SkillCategory = 'languages' | 'cloud';
 
 export interface SkillSection {
-  id: SkillCategory;
+  id: string;
   title: string;
   skills: Omit<Skill, 'category'>[];
-  maxHeight?: string;
 }
 
 export interface SocialLink {
