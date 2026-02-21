@@ -2,9 +2,9 @@ import { PersonalInfo, SocialLink, NavItem } from '@/lib/types';
 
 export const personalInfo: PersonalInfo = {
   name: 'Zisis Kostakakis',
-  title: 'Software Engineer',
+  title: 'Software Engineer & Cloud Architect',
   tagline:
-    'Backend engineer specialising in Python and AWS — I build cloud-native services, automate infrastructure with Terraform, and ship full-stack products end to end.',
+    'Software Engineer & Cloud Architect specialising in Python and AWS — I architect scalable cloud solutions, automate infrastructure with Terraform, lead teams to MVP delivery, and integrate private AI/LLM systems.',
   email: 'business@zisiskostakakis.com',
   location: 'United Kingdom',
   availability: 'Open to opportunities',

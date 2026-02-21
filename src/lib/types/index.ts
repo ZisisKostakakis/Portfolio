@@ -77,6 +77,7 @@ export interface Experience {
   technologies: string[];
   startDate: string;
   endDate?: string;
+  type: 'permanent' | 'contract';
 }
 
 export interface Achievement {
