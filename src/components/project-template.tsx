@@ -2,16 +2,20 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { Project } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
+
+const MermaidDiagram = dynamic(() => import('@/components/mermaid-diagram'), { ssr: false });
 
 interface ProjectTemplateProps {
   project: Project & {
     additionalRepos?: { label: string; url: string }[];
     demoVideos?: { title: string; src: string }[];
     screenshots?: { src: string; alt: string; caption?: string }[];
+    architectureSections?: { title: string; description: string; mermaid?: string }[];
   };
 }
 
@@ -161,6 +165,22 @@ export default function ProjectTemplate({ project }: ProjectTemplateProps) {
                 ))}
               </ul>
             </Card>
+          </div>
+        )}
+
+        {/* Architecture */}
+        {project.architectureSections && project.architectureSections.length > 0 && (
+          <div className="mb-12">
+            <h3 className="text-2xl sm:text-3xl font-bold text-primary-white mb-6">Architecture</h3>
+            <div className="space-y-8">
+              {project.architectureSections.map((section, index) => (
+                <Card key={index} className="p-6 sm:p-8">
+                  <h4 className="text-xl font-bold text-primary-white mb-3">{section.title}</h4>
+                  <p className="text-primary-slate leading-relaxed mb-4">{section.description}</p>
+                  {section.mermaid && <MermaidDiagram chart={section.mermaid} />}
+                </Card>
+              ))}
+            </div>
           </div>
         )}
 

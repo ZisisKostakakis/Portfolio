@@ -94,6 +94,13 @@ This dissertation project uniquely combines OCR technology with machine learning
         'Designed for accessibility and ease of use',
         'Healthcare communication enhancement',
       ],
+      screenshots: [
+        {
+          src: '/images/Camera-OCR.png',
+          alt: 'Camera OCR App',
+          caption: 'OCR Text Detection',
+        },
+      ],
       demoVideos: [
         { title: 'OCR & Text-to-Speech Demo', src: '/videos/CameraOCR-one.mp4' },
         { title: 'Emotion Detection Demo', src: '/videos/CameraOCR-two.mp4' },
@@ -208,6 +215,79 @@ The backend is a RESTful API built with Flask (Python) and deployed as a serverl
           url: 'https://github.com/ZisisKostakakis/date-calculator-backend-app',
         },
       ],
+      screenshots: [
+        {
+          src: '/images/Date-Calculator.png',
+          alt: 'Date Calculator Results',
+          caption: 'Results View with Heatmap',
+        },
+      ],
+      architectureSections: [
+        {
+          title: 'System Architecture',
+          description:
+            'The application is split into a statically-deployed Next.js frontend on Vercel and a serverless Flask API on AWS Lambda. The frontend calls the API via API Gateway; Lambda runs the Python calculation engine packaged as a Docker container image.',
+          mermaid: `graph TB
+    subgraph CLIENT["🌐 Client (Browser)"]
+        UI["Next.js 15 / React 19\n(Vercel CDN)"]
+    end
+
+    subgraph AWS["☁️ AWS"]
+        AG["API Gateway\n(REST)"]
+        LM["Lambda Function\n(Flask + Python)"]
+    end
+
+    UI -->|"HTTPS REST calls"| AG
+    AG -->|"invoke"| LM
+    LM -->|"JSON response"| AG
+    AG -->|"JSON"| UI`,
+        },
+        {
+          title: 'Date Calculation Pipeline',
+          description:
+            'Each calculation request flows through overlap merging, period boundary splitting, and heatmap generation before results are returned to the client.',
+          mermaid: `sequenceDiagram
+    actor User
+    participant FE as Next.js Frontend
+    participant API as Flask Lambda API
+
+    User->>FE: Add date ranges + set anchor date + threshold
+    User->>FE: Click "Calculate Total"
+    FE->>API: POST /calculate { ranges, anchor, threshold }
+    API->>API: Merge overlapping ranges
+    API->>API: Split ranges across period boundaries
+    API->>API: Sum days per custom period
+    API->>API: Build heatmap grid
+    API->>API: Evaluate pass/fail thresholds
+    API-->>FE: { periods, heatmap, totals, pass_fail }
+    FE->>User: Render results + heatmap + indicators`,
+        },
+        {
+          title: 'Frontend State Management',
+          description:
+            'All UI state is managed with React hooks and persisted to localStorage so sessions survive page reloads. No external state library is used.',
+          mermaid: `graph LR
+    subgraph HOOKS["React Hooks"]
+        UR["useRanges\n(add / remove / edit)"]
+        US["useSettings\n(anchor, threshold, flags)"]
+        UC["useCalculation\n(results, loading, error)"]
+    end
+
+    subgraph STORAGE["localStorage"]
+        SR["Saved ranges"]
+        SS["Saved settings"]
+    end
+
+    subgraph API["AWS Lambda API"]
+        EP["/calculate endpoint"]
+    end
+
+    UR <-->|"persist / restore"| SR
+    US <-->|"persist / restore"| SS
+    UC -->|"POST request"| EP
+    EP -->|"results"| UC`,
+        },
+      ],
     },
   },
   'student-loan-checker': {
@@ -247,6 +327,299 @@ Built with Python 3.11+ and Playwright, the bot features robust error handling, 
         'Programmatic API - can be imported and used as a module',
         'Clean class-based architecture for easy extension',
         'Comprehensive documentation and setup instructions',
+      ],
+      screenshots: [
+        {
+          src: '/images/Student-Loan-Checker.png',
+          alt: 'Student Loan Checker Bot Output',
+          caption: 'Bot Execution and Loan Data Output',
+        },
+      ],
+      architectureSections: [
+        {
+          title: 'Bot Architecture',
+          description:
+            'The SLCBot class encapsulates the entire Playwright browser session. Credentials are loaded from environment variables via python-dotenv. The bot can be run as a standalone script or imported as a module for programmatic use.',
+          mermaid: `graph TB
+    subgraph ENV[".env File"]
+        CR["SLC_EMAIL\nSLC_PASSWORD\nSLC_SECRET_CODE"]
+    end
+
+    subgraph BOT["SLCBot Class (slc_bot.py)"]
+        INIT["__init__\n(load credentials, configure headless)"]
+        RUN["run()\n(orchestrate full session)"]
+        LOGIN["_login()\n(email + password)"]
+        TFA["_enter_secret_code()\n(2FA / secret code)"]
+        BAL["_get_balance()\n(scrape loan data)"]
+    end
+
+    subgraph BROWSER["Playwright Chromium"]
+        PAGE["Browser Page\n(logon.slc.co.uk)"]
+    end
+
+    CR -->|"python-dotenv"| INIT
+    INIT --> RUN
+    RUN --> LOGIN --> TFA --> BAL
+    LOGIN & TFA & BAL <-->|"navigate / click / fill / extract"| PAGE`,
+        },
+        {
+          title: 'Authentication Flow',
+          description:
+            'The bot handles the full multi-step SLC authentication sequence, including automatic cookie consent dismissal and optional 2FA via secret code.',
+          mermaid: `sequenceDiagram
+    participant Bot as SLCBot
+    participant Browser as Chromium (Playwright)
+    participant SLC as logon.slc.co.uk
+
+    Bot->>Browser: Launch (headless or visible)
+    Browser->>SLC: Navigate to login page
+    SLC-->>Browser: Login form
+
+    alt Cookie consent banner present
+        Bot->>Browser: Click "Accept cookies"
+    end
+
+    Bot->>Browser: Fill email field
+    Bot->>Browser: Fill password field
+    Bot->>Browser: Click "Sign in"
+    Browser->>SLC: POST credentials
+    SLC-->>Browser: Secret code prompt
+
+    alt 2FA / secret code required
+        Bot->>Browser: Fill secret code field
+        Bot->>Browser: Click "Continue"
+        Browser->>SLC: POST secret code
+    end
+
+    SLC-->>Browser: Authenticated session
+    Browser->>SLC: Navigate to balance page
+    SLC-->>Browser: Loan details HTML
+    Bot->>Browser: Extract balance, repayments, interest
+    Bot-->>Bot: Return structured loan data`,
+        },
+      ],
+    },
+  },
+  'homelab-media': {
+    title: 'Homelab Media Stack | Zisis Kostakakis',
+    metaDescription:
+      'Fully automated, self-healing Docker media stack with WireGuard VPN kill switch, cascade restart recovery, and zero-touch container updates.',
+    project: {
+      id: 'homelab-media',
+      href: '/projects/homelab-media',
+      title: 'Homelab Media Stack',
+      description:
+        'Fully automated, self-healing Docker media stack with VPN kill switch, cascade restart recovery, and zero-touch container updates.',
+      longDescription: `A fully automated, self-healing homelab media stack built on Docker Compose. Handles everything from media requests to downloading, extracting, renaming, subtitle fetching, quality management, and streaming — with zero manual intervention after initial setup.
+
+All download traffic routes through a WireGuard VPN with a firewall kill switch. A custom cascade-restart monitor automatically recovers all dependent services when the VPN restarts. Container image updates are detected daily and applied automatically with push notifications at each step.
+
+The stack is split into three independent Docker Compose projects sharing a common bridge network. This allows each stack to be updated, restarted, or debugged in isolation. Twenty-plus services are orchestrated across three network zones: the Gluetun VPN namespace, a shared bridge network, and the host network for Plex.`,
+      githubUrl: 'https://github.com/ZisisKostakakis/homelab-media',
+      technologies: [
+        'Docker Compose',
+        'Bash',
+        'Python',
+        'WireGuard / Gluetun',
+        'Plex',
+        'Sonarr / Radarr',
+        'Prowlarr',
+        'qBittorrent',
+        'Bazarr',
+        'Recyclarr',
+        'cross-seed',
+        'Autoheal',
+        "What's Up Docker",
+        'ntfy.sh',
+        'Linux',
+      ],
+      category: 'Infrastructure',
+      date: '2026',
+      features: [
+        'All download traffic routed through ProtonVPN WireGuard with firewall kill switch — no leaks if VPN drops',
+        'gluetun-monitor cascade restart: detects Gluetun namespace changes, waits for healthy status, stops and recreates all 9 VPN-dependent services with exponential backoff retries',
+        'Rate limiting on cascade restarts (max 5/hr) with loop detection and 1-hour pause',
+        "Daily container image updates via What's Up Docker + Python webhook server — zero manual intervention",
+        'Push notifications via ntfy.sh at every automation stage (updates, restarts, failures)',
+        'Hardlink-based media import — file exists in two paths, occupies disk space once, seeding continues uninterrupted',
+        'Recyclarr syncs TRaSH Guides quality profiles and custom formats to Sonarr/Radarr on a schedule',
+        'cross-seed daemon matches completed downloads against other indexers for zero-bandwidth ratio boosting',
+        'Three self-healing layers: Docker healthchecks → Autoheal watchdog → gluetun-monitor cascade restart',
+        'Maintainerr rules automatically remove stale media from Plex based on watch history thresholds',
+        'SuggestArr sends AI-powered media recommendations back into Seerr automatically',
+        'VPN port forwarding auto-updates qBittorrent listening port on each VPN session via Gluetun API commands',
+        'stack-manage.sh wraps all docker compose operations per stack with a clean CLI interface',
+        'Timestamped config backups excluding media files for fast disaster recovery',
+      ],
+      architectureSections: [
+        {
+          title: 'Three-Stack Architecture',
+          description:
+            'The system is split into three independent Docker Compose projects sharing a common bridge network (homelab_media_network). Each stack can be updated or restarted without affecting the others.',
+          mermaid: `graph TB
+    subgraph TORRENT["📦 Torrent Stack"]
+        GL["Gluetun (VPN)"]
+        QB["qBittorrent"]
+        ARR["Sonarr · Radarr · Bazarr\nProwlarr · FlareSolverr\nUnpackerr · Recyclarr · cross-seed"]
+        GL --- QB & ARR
+    end
+
+    subgraph PLEX["📺 Plex Stack"]
+        PX["Plex (host network)"]
+        PS["SuggestArr · Kitana · Tautulli"]
+    end
+
+    subgraph SERVICES["⚙️ Services Stack"]
+        SR["Seerr · Maintainerr\nFilebrowser"]
+        SH["Autoheal · gluetun-monitor\nWUD · wud-webhook"]
+        OPS["Portainer · Beszel"]
+    end
+
+    SR -->|"requests"| ARR
+    PX -->|"library"| QB
+    SH -->|"monitors + heals"| TORRENT`,
+        },
+        {
+          title: 'Network Topology',
+          description:
+            'Three distinct network zones enforce traffic isolation. All torrent services share the Gluetun VPN namespace and communicate via localhost. No traffic leaves without passing through WireGuard.',
+          mermaid: `graph LR
+    subgraph VPN_NS["🔒 Gluetun VPN Namespace"]
+        direction TB
+        GL["Gluetun\n(WireGuard tun0)"]
+        QB2["qBittorrent\n@localhost:8080"]
+        SN["Sonarr\n@localhost:8989"]
+        RD["Radarr\n@localhost:7878"]
+        PW["Prowlarr\n@localhost:9696"]
+        BZ["Bazarr\n@localhost:6767"]
+        FS["FlareSolverr\n@localhost:8191"]
+        CS["cross-seed\n@localhost:2468"]
+        GL --- QB2 & SN & RD & PW & BZ & FS & CS
+    end
+
+    subgraph BRIDGE["🌐 homelab_media_network (bridge 172.19.0.0/16)"]
+        direction TB
+        SEERR2["Seerr :5055"]
+        MAINT["Maintainerr :6246"]
+        GM["gluetun-monitor"]
+        WUD2["What's Up Docker :3000"]
+        PORT["Portainer :9443"]
+        BSZ["Beszel :8090"]
+    end
+
+    subgraph HOST["🖥️ Host Network"]
+        PLEX_HOST["Plex :32400"]
+    end
+
+    VPN_NS <-->|"ports via Gluetun"| BRIDGE
+    BRIDGE <-->|"bridge NAT"| LAN["Local Network\n192.168.1.0/24"]
+    HOST <-->|"direct"| LAN`,
+        },
+        {
+          title: 'VPN Auto-Healing Flow',
+          description:
+            'When Gluetun restarts it creates a new network namespace, orphaning all dependent containers. gluetun-monitor detects this via SandboxKey comparison, waits up to 300s for Gluetun to become healthy, then stops and recreates all 9 VPN-dependent services with retry logic and rate limiting.',
+          mermaid: `sequenceDiagram
+    participant Docker as Docker Engine
+    participant Monitor as gluetun-monitor
+    participant Gluetun as Gluetun (VPN)
+    participant Services as VPN Services (qBit, Sonarr, etc.)
+    participant Ntfy as ntfy.sh
+
+    Note over Gluetun: Gluetun restarts
+    Docker->>Monitor: Emit "container start" event
+
+    Monitor->>Monitor: Check debounce (30s) + rate limit (5/hr)
+    Monitor->>Monitor: Compare SandboxKey — confirm real restart
+
+    Monitor->>Gluetun: Poll health every 5s
+    loop Wait for healthy (up to 300s)
+        Gluetun-->>Monitor: status = starting
+    end
+    Gluetun-->>Monitor: status = healthy ✅
+
+    Monitor->>Services: docker stop + docker rm
+    Monitor->>Docker: docker compose up -d (up to 3 retries)
+    Docker->>Services: Recreate in new VPN namespace
+
+    Monitor->>Services: Verify healthchecks
+
+    alt All healthy
+        Monitor->>Ntfy: ✅ Cascade restart successful
+    else Some unhealthy
+        Monitor->>Ntfy: ⚠️ Some services unhealthy
+    end`,
+        },
+        {
+          title: 'Media Request Pipeline',
+          description:
+            'End-to-end flow from a user request to media appearing in Plex, fully automated across seven services.',
+          mermaid: `sequenceDiagram
+    actor User
+    participant Seerr as Seerr (:5055)
+    participant Sonarr as Sonarr / Radarr
+    participant Prowlarr as Prowlarr (:9696)
+    participant FlareSolverr as FlareSolverr
+    participant qBit as qBittorrent (:8080)
+    participant Unpackerr as Unpackerr
+    participant Bazarr as Bazarr (:6767)
+    participant Plex as Plex (:32400)
+
+    User->>Seerr: Request TV show / movie
+    Seerr->>Sonarr: Send media request via API
+    Sonarr->>Prowlarr: Search all indexers
+    alt Cloudflare-protected indexer
+        Prowlarr->>FlareSolverr: Relay for CAPTCHA bypass
+        FlareSolverr-->>Prowlarr: Return solved response
+    end
+    Prowlarr-->>Sonarr: Return ranked torrent results
+    Sonarr->>Sonarr: Apply quality profile scoring
+    Sonarr->>qBit: Send best torrent
+    Note over qBit: All traffic via Gluetun VPN
+    qBit->>qBit: Download torrent
+    qBit-->>Sonarr: Notify on completion
+    alt RAR archive
+        Unpackerr->>Unpackerr: Extract RAR to video files
+    end
+    Sonarr->>Sonarr: Rename + hardlink to /data/tv
+    Sonarr->>Bazarr: Trigger subtitle search
+    Bazarr->>Bazarr: Download subtitles
+    Sonarr-->>Plex: Refresh library
+    Plex-->>User: Media available for playback`,
+        },
+        {
+          title: 'Container Auto-Update Pipeline',
+          description:
+            "What's Up Docker checks all image tags daily at 06:00. Updates trigger a webhook to a Python server which pulls the new image and recreates the container. Success and failure are reported via push notification.",
+          mermaid: `sequenceDiagram
+    participant Registry as Container Registry
+    participant WUD as What's Up Docker (:3000)
+    participant Ntfy as ntfy.sh
+    participant Webhook as wud-webhook (:8182)
+    participant Handler as wud-update-handler.sh
+    participant StackManage as stack-manage.sh
+    participant Docker as Docker Engine
+
+    Note over WUD: Daily cron at 06:00
+    WUD->>Registry: Check all watched image tags
+    Registry-->>WUD: Return latest digests
+
+    alt Update available
+        WUD->>Ntfy: Batch notification: N updates available
+        loop For each updated container
+            WUD->>Webhook: POST with container name + new tag
+            Webhook->>Handler: Pipe JSON payload
+            Handler->>StackManage: stack-manage.sh stack update service
+            StackManage->>Docker: docker compose pull
+            StackManage->>Docker: docker compose up -d --force-recreate
+            alt Success
+                Handler->>Ntfy: ✅ Successfully updated container
+            else Failure
+                Handler->>Ntfy: ❌ Failed to update — check logs
+            end
+        end
+    end`,
+        },
       ],
     },
   },
@@ -289,6 +662,80 @@ Built with Scrapy for robust web scraping, the application implements ethical sc
         'Comprehensive error handling and retry mechanisms',
         'Structured data extraction (descriptions, features, room details)',
         'Makefile for convenient command execution',
+      ],
+      screenshots: [
+        {
+          src: '/images/Property-Pal-Scraper.png',
+          alt: 'PropertyPal Investment Analyzer',
+          caption: 'Best Value Properties Dashboard',
+        },
+      ],
+      architectureSections: [
+        {
+          title: 'Scrapy Pipeline Architecture',
+          description:
+            'The spider crawls PropertyPal.com with pagination, yielding raw items through a pipeline chain: Pydantic validation → geocoding + mortgage calculation → optional Perplexity AI rating → JSON and CSV export.',
+          mermaid: `graph TB
+    subgraph CLI["Interactive CLI (run_scraper.py)"]
+        MENU["Multi-select search menu\n(questionary)"]
+        CFG["AI ratings toggle\n+ URL selection"]
+    end
+
+    subgraph SCRAPY["Scrapy Engine"]
+        SP["property_spider.py\n(crawl + paginate)"]
+        IT["items.py\n(Pydantic PropertyItem)"]
+    end
+
+    subgraph PIPELINES["Pipeline Chain"]
+        VAL["1. Pydantic Validation"]
+        GEO["2. Geocoding + Distance\n(Nominatim / OSM)"]
+        MORT["3. Mortgage Calculator\n(£15K dep, 4%, 40yr)"]
+        PERP["4. Perplexity AI Rating\n(Housing Agent API)"]
+        EXP["5. JSON + CSV Export"]
+    end
+
+    subgraph OUTPUT["data/ Directory"]
+        RAW["raw/properties_{ts}.json"]
+        CSV["processed/properties_{ts}.csv"]
+        RAT["ratings/perplexity_{ts}.json"]
+    end
+
+    MENU --> CFG --> SP
+    SP -->|"yield item"| IT --> VAL --> GEO --> MORT --> PERP --> EXP
+    EXP --> RAW & CSV & RAT`,
+        },
+        {
+          title: 'Scraping & Data Extraction Flow',
+          description:
+            'The spider follows search result pages, extracts property card links, then visits each detail page to extract structured fields using CSS selectors.',
+          mermaid: `sequenceDiagram
+    participant CLI as run_scraper.py
+    participant Spider as property_spider
+    participant PPal as propertypal.com
+    participant Pipeline as Item Pipeline
+
+    CLI->>Spider: Start with search URL(s)
+    Spider->>PPal: GET search page
+    PPal-->>Spider: HTML (property list)
+    Spider->>Spider: Extract property detail URLs
+    Spider->>Spider: Follow pagination links
+
+    loop For each property URL
+        Spider->>PPal: GET property detail page
+        PPal-->>Spider: HTML (property details)
+        Spider->>Spider: Extract price, location, type, rooms
+        Spider->>Spider: Extract description, features, directions
+        Spider->>Pipeline: yield PropertyItem
+        Pipeline->>Pipeline: Validate with Pydantic
+        Pipeline->>Pipeline: Geocode address → lat/lng → distance
+        Pipeline->>Pipeline: Calculate monthly mortgage payment
+        alt AI ratings enabled
+            Pipeline->>Pipeline: POST to Perplexity Housing Agent
+            Pipeline->>Pipeline: Parse rating + pros/cons
+        end
+        Pipeline->>Pipeline: Write to JSON + CSV
+    end`,
+        },
       ],
     },
   },

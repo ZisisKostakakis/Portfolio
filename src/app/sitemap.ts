@@ -11,5 +11,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/projects/date-calculator`, lastModified: new Date() },
     { url: `${baseUrl}/projects/student-loan-checker`, lastModified: new Date() },
     { url: `${baseUrl}/projects/property-pal-scraper`, lastModified: new Date() },
+    { url: `${baseUrl}/projects/homelab`, lastModified: new Date() },
   ];
 }
