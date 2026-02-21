@@ -28,6 +28,7 @@ const projectsData: Project[] = [
     description: 'IOS App that uses OCR to detect text from camera and ML Emotion Detection.',
     longDescription:
       'An iOS application that leverages computer vision and machine learning to extract text from camera images and detect emotions in real-time.',
+    image: '/images/Camera-OCR.png',
     githubUrl: 'https://github.com/ZisisKostakakis',
     technologies: ['Swift', 'CoreML', 'Vision', 'OCR', 'Machine Learning'],
     category: 'Mobile Development',
@@ -68,6 +69,7 @@ const projectsData: Project[] = [
       'Modern web application for calculating and tracking days across custom date ranges with configurable anchor periods.',
     longDescription:
       'A full-stack date calculation tool with a Next.js 15/React 19 frontend and a Flask (Python) backend deployed on AWS Lambda. Perfect for tracking travel days, residency requirements, or any time-based calculations that need to be measured against custom yearly periods.',
+    image: '/images/Date-Calculator.png',
     githubUrl: 'https://github.com/ZisisKostakakis/date-calculator',
     liveUrl: 'https://date-calc.zisiskostakakis.com',
     technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Flask', 'Python', 'AWS Lambda', 'AWS API Gateway', 'Docker', 'Vercel'],
@@ -92,6 +94,7 @@ const projectsData: Project[] = [
       'Automated Python bot using Playwright to log into the Student Loans Company portal and retrieve loan balance information.',
     longDescription:
       'A Python automation bot built with Playwright that securely logs into the Student Loans Company (SLC) portal to retrieve comprehensive loan information. The bot handles authentication, two-factor authentication, and scrapes detailed loan data including balance, repayments, interest rates, and more.',
+    image: '/images/Student-Loan-Checker.png',
     githubUrl: 'https://github.com/ZisisKostakakis/student-loan-checker',
     technologies: ['Python', 'Playwright', 'Web Scraping', 'Automation', 'Environment Variables'],
     category: 'Automation',
@@ -107,6 +110,44 @@ const projectsData: Project[] = [
     ],
   },
   {
+    id: 'homelab-media',
+    href: '/projects/homelab-media',
+    title: 'Homelab Media Stack',
+    description:
+      'Fully automated, self-healing Docker media stack with VPN kill switch, cascade restart recovery, and zero-touch container updates.',
+    longDescription:
+      'A production-grade homelab media stack built on Docker Compose, handling everything from media requests to downloading, extracting, renaming, subtitle fetching, quality management, and streaming — with zero manual intervention after initial setup. All download traffic routes through WireGuard VPN with a firewall kill switch.',
+    image: '/images/Homelab-Media.png',
+    githubUrl: 'https://github.com/ZisisKostakakis/homelab-media',
+    technologies: [
+      'Docker Compose',
+      'Bash',
+      'Python',
+      'WireGuard VPN',
+      'Gluetun',
+      'Plex',
+      'Sonarr',
+      'Radarr',
+      'Prowlarr',
+      'qBittorrent',
+      'Linux',
+    ],
+    category: 'Infrastructure',
+    date: '2026',
+    features: [
+      'All download traffic routed through ProtonVPN WireGuard with firewall kill switch',
+      'Cascade restart monitor automatically recovers all VPN-dependent services on Gluetun restart',
+      'Daily container image update detection with automatic pull and recreate via WUD + webhook',
+      'Push notifications via ntfy.sh at every automation stage',
+      'Hardlink-based media import — zero extra disk usage while seeding continues',
+      'Recyclarr syncs TRaSH Guides quality profiles to Sonarr/Radarr on schedule',
+      'Three self-healing layers: Docker healthchecks, Autoheal watchdog, gluetun-monitor cascade restart',
+      'cross-seed daemon maximises seeding ratio with zero extra bandwidth',
+      'Maintainerr rules automatically clean up stale media from Plex',
+      'Timestamped config backups with single-command restore',
+    ],
+  },
+  {
     id: 'property-pal-scraper',
     href: '/projects/property-pal-scraper',
     title: 'PropertyPal Investment Analyzer',
@@ -114,6 +155,7 @@ const projectsData: Project[] = [
       'Scrapy-based web scraper for extracting property listings with AI-powered investment ratings and geocoding analysis.',
     longDescription:
       'A production-grade web scraper built with Scrapy that extracts property listings from PropertyPal.com and provides AI-powered investment analysis using Perplexity API. Features automated geocoding with distance calculations, mortgage payment estimations, and comprehensive data export pipelines with Pydantic validation.',
+    image: '/images/Property-Pal-Scraper.png',
     githubUrl: 'https://github.com/ZisisKostakakis/property-pal-scraper',
     technologies: ['Python', 'Scrapy', 'Perplexity API', 'Pydantic', 'Web Scraping', 'Data Pipelines', 'Geocoding'],
     category: 'Automation',
