@@ -4,7 +4,6 @@ import { personalInfo } from '@/lib/data/personal';
 
 export default function AboutSection() {
   const stats = [
-    { label: 'Years Experience', value: `${personalInfo.yearsOfExperience}+` },
     { label: 'Based in', value: 'UK' },
     { label: 'Status', value: 'Open to work' },
   ];
@@ -12,19 +11,23 @@ export default function AboutSection() {
   const highlights = [
     {
       title: 'Cloud Native',
-      description: 'Building scalable services on AWS with Lambda, ECS, and Terraform',
+      description:
+        'Architecting scalable AWS solutions with Lambda, EC2, Terraform, and CloudFormation',
     },
     {
-      title: 'Full Stack',
-      description: 'End-to-end delivery from Python backends to React/Next.js frontends',
+      title: 'DevSecOps',
+      description:
+        'System hardening, penetration testing, CI/CD pipelines, and private LLM/AI integration',
     },
     {
       title: 'Automation',
-      description: 'CI/CD pipelines, infrastructure as code, and developer tooling',
+      description:
+        'Self-healing infrastructure, monitoring tools, and engineering overhead elimination',
     },
     {
-      title: 'Start-up Ready',
-      description: 'Thrives in fast-paced environments wearing multiple hats',
+      title: 'Technical Leadership',
+      description:
+        'Leading cross-functional teams to MVP, conducting interviews, and translating business needs into architecture',
     },
   ];
 
@@ -39,15 +42,16 @@ export default function AboutSection() {
           {/* Left - Bio */}
           <div className="space-y-6">
             <p className="text-lg text-primary-slate leading-relaxed">
-              I&apos;m a passionate {personalInfo.title} with expertise in building scalable,
-              cloud-native applications. My journey in software development has been driven by
-              curiosity and a desire to solve complex problems with elegant solutions.
+              I&apos;m a {personalInfo.title} with extensive expertise in backend development,
+              infrastructure automation, and technical leadership. I architect scalable AWS
+              solutions using Terraform and Python, and have a proven track record of reducing
+              engineering overhead by 100% through strategic automation.
             </p>
             <p className="text-lg text-primary-slate leading-relaxed">
-              With hands-on experience in start-up environments, I&apos;ve learned to adapt quickly,
-              wear multiple hats, and deliver high-quality code under pressure. I specialize in
-              backend development with Python and AWS, but I&apos;m always eager to learn new
-              technologies.
+              Skilled in DevSecOps practices including system hardening, penetration testing, and
+              private AI/LLM integration. I bridge the gap between development and operations with
+              advanced knowledge of virtualisation (Proxmox), disaster recovery, and self-healing
+              infrastructure.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
