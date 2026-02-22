@@ -4,6 +4,7 @@ import { Project } from '@/lib/types';
 const projectsData: Project[] = [
   {
     id: 'connect-5',
+    order: 8,
     href: '/projects/connect-5',
     title: 'Connect 5 Java Game',
     description: 'Java Game with Graphical User Interface and AI Implementation.',
@@ -23,6 +24,7 @@ const projectsData: Project[] = [
   },
   {
     id: 'camera-ocr',
+    order: 7,
     href: '/projects/camera-ocr',
     title: 'CameraOCR',
     description: 'IOS App that uses OCR to detect text from camera and ML Emotion Detection.',
@@ -42,6 +44,7 @@ const projectsData: Project[] = [
   },
   {
     id: 'transport-info',
+    order: 6,
     href: '/projects/transport-info',
     title: 'Transport Info',
     description:
@@ -63,6 +66,7 @@ const projectsData: Project[] = [
   },
   {
     id: 'date-calculator',
+    order: 5,
     href: '/projects/date-calculator',
     title: 'Date Calculator',
     description:
@@ -88,6 +92,7 @@ const projectsData: Project[] = [
   },
   {
     id: 'student-loan-checker',
+    order: 4,
     href: '/projects/student-loan-checker',
     title: 'Student Loan Checker',
     description:
@@ -111,6 +116,7 @@ const projectsData: Project[] = [
   },
   {
     id: 'homelab-media',
+    order: 1,
     href: '/projects/homelab-media',
     title: 'Homelab Media Stack',
     description:
@@ -149,6 +155,7 @@ const projectsData: Project[] = [
   },
   {
     id: 'stackfordev',
+    order: 2,
     href: '/projects/stackfordev',
     title: 'StackForDev',
     description:
@@ -185,6 +192,7 @@ const projectsData: Project[] = [
   },
   {
     id: 'property-pal-scraper',
+    order: 3,
     href: '/projects/property-pal-scraper',
     title: 'PropertyPal Investment Analyzer',
     description:
@@ -210,9 +218,7 @@ const projectsData: Project[] = [
 ];
 
 export const projects: Project[] = [...projectsData].sort((a, b) => {
-  const dateA = a.date || '0';
-  const dateB = b.date || '0';
-  return dateB.localeCompare(dateA);
+  return (a.order ?? 999) - (b.order ?? 999);
 });
 
 export const getProjectById = cache((id: string): Project | undefined => {
