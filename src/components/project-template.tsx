@@ -16,6 +16,7 @@ interface ProjectTemplateProps {
     demoVideos?: { title: string; src: string }[];
     screenshots?: { src: string; alt: string; caption?: string }[];
     architectureSections?: { title: string; description: string; mermaid?: string }[];
+    pypiUrl?: string;
   };
 }
 
@@ -107,6 +108,20 @@ export default function ProjectTemplate({ project }: ProjectTemplateProps) {
                     />
                   </svg>
                   View Live Site
+                </Button>
+              </Link>
+            )}
+            {project.pypiUrl && (
+              <Link href={project.pypiUrl} target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" size="md" className="group">
+                  <svg
+                    className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M12.001 0C5.926 0 6.241 2.676 6.241 2.676l.007 2.771h5.87v.832H3.904S0 5.789 0 11.978c0 6.19 3.403 5.967 3.403 5.967h2.031v-2.87s-.109-3.403 3.347-3.403h5.764s3.236.052 3.236-3.127V3.16S18.28 0 12.001 0zm-3.21 1.818a1.04 1.04 0 1 1 0 2.082 1.04 1.04 0 0 1 0-2.082zM12 24c6.075 0 5.76-2.676 5.76-2.676l-.008-2.771h-5.87v-.832h8.214S24 18.211 24 12.022c0-6.19-3.403-5.967-3.403-5.967h-2.031v2.87s.109 3.403-3.347 3.403H9.455s-3.236-.052-3.236 3.127v5.385S5.72 24 12 24zm3.21-1.818a1.04 1.04 0 1 1 0-2.082 1.04 1.04 0 0 1 0 2.082z" />
+                  </svg>
+                  PyPI Package
                 </Button>
               </Link>
             )}
