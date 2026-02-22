@@ -646,6 +646,7 @@ The web UI is built with SvelteKit and offers the same language / stack / versio
 The entire infrastructure — Lambda, API Gateway, S3, ECR, CloudWatch alarms, and IAM roles — is managed with Terraform Cloud backed by GitHub.`,
       githubUrl: 'https://github.com/ZisisKostakakis/StackForDev',
       liveUrl: 'https://stackfordev.zisiskostakakis.com',
+      pypiUrl: 'https://pypi.org/project/stackfordev/',
       technologies: [
         'Python',
         'AWS Lambda',
