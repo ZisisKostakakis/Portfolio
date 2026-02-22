@@ -623,6 +623,153 @@ The stack is split into three independent Docker Compose projects sharing a comm
       ],
     },
   },
+  stackfordev: {
+    title: 'StackForDev | Zisis Kostakakis',
+    metaDescription:
+      'CLI tool and web app that generates tailored Dockerfiles so developers only need Docker — no language runtimes to install locally.',
+    project: {
+      id: 'stackfordev',
+      href: '/projects/stackfordev',
+      title: 'StackForDev',
+      description:
+        'CLI tool and web app that generates tailored Dockerfiles so developers only need Docker — no language runtimes to install locally.',
+      longDescription: `StackForDev solves the "works on my machine" problem. The goal is simple: replace dozens of language and framework installations with a single prerequisite — Docker.
+
+You tell StackForDev your language, stack, and version. It generates a Dockerfile that turns any directory into a fully configured development container. Your project files are volume-mounted inside, so there is nothing to install locally beyond Docker itself.
+
+The backend is a Python service running on AWS Lambda, distributed as a container image via ECR. AWS API Gateway sits in front with per-IP rate limiting and a monthly quota to keep costs predictable. Generated Dockerfiles are stored in S3 with content-based deduplication so identical requests return a cached file instantly.
+
+The CLI is published on PyPI as \`stackfordev\`. It supports interactive prompts for discoverability and non-interactive flags for scripting. A \`--local\` flag generates Dockerfiles offline without any API calls.
+
+The web UI is built with SvelteKit and offers the same language / stack / version picker in the browser, with a live Dockerfile preview and copy-to-clipboard. An Info page lists every supported language, version, and stack combination.
+
+The entire infrastructure — Lambda, API Gateway, S3, ECR, CloudWatch alarms, and IAM roles — is managed with Terraform Cloud backed by GitHub.`,
+      githubUrl: 'https://github.com/ZisisKostakakis/StackForDev',
+      liveUrl: 'https://stackfordev.zisiskostakakis.com',
+      technologies: [
+        'Python',
+        'AWS Lambda',
+        'AWS API Gateway',
+        'AWS S3',
+        'AWS ECR',
+        'Terraform',
+        'SvelteKit',
+        'Docker',
+        'PyPI',
+        'Click',
+        'Pydantic',
+        'CloudWatch',
+      ],
+      category: 'Full Stack',
+      date: '2025',
+      features: [
+        'Generates Dockerfiles for Python, JavaScript, Go, Rust, and Java with 20+ stack variants',
+        'CLI published on PyPI — `pip install stackfordev` with interactive and non-interactive modes',
+        '`--local` flag for fully offline generation — no API call required',
+        'S3-backed deduplication — identical configs return a cached Dockerfile instantly',
+        'SvelteKit web UI with language / stack / version picker and live Dockerfile preview',
+        'Serverless backend on AWS Lambda with API Gateway rate limiting (1 req/s, 10k/month quota)',
+        'Infrastructure as Code with Terraform Cloud, including IAM roles, ECR, CloudWatch alarms',
+        'Structured JSON logging and CloudWatch alarms for error rate and throttle monitoring',
+      ],
+      screenshots: [
+        {
+          src: '/images/StackForDev.png',
+          alt: 'StackForDev Web UI',
+          caption: 'Dockerfile Generator Web Interface',
+        },
+      ],
+      additionalRepos: [
+        {
+          label: 'Frontend Repository',
+          url: 'https://github.com/ZisisKostakakis/StackForDev-FrontEnd',
+        },
+      ],
+      architectureSections: [
+        {
+          title: 'System Architecture',
+          description:
+            'The SvelteKit frontend is deployed as a static site. The CLI and browser both hit the same AWS API Gateway endpoint, which invokes a containerised Lambda function. Generated Dockerfiles are stored in S3 with SHA-256 content deduplication.',
+          mermaid: `graph TB
+    subgraph CLIENT["🌐 Clients"]
+        WEB["SvelteKit Web UI\n(Static Site)"]
+        CLI["stackfordev CLI\n(PyPI package)"]
+    end
+
+    subgraph AWS["☁️ AWS"]
+        AG["API Gateway\n(rate limit: 1 req/s · 10k/mo)"]
+        LM["Lambda Function\n(Python 3.11 · Docker image)"]
+        S3["S3 Bucket\n(Dockerfile store + dedup)"]
+        ECR["ECR\n(Lambda container image)"]
+    end
+
+    WEB -->|"HTTPS POST /generate"| AG
+    CLI -->|"HTTPS POST /generate"| AG
+    AG -->|"invoke"| LM
+    LM -->|"check / store"| S3
+    LM -->|"JSON {dockerfile, key}"| AG
+    AG -->|"response"| WEB & CLI
+    ECR -->|"image"| LM`,
+        },
+        {
+          title: 'Dockerfile Generation Flow',
+          description:
+            'Each request is validated by Pydantic, checked for injection patterns, resolved to a language template, then stored in S3 with a content-based key before the Dockerfile is returned.',
+          mermaid: `sequenceDiagram
+    actor User
+    participant Client as CLI / Web UI
+    participant AG as API Gateway
+    participant LM as Lambda (Python)
+    participant S3 as S3 Bucket
+
+    User->>Client: Select language, stack, version, extras
+    Client->>AG: POST /generate {language, stack, version, extras}
+    AG->>LM: Invoke with validated payload
+    LM->>LM: Pydantic schema validation
+    LM->>LM: Injection pattern check
+    LM->>LM: Resolve template (language + stack)
+    LM->>LM: Substitute version + extra deps
+    LM->>S3: Check SHA-256 key (dedup)
+    alt Already exists
+        S3-->>LM: Return existing key
+    else New Dockerfile
+        LM->>S3: Upload Dockerfile
+    end
+    LM-->>AG: {dockerfile, key, message}
+    AG-->>Client: JSON response
+    Client->>User: Display Dockerfile`,
+        },
+        {
+          title: 'Infrastructure as Code',
+          description:
+            'All AWS resources are provisioned with Terraform Cloud. GitHub pushes trigger plan/apply runs. Reserved Lambda concurrency caps cost; lifecycle policies on S3 and ECR manage storage.',
+          mermaid: `graph LR
+    subgraph TF["Terraform Cloud"]
+        PLAN["terraform plan"]
+        APPLY["terraform apply"]
+    end
+
+    subgraph GITHUB["GitHub"]
+        PR["Pull Request"]
+        MAIN["main branch push"]
+    end
+
+    subgraph RESOURCES["AWS Resources"]
+        ECR2["ECR repo"]
+        LM2["Lambda\n(reserved concurrency 10)"]
+        AG2["API Gateway\n+ usage plan"]
+        S3B["S3 bucket\n(lifecycle policy)"]
+        CW["CloudWatch alarms\n(error rate · throttles)"]
+        IAM["IAM roles + policies"]
+    end
+
+    PR -->|"trigger"| PLAN
+    MAIN -->|"trigger"| APPLY
+    APPLY --> ECR2 & LM2 & AG2 & S3B & CW & IAM`,
+        },
+      ],
+    },
+  },
   'property-pal-scraper': {
     title: 'PropertyPal Investment Analyzer | Zisis Kostakakis',
     metaDescription:
