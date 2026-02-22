@@ -19,6 +19,7 @@ export interface Project {
   challenges?: string[];
   features?: string[];
   delay?: string; // For animation delays
+  order?: number; // Explicit display order (lower = first)
 }
 
 export interface Skill {
