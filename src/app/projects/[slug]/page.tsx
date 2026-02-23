@@ -48,11 +48,6 @@ Built with Java and Swing, the game features a polished graphical user interface
       ],
       screenshots: [
         {
-          src: '/images/Connect-5-one.png',
-          alt: 'Connect 5 Game - Main Gameplay',
-          caption: 'Active Game Session',
-        },
-        {
           src: '/images/Connect-5-two.png',
           alt: 'Connect 5 Game - AI Move',
           caption: 'AI Opponent in Action',
@@ -94,13 +89,7 @@ This dissertation project uniquely combines OCR technology with machine learning
         'Designed for accessibility and ease of use',
         'Healthcare communication enhancement',
       ],
-      screenshots: [
-        {
-          src: '/images/Camera-OCR.png',
-          alt: 'Camera OCR App',
-          caption: 'OCR Text Detection',
-        },
-      ],
+      screenshots: [],
       demoVideos: [
         { title: 'OCR & Text-to-Speech Demo', src: '/videos/CameraOCR-one.mp4' },
         { title: 'Emotion Detection Demo', src: '/videos/CameraOCR-two.mp4' },
@@ -155,13 +144,7 @@ This architecture provides a scalable, secure, and efficient solution for delive
       additionalRepos: [
         { label: 'Backend Repository', url: 'https://github.com/ZisisKostakakis/Web-app-python' },
       ],
-      screenshots: [
-        {
-          src: '/images/Transport-Info.png',
-          alt: 'Transport Info Website Screenshot',
-          caption: 'Live Application',
-        },
-      ],
+      screenshots: [],
     },
   },
   'date-calculator': {
@@ -215,13 +198,7 @@ The backend is a RESTful API built with Flask (Python) and deployed as a serverl
           url: 'https://github.com/ZisisKostakakis/date-calculator-backend-app',
         },
       ],
-      screenshots: [
-        {
-          src: '/images/Date-Calculator.png',
-          alt: 'Date Calculator Results',
-          caption: 'Results View with Heatmap',
-        },
-      ],
+      screenshots: [],
       architectureSections: [
         {
           title: 'System Architecture',
@@ -328,13 +305,7 @@ Built with Python 3.11+ and Playwright, the bot features robust error handling, 
         'Clean class-based architecture for easy extension',
         'Comprehensive documentation and setup instructions',
       ],
-      screenshots: [
-        {
-          src: '/images/Student-Loan-Checker.png',
-          alt: 'Student Loan Checker Bot Output',
-          caption: 'Bot Execution and Loan Data Output',
-        },
-      ],
+      screenshots: [],
       architectureSections: [
         {
           title: 'Bot Architecture',
@@ -811,13 +782,7 @@ Built with Scrapy for robust web scraping, the application implements ethical sc
         'Structured data extraction (descriptions, features, room details)',
         'Makefile for convenient command execution',
       ],
-      screenshots: [
-        {
-          src: '/images/Property-Pal-Scraper.png',
-          alt: 'PropertyPal Investment Analyzer',
-          caption: 'Best Value Properties Dashboard',
-        },
-      ],
+      screenshots: [],
       architectureSections: [
         {
           title: 'Scrapy Pipeline Architecture',
