@@ -201,6 +201,7 @@ const projectsData: Project[] = [
       'A production-grade web scraper built with Scrapy that extracts property listings from PropertyPal.com and provides AI-powered investment analysis using Perplexity API. Features automated geocoding with distance calculations, mortgage payment estimations, and comprehensive data export pipelines with Pydantic validation.',
     image: '/images/Property-Pal-Scraper.png',
     githubUrl: 'https://github.com/ZisisKostakakis/property-pal-scraper',
+    liveUrl: 'https://property-pal-analyser.zisiskostakakis.com/',
     technologies: ['Python', 'Scrapy', 'Perplexity API', 'Pydantic', 'Web Scraping', 'Data Pipelines', 'Geocoding'],
     category: 'Automation',
     date: '2026',
