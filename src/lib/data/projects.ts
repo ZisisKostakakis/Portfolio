@@ -123,7 +123,7 @@ const projectsData: Project[] = [
       'Fully automated, self-healing Docker media stack with VPN kill switch, cascade restart recovery, and zero-touch container updates.',
     longDescription:
       'A production-grade homelab media stack built on Docker Compose, handling everything from media requests to downloading, extracting, renaming, subtitle fetching, quality management, and streaming — with zero manual intervention after initial setup. All download traffic routes through WireGuard VPN with a firewall kill switch.',
-    image: '/images/Homelab-Media.png',
+    image: '/images/Homelab-Media-banner.png',
     githubUrl: 'https://github.com/ZisisKostakakis/homelab-media',
     technologies: [
       'Docker Compose',
@@ -162,7 +162,7 @@ const projectsData: Project[] = [
       'CLI tool and web app that generates tailored Dockerfiles so developers only need Docker — no language runtimes to install locally.',
     longDescription:
       'A serverless platform that generates custom Dockerfiles for any language and stack. The backend runs on AWS Lambda, the CLI is published on PyPI, and the web UI is built with SvelteKit.',
-    image: '/images/StackForDev.png',
+    image: '/images/StackForDev-banner.png',
     githubUrl: 'https://github.com/ZisisKostakakis/StackForDev',
     liveUrl: 'https://stackfordev.zisiskostakakis.com',
     technologies: [
