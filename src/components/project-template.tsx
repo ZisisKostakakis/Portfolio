@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import { Project } from '@/lib/types';
 import { Button } from '@/components/ui/button';
@@ -21,29 +22,28 @@ interface ProjectTemplateProps {
 }
 
 export default function ProjectTemplate({ project }: ProjectTemplateProps) {
+  const router = useRouter();
   return (
     <main className="min-h-screen bg-primary-navy py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         {/* Back Button */}
         <div className="mb-8">
-          <Link href="/">
-            <Button variant="ghost" size="sm" className="group">
-              <svg
-                className="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-              Back to Projects
-            </Button>
-          </Link>
+          <Button variant="ghost" size="sm" className="group" onClick={() => router.back()}>
+            <svg
+              className="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+            Back to Projects
+          </Button>
         </div>
 
         {/* Header Section */}
