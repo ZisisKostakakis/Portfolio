@@ -38,6 +38,10 @@ const nextConfig = {
     ];
   },
 
+  experimental: {
+    scrollRestoration: true,
+  },
+
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
