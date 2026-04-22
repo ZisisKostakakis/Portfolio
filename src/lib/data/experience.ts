@@ -36,10 +36,21 @@ export const experiences: Experience[] = [
     endDate: '2025-06',
   },
   {
+    id: 'experience-zerion',
+    company: 'Zerion Software',
+    position: 'Full Stack Engineer',
+    duration: 'Apr 2026 – Present',
+    location: 'Belfast, Northern Ireland',
+    type: 'permanent' as const,
+    description: [],
+    technologies: [],
+    startDate: '2026-04',
+  },
+  {
     id: 'experience-stormharvester',
     company: 'StormHarvester Limited',
     position: 'Software Development Engineer R&D',
-    duration: 'Aug 2022 – Present',
+    duration: 'Aug 2022 – Apr 2026',
     location: 'Belfast, Northern Ireland',
     type: 'permanent' as const,
     description: [
@@ -53,5 +64,6 @@ export const experiences: Experience[] = [
     ],
     technologies: ['Python', 'AWS CloudFormation', 'EC2', 'Jenkins', 'Docker', 'Bash', 'Linux', 'LLM'],
     startDate: '2022-08',
+    endDate: '2026-04',
   },
 ];
