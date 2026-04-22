@@ -53,6 +53,7 @@ const projectsData: Project[] = [
       'A comprehensive full-stack application deployed on AWS infrastructure that aggregates and displays real-time public transportation data to help users plan their journeys.',
     image: '/images/Transport-Info.png',
     githubUrl: 'https://github.com/ZisisKostakakis',
+    liveUrl: 'https://transportinfo.zisiskostakakis.com',
     technologies: ['Python', 'Flask', 'AWS Lambda', 'DynamoDB', 'API Gateway', 'S3', 'CloudWatch', 'Terraform'],
     category: 'Full Stack',
     date: '2023',
