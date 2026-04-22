@@ -114,7 +114,7 @@ APIs are handled by AWS API Gateway with authentication keys. Data is stored on 
 
 This architecture provides a scalable, secure, and efficient solution for delivering real-time public transport information to users.`,
       githubUrl: 'https://github.com/ZisisKostakakis/Transport-Info',
-      liveUrl: 'https://www.transports-info.com/',
+      liveUrl: 'https://transportinfo.zisiskostakakis.com',
       technologies: [
         'Python',
         'Flask',
