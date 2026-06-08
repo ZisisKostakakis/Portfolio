@@ -152,6 +152,9 @@ const projectsData: Project[] = [
       'cross-seed daemon maximises seeding ratio with zero extra bandwidth',
       'Maintainerr rules automatically clean up stale media from Plex',
       'Timestamped config backups with single-command restore',
+      'Daily midnight (UK time) cron sweep that pulls and recreates every stack',
+      'Searchable log analyser with per-service grep, severity filter, JSON output, and a permissions category',
+      'Healthcheck + disk-report scripts wired into cron for proactive paging',
     ],
   },
   {
@@ -180,7 +183,7 @@ const projectsData: Project[] = [
       'Pydantic',
     ],
     category: 'Full Stack',
-    date: '2025',
+    date: '2026',
     features: [
       'Generates Dockerfiles for Python, JavaScript, Go, Rust, and Java with 20+ stack variants',
       'CLI tool published on PyPI (`pip install stackfordev`)',
@@ -189,6 +192,8 @@ const projectsData: Project[] = [
       'SvelteKit web UI for browser-based generation and preview',
       'Serverless backend on AWS Lambda with API Gateway rate limiting',
       'Infrastructure as Code with Terraform Cloud',
+      'Slim Python templates with --no-install-recommends and pip cache disabled',
+      '`make lint` / `make test` shortcuts for local development',
     ],
   },
   {
