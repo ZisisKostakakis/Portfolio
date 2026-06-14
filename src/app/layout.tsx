@@ -1,7 +1,7 @@
 import { Analytics } from '@vercel/analytics/react';
 import Navbar from '@/components/navbar';
 import './globals.css';
-import { Inter } from 'next/font/google';
+import { Inter, Sora, JetBrains_Mono } from 'next/font/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const inter = Inter({
@@ -9,6 +9,18 @@ const inter = Inter({
   display: 'swap',
   preload: true,
   variable: '--font-inter',
+});
+
+const sora = Sora({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-sora',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-jetbrains-mono',
 });
 
 export const metadata = {
@@ -54,7 +66,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${sora.variable} ${jetbrainsMono.variable}`}>
       <body className={inter.className} suppressHydrationWarning>
         <a href="#main-content" className="skip-to-content">
           Skip to main content

@@ -21,6 +21,16 @@
       'calt' 1;
   }
 
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+
+  ::selection {
+    @apply bg-primary-gold/40 text-primary-white;
+  }
+
   *:focus-visible {
     @apply outline-none ring-2 ring-primary-gold ring-offset-2 ring-offset-primary-navy;
   }

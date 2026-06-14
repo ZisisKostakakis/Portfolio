@@ -2,23 +2,26 @@
 
 import { projects } from '@/lib/data/projects';
 import ProjectCard from '@/components/project-card';
+import Reveal from '@/components/reveal';
+import SectionHeading from '@/components/section-heading';
 
 export default function ProjectsSection() {
   return (
     <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-primary-white mb-4">
-            Featured <span className="text-gradient">Projects</span>
-          </h2>
-          <p className="text-lg text-primary-slate max-w-2xl">
-            Explore my recent work and side projects
-          </p>
-        </div>
+        <SectionHeading
+          index="03"
+          eyebrow="what I've built"
+          description="Explore my recent work and side projects"
+        >
+          Featured <span className="text-gradient">Projects</span>
+        </SectionHeading>
 
         <div className="grid gap-8 sm:gap-10 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+          {projects.map((project, i) => (
+            <Reveal key={project.id} delay={(i % 3) * 0.08} className="h-full">
+              <ProjectCard project={project} />
+            </Reveal>
           ))}
         </div>
       </div>

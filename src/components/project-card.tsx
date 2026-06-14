@@ -24,7 +24,7 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
         )}
       >
         {/* Thumbnail */}
-        <div className="relative h-44 overflow-hidden">
+        <div className="relative h-44 overflow-hidden border-b border-primary-gray-dark">
           {project.image ? (
             <Image
               src={project.image}
@@ -33,27 +33,33 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
               className="object-cover group-hover:scale-105 transition-transform duration-300"
             />
           ) : (
-            <div className="absolute inset-0 bg-gradient-to-br from-primary-gold/20 to-primary-gold-dark/20 flex items-center justify-center">
-              <span className="text-4xl font-bold text-primary-gold/40">
+            <div className="absolute inset-0 bg-dot-grid bg-dots flex flex-col items-center justify-center gap-3">
+              <span className="text-4xl font-display font-bold text-primary-gold/40">
                 {project.title
                   .split(' ')
                   .map((w) => w[0])
                   .join('')
                   .slice(0, 2)}
               </span>
+              <span className="font-mono text-xs text-primary-slate/60">~/{project.id}</span>
+            </div>
+          )}
+          {/* Legibility gradient + category on image */}
+          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-primary-navy-light to-transparent pointer-events-none" />
+          {project.category && (
+            <div className="absolute bottom-3 left-4">
+              <Badge
+                variant="outline"
+                size="sm"
+                className="bg-primary-navy/70 backdrop-blur-sm border font-mono"
+              >
+                {project.category}
+              </Badge>
             </div>
           )}
         </div>
 
         <div className="relative p-6 flex flex-col">
-          {project.category && (
-            <div className="mb-3">
-              <Badge variant="outline" size="sm">
-                {project.category}
-              </Badge>
-            </div>
-          )}
-
           <h3 className="text-xl sm:text-2xl font-bold text-primary-white mb-3 group-hover:text-primary-gold transition-colors duration-300">
             {project.title}
           </h3>
