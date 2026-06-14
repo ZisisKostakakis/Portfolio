@@ -1,6 +1,8 @@
 'use client';
 
 import { personalInfo } from '@/lib/data/personal';
+import Reveal from '@/components/reveal';
+import SectionHeading from '@/components/section-heading';
 
 export default function AboutSection() {
   const stats = [
@@ -34,13 +36,13 @@ export default function AboutSection() {
   return (
     <section id="about" className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl sm:text-5xl font-bold text-primary-white mb-16">
+        <SectionHeading index="01" eyebrow="who I am">
           About <span className="text-gradient">Me</span>
-        </h2>
+        </SectionHeading>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left - Bio */}
-          <div className="space-y-6">
+          <Reveal className="space-y-6">
             <p className="text-lg text-primary-slate leading-relaxed">
               I&apos;m a {personalInfo.title} with extensive expertise in backend development,
               infrastructure automation, and technical leadership. I architect scalable AWS
@@ -65,18 +67,17 @@ export default function AboutSection() {
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
 
           {/* Right - Highlight cards */}
           <div className="grid sm:grid-cols-2 gap-4">
-            {highlights.map((item) => (
-              <div
-                key={item.title}
-                className="p-5 rounded-xl bg-primary-navy-light border border-primary-gray-dark hover:border-primary-gold/30 transition-colors duration-200"
-              >
-                <h3 className="text-lg font-semibold text-primary-white mb-2">{item.title}</h3>
-                <p className="text-sm text-primary-slate">{item.description}</p>
-              </div>
+            {highlights.map((item, i) => (
+              <Reveal key={item.title} delay={i * 0.08}>
+                <div className="h-full p-5 rounded-xl bg-primary-navy-light border border-primary-gray-dark hover:border-primary-gold/30 hover:shadow-glow-sm transition-all duration-200">
+                  <h3 className="text-lg font-semibold text-primary-white mb-2">{item.title}</h3>
+                  <p className="text-sm text-primary-slate">{item.description}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>

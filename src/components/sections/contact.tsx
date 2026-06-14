@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { personalInfo, socialLinks } from '@/lib/data/personal';
 import { Button } from '@/components/ui/button';
 import ContactForm from '@/components/contact-form';
+import Reveal from '@/components/reveal';
+import SectionHeading from '@/components/section-heading';
 
 export default function ContactSection() {
   const [copied, setCopied] = useState(false);
@@ -27,22 +29,24 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl sm:text-5xl font-bold text-primary-white mb-16">
+        <SectionHeading index="05" eyebrow="let's talk">
           Get In <span className="text-gradient">Touch</span>
-        </h2>
+        </SectionHeading>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Left - Contact Form */}
-          <div className="p-6 sm:p-8 rounded-xl bg-primary-navy-light border border-primary-gray-dark">
-            <h3 className="text-2xl font-bold text-primary-white mb-2">Send a Message</h3>
-            <p className="text-primary-slate mb-6">
-              Fill out the form below and I&apos;ll get back to you as soon as possible.
-            </p>
-            <ContactForm />
-          </div>
+          <Reveal>
+            <div className="h-full p-6 sm:p-8 rounded-xl bg-primary-navy-light border border-primary-gray-dark">
+              <h3 className="text-2xl font-bold text-primary-white mb-2">Send a Message</h3>
+              <p className="text-primary-slate mb-6">
+                Fill out the form below and I&apos;ll get back to you as soon as possible.
+              </p>
+              <ContactForm />
+            </div>
+          </Reveal>
 
           {/* Right - Contact info */}
-          <div className="space-y-6">
+          <Reveal delay={0.1} className="space-y-6">
             {/* Email */}
             <div className="p-6 rounded-xl bg-primary-navy-light border border-primary-gray-dark">
               <div className="flex items-start gap-4">
@@ -173,7 +177,7 @@ export default function ContactSection() {
                 ))}
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>
