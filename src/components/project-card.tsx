@@ -9,9 +9,11 @@ import { cn } from '@/lib/utils/cn';
 interface ProjectCardProps {
   project: Project;
   className?: string;
+  featured?: boolean;
 }
 
-export default function ProjectCard({ project, className }: ProjectCardProps) {
+export default function ProjectCard({ project, className, featured = false }: ProjectCardProps) {
+  const maxBadges = featured ? 6 : 3;
   return (
     <Link href={project.href} className="block h-full group">
       <div
@@ -20,11 +22,17 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
           'bg-primary-navy-light border border-primary-gray-dark shadow-custom',
           'transition-all duration-200',
           'hover:shadow-glow hover:border-primary-gold/30 hover:-translate-y-2',
+          featured && 'md:grid md:grid-cols-[6fr_5fr]',
           className
         )}
       >
         {/* Thumbnail */}
-        <div className="relative h-44 overflow-hidden border-b border-primary-gray-dark">
+        <div
+          className={cn(
+            'relative overflow-hidden border-primary-gray-dark',
+            featured ? 'h-56 md:h-full border-b md:border-b-0 md:border-r' : 'h-44 border-b'
+          )}
+        >
           {project.thumb ? (
             <ProjectThumb thumb={project.thumb} alt={project.title} />
           ) : (
@@ -61,18 +69,25 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
             {project.title}
           </h3>
 
-          <p className="text-primary-slate mb-4 flex-grow line-clamp-3">{project.description}</p>
+          <p
+            className={cn(
+              'text-primary-slate mb-4 flex-grow',
+              featured ? 'line-clamp-4' : 'line-clamp-3'
+            )}
+          >
+            {project.description}
+          </p>
 
           {project.technologies && project.technologies.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-4">
-              {project.technologies.slice(0, 3).map((tech) => (
+              {project.technologies.slice(0, maxBadges).map((tech) => (
                 <Badge key={tech} variant="secondary" size="sm">
                   {tech}
                 </Badge>
               ))}
-              {project.technologies.length > 3 && (
+              {project.technologies.length > maxBadges && (
                 <Badge variant="secondary" size="sm">
-                  +{project.technologies.length - 3}
+                  +{project.technologies.length - maxBadges}
                 </Badge>
               )}
             </div>
