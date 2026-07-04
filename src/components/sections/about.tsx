@@ -62,7 +62,7 @@ export default function AboutSection() {
                   key={stat.label}
                   className="px-5 py-3 rounded-lg bg-primary-gray-light border border-primary-gray-dark"
                 >
-                  <p className="text-xl font-bold text-primary-gold">{stat.value}</p>
+                  <p className="text-xl font-bold text-primary-violet">{stat.value}</p>
                   <p className="text-sm text-primary-slate">{stat.label}</p>
                 </div>
               ))}
@@ -73,7 +73,7 @@ export default function AboutSection() {
           <div className="grid sm:grid-cols-2 gap-4">
             {highlights.map((item, i) => (
               <Reveal key={item.title} delay={i * 0.08}>
-                <div className="h-full p-5 rounded-xl bg-primary-navy-light border border-primary-gray-dark hover:border-primary-gold/30 hover:shadow-glow-sm transition-all duration-200">
+                <div className="h-full p-5 rounded-xl bg-primary-navy-light border border-primary-gray-dark hover:border-primary-violet/30 hover:shadow-glow-sm transition-all duration-200">
                   <h3 className="text-lg font-semibold text-primary-white mb-2">{item.title}</h3>
                   <p className="text-sm text-primary-slate">{item.description}</p>
                 </div>

@@ -13,9 +13,9 @@ module.exports = {
           'navy-light': '#111111',
           'navy-dark': '#060606',
 
-          gold: '#7C3AED',
-          'gold-light': '#8B5CF6',
-          'gold-dark': '#6D28D9',
+          violet: '#7C3AED',
+          'violet-light': '#8B5CF6',
+          'violet-dark': '#6D28D9',
 
           charcoal: '#E5E7EB',
           slate: '#9CA3AF',
@@ -67,7 +67,6 @@ module.exports = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'gradient-gold': 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 50%, #6D28D9 100%)',
         'gradient-violet': 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 50%, #6D28D9 100%)',
         'gradient-navy': 'linear-gradient(135deg, #111111 0%, #0A0A0A 50%, #060606 100%)',
         'gradient-mesh':

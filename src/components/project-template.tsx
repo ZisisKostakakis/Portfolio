@@ -163,7 +163,7 @@ export default function ProjectTemplate({ project }: ProjectTemplateProps) {
                 {project.features.map((feature, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <svg
-                      className="w-6 h-6 text-primary-gold flex-shrink-0 mt-0.5"
+                      className="w-6 h-6 text-primary-violet flex-shrink-0 mt-0.5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"

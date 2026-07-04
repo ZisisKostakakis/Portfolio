@@ -1,0 +1,444 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "Zisis Kostakakis - Home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e6]: ZK · Zisis Kostakakis
+      - list [ref=e8]:
+        - listitem [ref=e9]:
+          - link "About" [ref=e10] [cursor=pointer]:
+            - /url: "#about"
+        - listitem [ref=e11]:
+          - link "Experience" [ref=e12] [cursor=pointer]:
+            - /url: "#experience"
+        - listitem [ref=e13]:
+          - link "Projects" [ref=e14] [cursor=pointer]:
+            - /url: "#projects"
+        - listitem [ref=e15]:
+          - link "Contact" [ref=e16] [cursor=pointer]:
+            - /url: "#contact"
+  - main [ref=e17]:
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - generic [ref=e20]:
+          - generic [ref=e25]: Available for work
+          - generic [ref=e26]:
+            - heading "Zisis Kostakakis" [level=1] [ref=e27]
+            - paragraph [ref=e28]: Software Engineer & Cloud Architect
+            - paragraph [ref=e29]: Software Engineer & Cloud Architect specialising in Python and AWS — I architect scalable cloud solutions, automate infrastructure with Terraform, lead teams to MVP delivery, and integrate private AI/LLM systems.
+          - generic [ref=e30]:
+            - link "View Work" [ref=e31] [cursor=pointer]:
+              - /url: "#projects"
+              - button "View Work" [ref=e32]
+            - link "Get In Touch" [ref=e33] [cursor=pointer]:
+              - /url: "#contact"
+              - button "Get In Touch" [ref=e34]
+          - generic [ref=e35]:
+            - link "Visit Zisis Kostakakis LinkedIn profile" [ref=e36] [cursor=pointer]:
+              - /url: https://www.linkedin.com/in/zisis-kostakakis-5b85961b7/
+              - img [ref=e37]
+            - link "Visit Zisis Kostakakis GitHub profile" [ref=e39] [cursor=pointer]:
+              - /url: https://github.com/ZisisKostakakis
+              - img [ref=e40]
+        - generic [ref=e44]:
+          - generic [ref=e49]: engineer.ts
+          - code [ref=e51]:
+            - text: "const engineer = { name:"
+            - generic [ref=e52]: "\"Zisis Kostakakis\""
+            - text: ", role:"
+            - generic [ref=e53]: "\"Software Engineer & Cloud Architect\""
+            - text: ", location:"
+            - generic [ref=e54]: "\"United Kingdom\""
+            - text: ", skills: [ \"Python\", \"AWS\", \"Terraform\", \"TypeScript\", \"Docker\", ], available: true, };"
+      - link "Scroll to about section" [ref=e56] [cursor=pointer]:
+        - /url: "#about"
+        - generic [ref=e57]: Scroll
+    - generic [ref=e60]:
+      - generic [ref=e61]:
+        - paragraph [ref=e62]: 01//who I am
+        - heading "About Me" [level=2] [ref=e63]
+      - generic [ref=e64]:
+        - generic [ref=e65]:
+          - paragraph [ref=e66]: I'm a Software Engineer & Cloud Architect with extensive expertise in backend development, infrastructure automation, and technical leadership. I architect scalable AWS solutions using Terraform and Python, and have a proven track record of reducing engineering overhead by 100% through strategic automation.
+          - paragraph [ref=e67]: Skilled in DevSecOps practices including system hardening, penetration testing, and private AI/LLM integration. I bridge the gap between development and operations with advanced knowledge of virtualisation (Proxmox), disaster recovery, and self-healing infrastructure.
+          - generic [ref=e68]:
+            - generic [ref=e69]:
+              - paragraph [ref=e70]: UK
+              - paragraph [ref=e71]: Based in
+            - generic [ref=e72]:
+              - paragraph [ref=e73]: Open to work
+              - paragraph [ref=e74]: Status
+        - generic [ref=e75]:
+          - generic [ref=e77]:
+            - heading "Cloud Native" [level=3] [ref=e78]
+            - paragraph [ref=e79]: Architecting scalable AWS solutions with Lambda, EC2, Terraform, and CloudFormation
+          - generic [ref=e81]:
+            - heading "DevSecOps" [level=3] [ref=e82]
+            - paragraph [ref=e83]: System hardening, penetration testing, CI/CD pipelines, and private LLM/AI integration
+          - generic [ref=e85]:
+            - heading "Automation" [level=3] [ref=e86]
+            - paragraph [ref=e87]: Self-healing infrastructure, monitoring tools, and engineering overhead elimination
+          - generic [ref=e89]:
+            - heading "Technical Leadership" [level=3] [ref=e90]
+            - paragraph [ref=e91]: Leading cross-functional teams to MVP, conducting interviews, and translating business needs into architecture
+    - generic [ref=e93]:
+      - generic [ref=e94]:
+        - paragraph [ref=e95]: 02//where I've been
+        - heading "Work Experience" [level=2] [ref=e96]
+      - generic [ref=e97]:
+        - generic [ref=e98]:
+          - paragraph [ref=e99]: Permanent
+          - generic [ref=e100]:
+            - generic [ref=e102]:
+              - paragraph [ref=e103]: Apr 2026 – Present
+              - heading "Zerion Software" [level=3] [ref=e104]
+              - paragraph [ref=e105]: Full Stack Engineer
+              - paragraph [ref=e106]: Belfast, Northern Ireland
+              - list
+            - generic [ref=e108]:
+              - paragraph [ref=e109]: Aug 2022 – Apr 2026
+              - heading "StormHarvester Limited" [level=3] [ref=e110]
+              - paragraph [ref=e111]: Software Development Engineer R&D
+              - paragraph [ref=e112]: Belfast, Northern Ireland
+              - list [ref=e113]:
+                - listitem [ref=e114]:
+                  - generic [ref=e115]: •
+                  - text: Architected automated cloud monitoring using AWS CloudFormation, reducing incident response times by 30%
+                - listitem [ref=e116]:
+                  - generic [ref=e117]: •
+                  - text: Developed "Crontab Health Check" monitoring tool — 100% reduction in missed failures
+                - listitem [ref=e118]:
+                  - generic [ref=e119]: •
+                  - text: Engineered self-service automation tools, removing engineering support dependency (100% time savings)
+                - listitem [ref=e120]:
+                  - generic [ref=e121]: •
+                  - text: Spearheaded decomposition of monolithic codebases into modular components for EC2 distribution
+                - listitem [ref=e122]:
+                  - generic [ref=e123]: •
+                  - text: Enhanced CI/CD with Jenkins pipelines integrated with AWS services
+                - listitem [ref=e124]:
+                  - generic [ref=e125]: •
+                  - text: Deployed private LLM knowledge base (Llama3 8B) via Docker and OpenWebUI with RBAC
+                - listitem [ref=e126]:
+                  - generic [ref=e127]: •
+                  - text: Managed end-to-end Linux server provisioning and maintenance
+              - generic [ref=e128]:
+                - generic [ref=e129]: Python
+                - generic [ref=e130]: AWS CloudFormation
+                - generic [ref=e131]: EC2
+                - generic [ref=e132]: Jenkins
+                - generic [ref=e133]: Docker
+                - generic [ref=e134]: Bash
+                - generic [ref=e135]: Linux
+                - generic [ref=e136]: LLM
+        - generic [ref=e137]:
+          - paragraph [ref=e138]: Contract
+          - generic [ref=e139]:
+            - generic [ref=e141]:
+              - paragraph [ref=e142]: 2025 – Present
+              - heading "Paiwe" [level=3] [ref=e143]
+              - paragraph [ref=e144]: Software Engineer & Cloud Architect
+              - paragraph [ref=e145]: United Kingdom
+              - list [ref=e146]:
+                - listitem [ref=e147]:
+                  - generic [ref=e148]: •
+                  - text: Directing project to MVP, leading cross-functional team and collaborating with CEO to translate business needs into scalable infrastructure
+                - listitem [ref=e149]:
+                  - generic [ref=e150]: •
+                  - text: Conducting interviews for full-stack and senior software engineer roles
+                - listitem [ref=e151]:
+                  - generic [ref=e152]: •
+                  - text: Developed scraping software to collect and catalogue watches and attributes
+                - listitem [ref=e153]:
+                  - generic [ref=e154]: •
+                  - text: Architected cloud solutions with data pipelines and ingestion using Terraform and GitHub Actions
+                - listitem [ref=e155]:
+                  - generic [ref=e156]: •
+                  - text: Built internal database tool for watch management
+                - listitem [ref=e157]:
+                  - generic [ref=e158]: •
+                  - text: Created automated scripts for EC2 provisioning using Terraform and Bash
+              - generic [ref=e159]:
+                - generic [ref=e160]: Python
+                - generic [ref=e161]: Terraform
+                - generic [ref=e162]: AWS Lambda
+                - generic [ref=e163]: API Gateway
+                - generic [ref=e164]: DynamoDB
+                - generic [ref=e165]: ECR
+                - generic [ref=e166]: IAM
+                - generic [ref=e167]: Cognito
+                - generic [ref=e168]: EC2
+                - generic [ref=e169]: Bash
+                - generic [ref=e170]: Docker
+            - generic [ref=e172]:
+              - paragraph [ref=e173]: 2025 (6 Months)
+              - heading "Farmdrive.io" [level=3] [ref=e174]
+              - paragraph [ref=e175]: Software Engineer
+              - paragraph [ref=e176]: Remote
+              - list [ref=e177]:
+                - listitem [ref=e178]:
+                  - generic [ref=e179]: •
+                  - text: Engineered custom OCR solution to automate digitisation of market cattle documentation
+                - listitem [ref=e180]:
+                  - generic [ref=e181]: •
+                  - text: Executed penetration testing across cloud platform for security hardening
+                - listitem [ref=e182]:
+                  - generic [ref=e183]: •
+                  - text: Provided strategic consulting on software infrastructure architecture
+              - generic [ref=e184]:
+                - generic [ref=e185]: Python
+                - generic [ref=e186]: OCR
+                - generic [ref=e187]: AWS
+                - generic [ref=e188]: Penetration Testing
+    - generic [ref=e190]:
+      - generic [ref=e191]:
+        - paragraph [ref=e192]: 03//what I've built
+        - heading "Featured Projects" [level=2] [ref=e193]
+        - paragraph [ref=e194]: Explore my recent work and side projects
+      - generic [ref=e195]:
+        - link "Homelab Media Stack Infrastructure Homelab Media Stack Fully automated, self-healing Docker media stack with VPN kill switch, cascade restart recovery, and zero-touch container updates. Docker Compose Bash Python +8 View Project" [ref=e197] [cursor=pointer]:
+          - /url: /projects/homelab-media
+          - generic [ref=e198]:
+            - generic [ref=e199]:
+              - img "Homelab Media Stack" [ref=e200]
+              - generic [ref=e202]: Infrastructure
+            - generic [ref=e203]:
+              - heading "Homelab Media Stack" [level=3] [ref=e204]
+              - paragraph [ref=e205]: Fully automated, self-healing Docker media stack with VPN kill switch, cascade restart recovery, and zero-touch container updates.
+              - generic [ref=e206]:
+                - generic [ref=e207]: Docker Compose
+                - generic [ref=e208]: Bash
+                - generic [ref=e209]: Python
+                - generic [ref=e210]: "+8"
+              - generic [ref=e211]:
+                - generic [ref=e212]: View Project
+                - img [ref=e213]
+        - link "StackForDev Full Stack StackForDev CLI tool and web app that generates tailored Dockerfiles so developers only need Docker — no language runtimes to install locally. Python AWS Lambda AWS API Gateway +8 View Project" [ref=e216] [cursor=pointer]:
+          - /url: /projects/stackfordev
+          - generic [ref=e217]:
+            - generic [ref=e218]:
+              - img "StackForDev" [ref=e219]
+              - generic [ref=e221]: Full Stack
+            - generic [ref=e222]:
+              - heading "StackForDev" [level=3] [ref=e223]
+              - paragraph [ref=e224]: CLI tool and web app that generates tailored Dockerfiles so developers only need Docker — no language runtimes to install locally.
+              - generic [ref=e225]:
+                - generic [ref=e226]: Python
+                - generic [ref=e227]: AWS Lambda
+                - generic [ref=e228]: AWS API Gateway
+                - generic [ref=e229]: "+8"
+              - generic [ref=e230]:
+                - generic [ref=e231]: View Project
+                - img [ref=e232]
+        - link "PropertyPal Investment Analyzer Automation PropertyPal Investment Analyzer Scrapy-based web scraper for extracting property listings with AI-powered investment ratings and geocoding analysis. Python Scrapy Perplexity API +4 View Project" [ref=e235] [cursor=pointer]:
+          - /url: /projects/property-pal-scraper
+          - generic [ref=e236]:
+            - generic [ref=e237]:
+              - img "PropertyPal Investment Analyzer" [ref=e238]
+              - generic [ref=e240]: Automation
+            - generic [ref=e241]:
+              - heading "PropertyPal Investment Analyzer" [level=3] [ref=e242]
+              - paragraph [ref=e243]: Scrapy-based web scraper for extracting property listings with AI-powered investment ratings and geocoding analysis.
+              - generic [ref=e244]:
+                - generic [ref=e245]: Python
+                - generic [ref=e246]: Scrapy
+                - generic [ref=e247]: Perplexity API
+                - generic [ref=e248]: "+4"
+              - generic [ref=e249]:
+                - generic [ref=e250]: View Project
+                - img [ref=e251]
+        - link "Student Loan Checker Automation Student Loan Checker Automated Python bot using Playwright to log into the Student Loans Company portal and retrieve loan balance information. Python Playwright Web Scraping +2 View Project" [ref=e254] [cursor=pointer]:
+          - /url: /projects/student-loan-checker
+          - generic [ref=e255]:
+            - generic [ref=e256]:
+              - img "Student Loan Checker" [ref=e257]
+              - generic [ref=e259]: Automation
+            - generic [ref=e260]:
+              - heading "Student Loan Checker" [level=3] [ref=e261]
+              - paragraph [ref=e262]: Automated Python bot using Playwright to log into the Student Loans Company portal and retrieve loan balance information.
+              - generic [ref=e263]:
+                - generic [ref=e264]: Python
+                - generic [ref=e265]: Playwright
+                - generic [ref=e266]: Web Scraping
+                - generic [ref=e267]: "+2"
+              - generic [ref=e268]:
+                - generic [ref=e269]: View Project
+                - img [ref=e270]
+        - link "Date Calculator Full Stack Date Calculator Modern web application for calculating and tracking days across custom date ranges with configurable anchor periods. Next.js React TypeScript +7 View Project" [ref=e273] [cursor=pointer]:
+          - /url: /projects/date-calculator
+          - generic [ref=e274]:
+            - generic [ref=e275]:
+              - img "Date Calculator" [ref=e276]
+              - generic [ref=e278]: Full Stack
+            - generic [ref=e279]:
+              - heading "Date Calculator" [level=3] [ref=e280]
+              - paragraph [ref=e281]: Modern web application for calculating and tracking days across custom date ranges with configurable anchor periods.
+              - generic [ref=e282]:
+                - generic [ref=e283]: Next.js
+                - generic [ref=e284]: React
+                - generic [ref=e285]: TypeScript
+                - generic [ref=e286]: "+7"
+              - generic [ref=e287]:
+                - generic [ref=e288]: View Project
+                - img [ref=e289]
+        - link "Transport Info Full Stack Transport Info Full Stack Web App on AWS that uses public transport data to provide information to users. Python Flask AWS Lambda +5 View Project" [ref=e292] [cursor=pointer]:
+          - /url: /projects/transport-info
+          - generic [ref=e293]:
+            - generic [ref=e294]:
+              - img "Transport Info" [ref=e295]
+              - generic [ref=e297]: Full Stack
+            - generic [ref=e298]:
+              - heading "Transport Info" [level=3] [ref=e299]
+              - paragraph [ref=e300]: Full Stack Web App on AWS that uses public transport data to provide information to users.
+              - generic [ref=e301]:
+                - generic [ref=e302]: Python
+                - generic [ref=e303]: Flask
+                - generic [ref=e304]: AWS Lambda
+                - generic [ref=e305]: "+5"
+              - generic [ref=e306]:
+                - generic [ref=e307]: View Project
+                - img [ref=e308]
+        - link "CameraOCR Mobile Development CameraOCR IOS App that uses OCR to detect text from camera and ML Emotion Detection. Swift CoreML Vision +2 View Project" [ref=e311] [cursor=pointer]:
+          - /url: /projects/camera-ocr
+          - generic [ref=e312]:
+            - generic [ref=e313]:
+              - img "CameraOCR" [ref=e314]
+              - generic [ref=e316]: Mobile Development
+            - generic [ref=e317]:
+              - heading "CameraOCR" [level=3] [ref=e318]
+              - paragraph [ref=e319]: IOS App that uses OCR to detect text from camera and ML Emotion Detection.
+              - generic [ref=e320]:
+                - generic [ref=e321]: Swift
+                - generic [ref=e322]: CoreML
+                - generic [ref=e323]: Vision
+                - generic [ref=e324]: "+2"
+              - generic [ref=e325]:
+                - generic [ref=e326]: View Project
+                - img [ref=e327]
+        - link "Connect 5 Java Game Game Development Connect 5 Java Game Java Game with Graphical User Interface and AI Implementation. Java Swing AI/ML View Project" [ref=e330] [cursor=pointer]:
+          - /url: /projects/connect-5
+          - generic [ref=e331]:
+            - generic [ref=e332]:
+              - img "Connect 5 Java Game" [ref=e333]
+              - generic [ref=e335]: Game Development
+            - generic [ref=e336]:
+              - heading "Connect 5 Java Game" [level=3] [ref=e337]
+              - paragraph [ref=e338]: Java Game with Graphical User Interface and AI Implementation.
+              - generic [ref=e339]:
+                - generic [ref=e340]: Java
+                - generic [ref=e341]: Swing
+                - generic [ref=e342]: AI/ML
+              - generic [ref=e343]:
+                - generic [ref=e344]: View Project
+                - img [ref=e345]
+    - generic [ref=e348]:
+      - generic [ref=e349]:
+        - paragraph [ref=e350]: 04//what I work with
+        - heading "Technical Skills" [level=2] [ref=e351]
+      - generic [ref=e352]:
+        - generic [ref=e353]:
+          - heading "Programming Languages" [level=3] [ref=e354]
+          - generic [ref=e355]:
+            - generic [ref=e356]:
+              - img "Python" [ref=e358]
+              - generic [ref=e359]: Python
+            - generic [ref=e360]:
+              - img "TypeScript" [ref=e362]
+              - generic [ref=e363]: TypeScript
+            - generic [ref=e364]:
+              - img "Java" [ref=e366]
+              - generic [ref=e367]: Java
+            - generic [ref=e368]:
+              - img "C++" [ref=e370]
+              - generic [ref=e371]: C++
+            - generic [ref=e372]:
+              - img "Bash" [ref=e374]
+              - generic [ref=e375]: Bash
+            - generic [ref=e376]:
+              - img "Swift" [ref=e378]
+              - generic [ref=e379]: Swift
+            - generic [ref=e380]:
+              - img "Flutter" [ref=e382]
+              - generic [ref=e383]: Flutter
+            - generic [ref=e384]:
+              - img "Terraform" [ref=e386]
+              - generic [ref=e387]: Terraform
+        - generic [ref=e388]:
+          - heading "Cloud & Infrastructure" [level=3] [ref=e389]
+          - generic [ref=e390]:
+            - generic [ref=e391]:
+              - img "AWS" [ref=e393]
+              - generic [ref=e394]: AWS
+            - generic [ref=e395]:
+              - img "Docker" [ref=e397]
+              - generic [ref=e398]: Docker
+            - generic [ref=e399]:
+              - img "Vercel" [ref=e401]
+              - generic [ref=e402]: Vercel
+            - generic [ref=e403]:
+              - img "Kubernetes" [ref=e405]
+              - generic [ref=e406]: Kubernetes
+            - generic [ref=e407]:
+              - img "HCP Cloud" [ref=e409]
+              - generic [ref=e410]: HCP Cloud
+            - generic [ref=e411]:
+              - img "Proxmox" [ref=e413]
+              - generic [ref=e414]: Proxmox
+    - generic [ref=e416]:
+      - generic [ref=e417]:
+        - paragraph [ref=e418]: 05//let's talk
+        - heading "Get In Touch" [level=2] [ref=e419]
+      - generic [ref=e420]:
+        - generic [ref=e422]:
+          - heading "Send a Message" [level=3] [ref=e423]
+          - paragraph [ref=e424]: Fill out the form below and I'll get back to you as soon as possible.
+          - generic [ref=e425]:
+            - generic [ref=e426]:
+              - generic [ref=e427]:
+                - generic [ref=e428]: Name
+                - textbox "Name" [ref=e429]:
+                  - /placeholder: John Doe
+              - generic [ref=e430]:
+                - generic [ref=e431]: Email
+                - textbox "Email" [ref=e432]:
+                  - /placeholder: john@example.com
+            - generic [ref=e433]:
+              - generic [ref=e434]: Subject
+              - textbox "Subject" [ref=e435]:
+                - /placeholder: Project inquiry
+            - generic [ref=e436]:
+              - generic [ref=e437]: Message
+              - textbox "Message" [ref=e438]:
+                - /placeholder: Tell me about your project or just say hi!
+            - button "Send Message" [ref=e439] [cursor=pointer]
+        - generic [ref=e440]:
+          - generic [ref=e442]:
+            - img [ref=e444]
+            - generic [ref=e446]:
+              - heading "Email" [level=4] [ref=e447]
+              - paragraph [ref=e448]: business@zisiskostakakis.com
+              - button "Copy Email" [ref=e449] [cursor=pointer]
+          - generic [ref=e451]:
+            - img [ref=e453]
+            - generic [ref=e456]:
+              - heading "Location" [level=4] [ref=e457]
+              - paragraph [ref=e458]: United Kingdom
+          - generic [ref=e460]:
+            - img [ref=e462]
+            - generic [ref=e464]:
+              - heading "Availability" [level=4] [ref=e465]
+              - paragraph [ref=e466]: Open to opportunities
+          - generic [ref=e467]:
+            - heading "Connect with me" [level=4] [ref=e468]
+            - generic [ref=e469]:
+              - link "Visit Zisis Kostakakis LinkedIn profile" [ref=e470] [cursor=pointer]:
+                - /url: https://www.linkedin.com/in/zisis-kostakakis-5b85961b7/
+                - img [ref=e472]
+                - generic [ref=e474]: LinkedIn
+              - link "Visit Zisis Kostakakis GitHub profile" [ref=e475] [cursor=pointer]:
+                - /url: https://github.com/ZisisKostakakis
+                - img [ref=e477]
+                - generic [ref=e479]: GitHub
+  - alert [ref=e480]

@@ -31,7 +31,7 @@ export default function ProjectThumb({ thumb, alt }: { thumb: ProjectThumbSpec; 
         <pre className="flex-1 overflow-hidden p-4 font-mono text-xs leading-relaxed">
           {thumb.lines.map((line, i) => (
             <div key={i} className="truncate">
-              {line.prompt && <span className="text-primary-gold">$ </span>}
+              {line.prompt && <span className="text-primary-violet">$ </span>}
               <span className={line.accent ? 'text-green-400' : 'text-primary-charcoal'}>
                 {line.text}
               </span>

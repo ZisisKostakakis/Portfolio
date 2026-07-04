@@ -50,9 +50,9 @@ export default function ContactSection() {
             {/* Email */}
             <div className="p-6 rounded-xl bg-primary-navy-light border border-primary-gray-dark">
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-gold/10 flex items-center justify-center">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-violet/10 flex items-center justify-center">
                   <svg
-                    className="w-6 h-6 text-primary-gold"
+                    className="w-6 h-6 text-primary-violet"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -110,11 +110,11 @@ export default function ContactSection() {
 
             {/* Availability */}
             {personalInfo.availability && (
-              <div className="p-6 rounded-xl bg-primary-gold/5 border border-primary-gold/20">
+              <div className="p-6 rounded-xl bg-primary-violet/5 border border-primary-violet/20">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-gold/10 flex items-center justify-center">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-violet/10 flex items-center justify-center">
                     <svg
-                      className="w-6 h-6 text-primary-gold"
+                      className="w-6 h-6 text-primary-violet"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -170,7 +170,7 @@ export default function ContactSection() {
                         </svg>
                       )}
                     </div>
-                    <span className="font-medium text-primary-charcoal group-hover:text-primary-gold transition-colors duration-200">
+                    <span className="font-medium text-primary-charcoal group-hover:text-primary-violet transition-colors duration-200">
                       {social.name}
                     </span>
                   </Link>
