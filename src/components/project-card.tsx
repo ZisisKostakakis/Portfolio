@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { Project } from '@/lib/types';
+import ProjectThumb from '@/components/project-thumb';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils/cn';
 
@@ -25,13 +25,8 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
       >
         {/* Thumbnail */}
         <div className="relative h-44 overflow-hidden border-b border-primary-gray-dark">
-          {project.image ? (
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-300"
-            />
+          {project.thumb ? (
+            <ProjectThumb thumb={project.thumb} alt={project.title} />
           ) : (
             <div className="absolute inset-0 bg-dot-grid bg-dots flex flex-col items-center justify-center gap-3">
               <span className="text-4xl font-display font-bold text-primary-gold/40">
@@ -45,7 +40,9 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
             </div>
           )}
           {/* Legibility gradient + category on image */}
-          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-primary-navy-light to-transparent pointer-events-none" />
+          {project.thumb?.kind !== 'terminal' && (
+            <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-primary-navy-light to-transparent pointer-events-none" />
+          )}
           {project.category && (
             <div className="absolute bottom-3 left-4">
               <Badge

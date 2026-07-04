@@ -1,12 +1,24 @@
 // Core Types for Portfolio Website
 
+export interface TerminalLine {
+  prompt?: boolean; // render with leading "$"
+  accent?: boolean; // success/green styling
+  text: string;
+}
+
+export type ProjectThumbSpec =
+  | { kind: 'browser'; src: string; domain: string }
+  | { kind: 'window'; src: string; title: string }
+  | { kind: 'terminal'; title: string; lines: TerminalLine[] };
+
 export interface Project {
   id: string;
   href: string;
   title: string;
   description: string;
   longDescription?: string;
-  image?: string;
+  thumb?: ProjectThumbSpec;
+  featured?: boolean;
   video?: string;
   githubUrl?: string;
   liveUrl?: string;
