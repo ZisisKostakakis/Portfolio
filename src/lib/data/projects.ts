@@ -10,7 +10,7 @@ const projectsData: Project[] = [
     description: 'Java Game with Graphical User Interface and AI Implementation.',
     longDescription:
       'A strategic board game built with Java featuring a custom GUI and intelligent AI opponent. Implements minimax algorithm with alpha-beta pruning for optimal gameplay.',
-    image: '/images/Connect-5-one.png',
+    thumb: { kind: 'window', src: '/images/Connect-5-two.png', title: 'Connect-5' },
     githubUrl: 'https://github.com/ZisisKostakakis',
     technologies: ['Java', 'Swing', 'AI/ML'],
     category: 'Game Development',
@@ -30,7 +30,16 @@ const projectsData: Project[] = [
     description: 'IOS App that uses OCR to detect text from camera and ML Emotion Detection.',
     longDescription:
       'An iOS application that leverages computer vision and machine learning to extract text from camera images and detect emotions in real-time.',
-    image: '/images/Camera-OCR.png',
+    thumb: {
+      kind: 'terminal',
+      title: 'xcodebuild — CameraOCR',
+      lines: [
+        { prompt: true, text: 'xcodebuild -scheme CameraOCR build' },
+        { text: '▸ Linking Vision.framework' },
+        { text: '▸ Compiling EmotionClassifier.mlmodel' },
+        { accent: true, text: '** BUILD SUCCEEDED **' },
+      ],
+    },
     githubUrl: 'https://github.com/ZisisKostakakis',
     technologies: ['Swift', 'CoreML', 'Vision', 'OCR', 'Machine Learning'],
     category: 'Mobile Development',
@@ -51,7 +60,16 @@ const projectsData: Project[] = [
       'Full Stack Web App on AWS that uses public transport data to provide information to users.',
     longDescription:
       'A comprehensive full-stack application deployed on AWS infrastructure that aggregates and displays real-time public transportation data to help users plan their journeys.',
-    image: '/images/Transport-Info.png',
+    thumb: {
+      kind: 'terminal',
+      title: 'curl — transport-info API',
+      lines: [
+        { prompt: true, text: 'curl api.transportinfo/v1/departures?stop=GMB' },
+        { text: '200 OK · 12 departures found' },
+        { text: 'next: Bus 212 → Belfast · 4 min' },
+        { accent: true, text: 'served by Lambda + DynamoDB in 84ms' },
+      ],
+    },
     githubUrl: 'https://github.com/ZisisKostakakis',
     liveUrl: 'https://transportinfo.zisiskostakakis.com',
     technologies: ['Python', 'Flask', 'AWS Lambda', 'DynamoDB', 'API Gateway', 'S3', 'CloudWatch', 'Terraform'],
@@ -74,7 +92,11 @@ const projectsData: Project[] = [
       'Modern web application for calculating and tracking days across custom date ranges with configurable anchor periods.',
     longDescription:
       'A full-stack date calculation tool with a Next.js 15/React 19 frontend and a Flask (Python) backend deployed on AWS Lambda. Perfect for tracking travel days, residency requirements, or any time-based calculations that need to be measured against custom yearly periods.',
-    image: '/images/Date-Calculator.png',
+    thumb: {
+      kind: 'browser',
+      src: '/images/thumbs/date-calculator.png',
+      domain: 'date-calc.zisiskostakakis.com',
+    },
     githubUrl: 'https://github.com/ZisisKostakakis/date-calculator',
     liveUrl: 'https://date-calc.zisiskostakakis.com',
     technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Flask', 'Python', 'AWS Lambda', 'AWS API Gateway', 'Docker', 'Vercel'],
@@ -101,7 +123,16 @@ const projectsData: Project[] = [
       'Automated Python bot using Playwright to log into the Student Loans Company portal and retrieve loan balance information.',
     longDescription:
       'A Python automation bot built with Playwright that securely logs into the Student Loans Company (SLC) portal to retrieve comprehensive loan information. The bot handles authentication, two-factor authentication, and scrapes detailed loan data including balance, repayments, interest rates, and more.',
-    image: '/images/Student-Loan-Checker.png',
+    thumb: {
+      kind: 'terminal',
+      title: 'python — student-loan-checker',
+      lines: [
+        { prompt: true, text: 'python check_loan.py --headless' },
+        { text: '✓ Logged in · 2FA passed' },
+        { text: '✓ Scraped balance, repayments, interest' },
+        { accent: true, text: 'Done in 14.2s' },
+      ],
+    },
     githubUrl: 'https://github.com/ZisisKostakakis/student-loan-checker',
     technologies: ['Python', 'Playwright', 'Web Scraping', 'Automation', 'Environment Variables'],
     category: 'Automation',
@@ -126,7 +157,18 @@ const projectsData: Project[] = [
       'Fully automated, self-healing Docker media stack with VPN kill switch, cascade restart recovery, and zero-touch container updates.',
     longDescription:
       'A production-grade homelab media stack built on Docker Compose, handling everything from media requests to downloading, extracting, renaming, subtitle fetching, quality management, and streaming — with zero manual intervention after initial setup. All download traffic routes through WireGuard VPN with a firewall kill switch.',
-    image: '/images/Homelab-Media-banner.png',
+    featured: true,
+    thumb: {
+      kind: 'terminal',
+      title: 'docker compose ps',
+      lines: [
+        { prompt: true, text: 'docker compose ps --format table' },
+        { text: 'gluetun       Up 9 days (healthy)' },
+        { text: 'plex          Up 9 days (healthy)' },
+        { text: 'sonarr        Up 9 days (healthy)  via vpn' },
+        { accent: true, text: '24/24 services healthy · 0 manual restarts' },
+      ],
+    },
     githubUrl: 'https://github.com/ZisisKostakakis/homelab-media',
     technologies: [
       'Docker Compose',
@@ -168,7 +210,12 @@ const projectsData: Project[] = [
       'CLI tool and web app that generates tailored Dockerfiles so developers only need Docker — no language runtimes to install locally.',
     longDescription:
       'A serverless platform that generates custom Dockerfiles for any language and stack. The backend runs on AWS Lambda, the CLI is published on PyPI, and the web UI is built with SvelteKit.',
-    image: '/images/StackForDev-banner.png',
+    featured: true,
+    thumb: {
+      kind: 'browser',
+      src: '/images/thumbs/stackfordev.png',
+      domain: 'stackfordev.zisiskostakakis.com',
+    },
     githubUrl: 'https://github.com/ZisisKostakakis/StackForDev',
     liveUrl: 'https://stackfordev.zisiskostakakis.com',
     technologies: [
@@ -207,7 +254,11 @@ const projectsData: Project[] = [
       'Scrapy-based web scraper for extracting property listings with AI-powered investment ratings and geocoding analysis.',
     longDescription:
       'A production-grade web scraper built with Scrapy that extracts property listings from PropertyPal.com and provides AI-powered investment analysis using Perplexity API. Features automated geocoding with distance calculations, mortgage payment estimations, and comprehensive data export pipelines with Pydantic validation.',
-    image: '/images/Property-Pal-Scraper.png',
+    thumb: {
+      kind: 'browser',
+      src: '/images/thumbs/property-pal.png',
+      domain: 'property-pal-analyser.zisiskostakakis.com',
+    },
     githubUrl: 'https://github.com/ZisisKostakakis/property-pal-scraper',
     liveUrl: 'https://property-pal-analyser.zisiskostakakis.com/',
     technologies: ['Python', 'Scrapy', 'Perplexity API', 'Pydantic', 'Web Scraping', 'Data Pipelines', 'Geocoding'],
