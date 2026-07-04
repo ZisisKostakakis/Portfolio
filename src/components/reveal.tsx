@@ -13,6 +13,7 @@ export default function Reveal({ children, delay = 0, className }: RevealProps) 
 
   return (
     <motion.div
+      data-reveal
       className={className}
       initial={prefersReducedMotion ? false : { opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}

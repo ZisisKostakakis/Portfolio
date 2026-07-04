@@ -68,6 +68,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${sora.variable} ${jetbrainsMono.variable}`}>
       <body className={inter.className} suppressHydrationWarning>
+        <noscript>
+          <style>{`[data-reveal]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
         <a href="#main-content" className="skip-to-content">
           Skip to main content
         </a>
