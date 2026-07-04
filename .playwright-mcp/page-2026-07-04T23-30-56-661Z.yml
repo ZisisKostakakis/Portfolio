@@ -1,0 +1,129 @@
+- generic [active] [ref=f1e1]:
+  - link "Skip to main content" [ref=f1e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - navigation [ref=f1e3]:
+    - generic [ref=f1e4]:
+      - link "Zisis Kostakakis - Home" [ref=f1e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f1e6]: ZK · Zisis Kostakakis
+      - list [ref=f1e8]:
+        - listitem [ref=f1e9]:
+          - link "About" [ref=f1e10] [cursor=pointer]:
+            - /url: /#about
+        - listitem [ref=f1e11]:
+          - link "Experience" [ref=f1e12] [cursor=pointer]:
+            - /url: /#experience
+        - listitem [ref=f1e13]:
+          - link "Projects" [ref=f1e14] [cursor=pointer]:
+            - /url: /#projects
+        - listitem [ref=f1e15]:
+          - link "Contact" [ref=f1e16] [cursor=pointer]:
+            - /url: /#contact
+  - main [ref=f1e17]:
+    - main [ref=f1e18]:
+      - generic [ref=f1e19]:
+        - button "Back to Projects" [ref=f1e21] [cursor=pointer]:
+          - img [ref=f1e22]
+          - text: Back to Projects
+        - generic [ref=f1e24]:
+          - generic [ref=f1e25]:
+            - generic [ref=f1e26]: Infrastructure
+            - generic [ref=f1e27]: "2026"
+          - heading "Homelab Media Stack" [level=1] [ref=f1e28]
+          - link "GitHub Repository" [ref=f1e30] [cursor=pointer]:
+            - /url: https://github.com/ZisisKostakakis/homelab-media
+            - button "GitHub Repository" [ref=f1e31]:
+              - img [ref=f1e32]
+              - text: GitHub Repository
+        - generic [ref=f1e35]:
+          - heading "Overview" [level=2] [ref=f1e36]
+          - paragraph [ref=f1e37]: "A fully automated, self-healing homelab media stack built on Docker Compose. Handles everything from media requests to downloading, extracting, renaming, subtitle fetching, quality management, and streaming — with zero manual intervention after initial setup. All download traffic routes through a WireGuard VPN with a firewall kill switch. A custom cascade-restart monitor automatically recovers all dependent services when the VPN restarts. Container image updates are detected daily and applied automatically with push notifications at each step. The stack is split into three independent Docker Compose projects sharing a common bridge network. This allows each stack to be updated, restarted, or debugged in isolation. Twenty-plus services are orchestrated across three network zones: the Gluetun VPN namespace, a shared bridge network, and the host network for Plex."
+        - generic [ref=f1e38]:
+          - heading "Tech Stack" [level=3] [ref=f1e39]
+          - generic [ref=f1e40]:
+            - generic [ref=f1e41]: Docker Compose
+            - generic [ref=f1e42]: Bash
+            - generic [ref=f1e43]: Python
+            - generic [ref=f1e44]: WireGuard / Gluetun
+            - generic [ref=f1e45]: Plex
+            - generic [ref=f1e46]: Sonarr / Radarr
+            - generic [ref=f1e47]: Prowlarr
+            - generic [ref=f1e48]: qBittorrent
+            - generic [ref=f1e49]: Bazarr
+            - generic [ref=f1e50]: Recyclarr
+            - generic [ref=f1e51]: cross-seed
+            - generic [ref=f1e52]: Autoheal
+            - generic [ref=f1e53]: What's Up Docker
+            - generic [ref=f1e54]: ntfy.sh
+            - generic [ref=f1e55]: Linux
+        - generic [ref=f1e57]:
+          - heading "Key Features" [level=3] [ref=f1e58]
+          - list [ref=f1e59]:
+            - listitem [ref=f1e60]:
+              - img [ref=f1e61]
+              - generic [ref=f1e63]: All download traffic routed through ProtonVPN WireGuard with firewall kill switch — no leaks if VPN drops
+            - listitem [ref=f1e64]:
+              - img [ref=f1e65]
+              - generic [ref=f1e67]: "gluetun-monitor cascade restart: detects Gluetun namespace changes, waits for healthy status, stops and recreates all 9 VPN-dependent services with exponential backoff retries"
+            - listitem [ref=f1e68]:
+              - img [ref=f1e69]
+              - generic [ref=f1e71]: Rate limiting on cascade restarts (max 5/hr) with loop detection and 1-hour pause
+            - listitem [ref=f1e72]:
+              - img [ref=f1e73]
+              - generic [ref=f1e75]: Daily container image updates via What's Up Docker + Python webhook server — zero manual intervention
+            - listitem [ref=f1e76]:
+              - img [ref=f1e77]
+              - generic [ref=f1e79]: Push notifications via ntfy.sh at every automation stage (updates, restarts, failures)
+            - listitem [ref=f1e80]:
+              - img [ref=f1e81]
+              - generic [ref=f1e83]: Hardlink-based media import — file exists in two paths, occupies disk space once, seeding continues uninterrupted
+            - listitem [ref=f1e84]:
+              - img [ref=f1e85]
+              - generic [ref=f1e87]: Recyclarr syncs TRaSH Guides quality profiles and custom formats to Sonarr/Radarr on a schedule
+            - listitem [ref=f1e88]:
+              - img [ref=f1e89]
+              - generic [ref=f1e91]: cross-seed daemon matches completed downloads against other indexers for zero-bandwidth ratio boosting
+            - listitem [ref=f1e92]:
+              - img [ref=f1e93]
+              - generic [ref=f1e95]: "Three self-healing layers: Docker healthchecks → Autoheal watchdog → gluetun-monitor cascade restart"
+            - listitem [ref=f1e96]:
+              - img [ref=f1e97]
+              - generic [ref=f1e99]: Maintainerr rules automatically remove stale media from Plex based on watch history thresholds
+            - listitem [ref=f1e100]:
+              - img [ref=f1e101]
+              - generic [ref=f1e103]: SuggestArr sends AI-powered media recommendations back into Seerr automatically
+            - listitem [ref=f1e104]:
+              - img [ref=f1e105]
+              - generic [ref=f1e107]: VPN port forwarding auto-updates qBittorrent listening port on each VPN session via Gluetun API commands
+            - listitem [ref=f1e108]:
+              - img [ref=f1e109]
+              - generic [ref=f1e111]: stack-manage.sh wraps all docker compose operations per stack with a clean CLI interface
+            - listitem [ref=f1e112]:
+              - img [ref=f1e113]
+              - generic [ref=f1e115]: Timestamped config backups excluding media files for fast disaster recovery
+        - generic [ref=f1e116]:
+          - heading "Architecture" [level=3] [ref=f1e117]
+          - generic [ref=f1e118]:
+            - generic [ref=f1e119]:
+              - heading "Three-Stack Architecture" [level=4] [ref=f1e120]
+              - paragraph [ref=f1e121]: The system is split into three independent Docker Compose projects sharing a common bridge network (homelab_media_network). Each stack can be updated or restarted without affecting the others.
+            - generic [ref=f1e122]:
+              - heading "Network Topology" [level=4] [ref=f1e123]
+              - paragraph [ref=f1e124]: Three distinct network zones enforce traffic isolation. All torrent services share the Gluetun VPN namespace and communicate via localhost. No traffic leaves without passing through WireGuard.
+            - generic [ref=f1e125]:
+              - heading "VPN Auto-Healing Flow" [level=4] [ref=f1e126]
+              - paragraph [ref=f1e127]: When Gluetun restarts it creates a new network namespace, orphaning all dependent containers. gluetun-monitor detects this via SandboxKey comparison, waits up to 300s for Gluetun to become healthy, then stops and recreates all 9 VPN-dependent services with retry logic and rate limiting.
+            - generic [ref=f1e128]:
+              - heading "Media Request Pipeline" [level=4] [ref=f1e129]
+              - paragraph [ref=f1e130]: End-to-end flow from a user request to media appearing in Plex, fully automated across seven services.
+            - generic [ref=f1e131]:
+              - heading "Container Auto-Update Pipeline" [level=4] [ref=f1e132]
+              - paragraph [ref=f1e133]: What's Up Docker checks all image tags daily at 06:00. Updates trigger a webhook to a Python server which pulls the new image and recreates the container. Success and failure are reported via push notification.
+        - generic [ref=f1e135]:
+          - link "← View All Projects" [ref=f1e136] [cursor=pointer]:
+            - /url: /
+            - button "← View All Projects" [ref=f1e137]
+          - link "Interested? Let's Talk →" [ref=f1e138] [cursor=pointer]:
+            - /url: /#contact
+            - button "Interested? Let's Talk →" [ref=f1e139]
+  - alert [ref=f1e140]

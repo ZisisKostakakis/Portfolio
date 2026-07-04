@@ -33,7 +33,7 @@ export default function HeroSection() {
         className="absolute inset-0 bg-grid-lines bg-grid pointer-events-none [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,black_30%,transparent_100%)]"
         aria-hidden="true"
       />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-gold/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-violet/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-16 py-24">
         {/* Left column */}
@@ -84,7 +84,7 @@ export default function HeroSection() {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary-slate hover:text-primary-gold hover:-translate-y-0.5 transition-all duration-200"
+                className="text-primary-slate hover:text-primary-violet hover:-translate-y-0.5 transition-all duration-200"
                 aria-label={social.ariaLabel}
               >
                 {social.name === 'LinkedIn' && (
@@ -111,7 +111,7 @@ export default function HeroSection() {
         >
           <div className="relative w-full max-w-lg group">
             {/* Glow behind terminal */}
-            <div className="absolute -inset-1 bg-gradient-gold rounded-xl opacity-15 blur-lg group-hover:opacity-25 transition-opacity duration-500 pointer-events-none" />
+            <div className="absolute -inset-1 bg-gradient-violet rounded-xl opacity-15 blur-lg group-hover:opacity-25 transition-opacity duration-500 pointer-events-none" />
 
             <div className="relative bg-primary-navy-light/90 backdrop-blur-sm border border-primary-gray-dark rounded-xl overflow-hidden shadow-custom-lg">
               <div className="flex items-center gap-2 px-4 py-3 bg-primary-gray/50 border-b border-primary-gray-dark">
@@ -122,7 +122,7 @@ export default function HeroSection() {
               </div>
               <pre className="p-6 text-sm font-mono leading-relaxed overflow-x-auto">
                 <code>
-                  <span className="text-primary-gold">const</span>{' '}
+                  <span className="text-primary-violet">const</span>{' '}
                   <span className="text-blue-400">engineer</span>{' '}
                   <span className="text-primary-charcoal">=</span> {'{'}
                   {'\n'} <span className="text-green-400">name</span>:{' '}
@@ -138,9 +138,9 @@ export default function HeroSection() {
                   <span className="text-amber-300">&quot;TypeScript&quot;</span>,{' '}
                   <span className="text-amber-300">&quot;Docker&quot;</span>,{'\n'} ],
                   {'\n'} <span className="text-green-400">available</span>:{' '}
-                  <span className="text-primary-gold">true</span>,{'\n'}
+                  <span className="text-primary-violet">true</span>,{'\n'}
                   {'}'};
-                  <span className="inline-block w-2 h-4 ml-1 align-middle bg-primary-gold animate-blink" />
+                  <span className="inline-block w-2 h-4 ml-1 align-middle bg-primary-violet animate-blink" />
                 </code>
               </pre>
             </div>
@@ -151,14 +151,14 @@ export default function HeroSection() {
       {/* Scroll cue */}
       <motion.a
         href="#about"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2 text-primary-slate hover:text-primary-gold transition-colors duration-200"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2 text-primary-slate hover:text-primary-violet transition-colors duration-200"
         initial={prefersReducedMotion ? false : { opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8 }}
         aria-label="Scroll to about section"
       >
         <span className="font-mono text-xs tracking-widest uppercase">Scroll</span>
-        <span className="block w-px h-8 bg-gradient-to-b from-primary-gold to-transparent" />
+        <span className="block w-px h-8 bg-gradient-to-b from-primary-violet to-transparent" />
       </motion.a>
     </section>
   );

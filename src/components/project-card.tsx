@@ -21,7 +21,7 @@ export default function ProjectCard({ project, className, featured = false }: Pr
           'relative h-full rounded-xl overflow-hidden',
           'bg-primary-navy-light border border-primary-gray-dark shadow-custom',
           'transition-all duration-200',
-          'hover:shadow-glow hover:border-primary-gold/30 hover:-translate-y-2',
+          'hover:shadow-glow hover:border-primary-violet/30 hover:-translate-y-2',
           featured && 'md:grid md:grid-cols-[6fr_5fr]',
           className
         )}
@@ -37,7 +37,7 @@ export default function ProjectCard({ project, className, featured = false }: Pr
             <ProjectThumb thumb={project.thumb} alt={project.title} />
           ) : (
             <div className="absolute inset-0 bg-dot-grid bg-dots flex flex-col items-center justify-center gap-3">
-              <span className="text-4xl font-display font-bold text-primary-gold/40">
+              <span className="text-4xl font-display font-bold text-primary-violet/40">
                 {project.title
                   .split(' ')
                   .map((w) => w[0])
@@ -65,7 +65,7 @@ export default function ProjectCard({ project, className, featured = false }: Pr
         </div>
 
         <div className="relative p-6 flex flex-col">
-          <h3 className="text-xl sm:text-2xl font-bold text-primary-white mb-3 group-hover:text-primary-gold transition-colors duration-300">
+          <h3 className="text-xl sm:text-2xl font-bold text-primary-white mb-3 group-hover:text-primary-violet transition-colors duration-300">
             {project.title}
           </h3>
 
@@ -93,7 +93,7 @@ export default function ProjectCard({ project, className, featured = false }: Pr
             </div>
           )}
 
-          <div className="flex items-center text-primary-gold font-medium mt-auto pt-4">
+          <div className="flex items-center text-primary-violet font-medium mt-auto pt-4">
             <span className="mr-2">View Project</span>
             <svg
               className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-150"

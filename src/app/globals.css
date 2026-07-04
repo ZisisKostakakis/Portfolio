@@ -28,11 +28,11 @@
   }
 
   ::selection {
-    @apply bg-primary-gold/40 text-primary-white;
+    @apply bg-primary-violet/40 text-primary-white;
   }
 
   *:focus-visible {
-    @apply outline-none ring-2 ring-primary-gold ring-offset-2 ring-offset-primary-navy;
+    @apply outline-none ring-2 ring-primary-violet ring-offset-2 ring-offset-primary-navy;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -49,7 +49,7 @@
 
 @layer components {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-gold;
+    @apply bg-clip-text text-transparent bg-gradient-violet;
   }
 
   .shimmer {
@@ -62,7 +62,7 @@
   }
 
   .skip-to-content {
-    @apply absolute left-0 top-0 -translate-y-full bg-primary-gold px-4 py-2 text-white transition-transform focus:translate-y-0 z-50;
+    @apply absolute left-0 top-0 -translate-y-full bg-primary-violet px-4 py-2 text-white transition-transform focus:translate-y-0 z-50;
   }
 }
 
@@ -81,6 +81,6 @@
   }
 
   .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary-gold;
+    @apply bg-primary-violet;
   }
 }

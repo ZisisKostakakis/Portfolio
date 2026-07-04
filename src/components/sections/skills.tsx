@@ -21,7 +21,7 @@ export default function SkillsSection() {
                 {section.skills.map((skill) => (
                   <div
                     key={skill.name}
-                    className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-primary-navy-light border border-primary-gray-dark hover:border-primary-gold/30 hover:-translate-y-0.5 hover:shadow-glow-sm transition-all duration-200"
+                    className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-primary-navy-light border border-primary-gray-dark hover:border-primary-violet/30 hover:-translate-y-0.5 hover:shadow-glow-sm transition-all duration-200"
                   >
                     <div className="relative w-6 h-6 flex-shrink-0">
                       <Image

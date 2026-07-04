@@ -10,11 +10,11 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
   ({ className, variant = 'default', size = 'md', ...props }, ref) => {
     const variants = {
       default: 'bg-primary-gray-light text-primary-charcoal',
-      primary: 'bg-primary-gold text-white',
+      primary: 'bg-primary-violet text-white',
       secondary: 'bg-primary-gray text-primary-slate',
       success: 'bg-green-500/20 text-green-400',
       warning: 'bg-yellow-500/20 text-yellow-400',
-      outline: 'border-2 border-primary-gold text-primary-gold bg-transparent',
+      outline: 'border-2 border-primary-violet text-primary-violet bg-transparent',
     };
 
     const sizes = {

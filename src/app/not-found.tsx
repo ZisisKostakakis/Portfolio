@@ -35,21 +35,21 @@ export default function NotFound() {
             <div className="flex flex-wrap gap-3 justify-center">
               <Link
                 href="/#about"
-                className="text-primary-charcoal hover:text-primary-gold transition-colors duration-200 text-sm"
+                className="text-primary-charcoal hover:text-primary-violet transition-colors duration-200 text-sm"
               >
                 About Me
               </Link>
               <span className="text-primary-gray-dark">&bull;</span>
               <Link
                 href="/projects/transport-info"
-                className="text-primary-charcoal hover:text-primary-gold transition-colors duration-200 text-sm"
+                className="text-primary-charcoal hover:text-primary-violet transition-colors duration-200 text-sm"
               >
                 Transport Info
               </Link>
               <span className="text-primary-gray-dark">&bull;</span>
               <Link
                 href="/projects/camera-ocr"
-                className="text-primary-charcoal hover:text-primary-gold transition-colors duration-200 text-sm"
+                className="text-primary-charcoal hover:text-primary-violet transition-colors duration-200 text-sm"
               >
                 Camera OCR
               </Link>
@@ -58,8 +58,8 @@ export default function NotFound() {
         </div>
 
         <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary-gold/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary-gold/3 rounded-full blur-3xl" />
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary-violet/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary-violet/3 rounded-full blur-3xl" />
         </div>
       </div>
     </main>

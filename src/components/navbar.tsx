@@ -111,7 +111,7 @@ const Navbar: React.FC = () => {
             className="flex items-center group"
             aria-label="Zisis Kostakakis - Home"
           >
-            <span className="text-xl sm:text-2xl font-semibold text-primary-white transition-colors duration-150 group-hover:text-primary-gold">
+            <span className="text-xl sm:text-2xl font-semibold text-primary-white transition-colors duration-150 group-hover:text-primary-violet">
               ZK
               <span className="hidden sm:inline ml-1"> · Zisis Kostakakis</span>
             </span>
@@ -130,12 +130,14 @@ const Navbar: React.FC = () => {
                       onClick={(e) => handleNavClick(e, item.href)}
                       className={cn(
                         'relative px-4 py-2 text-base lg:text-lg font-medium transition-colors duration-150',
-                        active ? 'text-primary-gold' : 'text-primary-white hover:text-primary-gold'
+                        active
+                          ? 'text-primary-violet'
+                          : 'text-primary-white hover:text-primary-violet'
                       )}
                     >
                       {item.label}
                       {active && (
-                        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-gold" />
+                        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-violet" />
                       )}
                     </a>
                   </li>
@@ -203,8 +205,8 @@ const Navbar: React.FC = () => {
                     className={cn(
                       'block px-4 py-3 rounded-lg text-lg font-medium transition-colors duration-150',
                       active
-                        ? 'bg-primary-gold text-white'
-                        : 'text-primary-white hover:bg-primary-gray-light hover:text-primary-gold'
+                        ? 'bg-primary-violet text-white'
+                        : 'text-primary-white hover:bg-primary-gray-light hover:text-primary-violet'
                     )}
                   >
                     {item.label}

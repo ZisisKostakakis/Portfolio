@@ -20,7 +20,7 @@ export default function SectionHeading({
   return (
     <Reveal className={className}>
       <p className="font-mono text-sm tracking-widest uppercase mb-4">
-        <span className="text-primary-gold">{index}</span>
+        <span className="text-primary-violet">{index}</span>
         <span className="text-primary-gray-dark mx-2">{'//'}</span>
         <span className="text-primary-slate">{eyebrow}</span>
       </p>
