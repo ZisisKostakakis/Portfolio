@@ -16,7 +16,19 @@ export const experiences: Experience[] = [
       'Built internal database tool for watch management',
       'Created automated scripts for EC2 provisioning using Terraform and Bash',
     ],
-    technologies: ['Python', 'Terraform', 'AWS Lambda', 'API Gateway', 'DynamoDB', 'ECR', 'IAM', 'Cognito', 'EC2', 'Bash', 'Docker'],
+    technologies: [
+      'Python',
+      'Terraform',
+      'AWS Lambda',
+      'API Gateway',
+      'DynamoDB',
+      'ECR',
+      'IAM',
+      'Cognito',
+      'EC2',
+      'Bash',
+      'Docker',
+    ],
     startDate: '2025-01',
   },
   {
@@ -67,3 +79,8 @@ export const experiences: Experience[] = [
     endDate: '2026-04',
   },
 ];
+
+/** Experiences sorted most-recent first for the timeline. */
+export const sortedExperiences = [...experiences].sort((a, b) =>
+  b.startDate.localeCompare(a.startDate)
+);

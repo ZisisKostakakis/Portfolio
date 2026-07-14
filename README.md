@@ -1,24 +1,36 @@
-Front end page for Website
+# fable-5-portfolio
 
-**https://www.zisiskostakakis.com/**
+Redesigned portfolio for **https://www.zisiskostakakis.com/** — a ground-up rebuild of the original `Portfolio` project with the same content and data, and a new visual identity.
+
+## Stack
+
+- **Next.js 15** (App Router, static generation for all pages)
+- **React 19** + TypeScript
+- **Tailwind CSS v4** (CSS-first `@theme` config — no `tailwind.config.js`)
+- **Framer Motion** for reveal/stagger animations (respects `prefers-reduced-motion`)
+- **Mermaid** for architecture diagrams on project case-study pages
+- **Resend** for the contact form email delivery
+
+## Structure
+
+- `src/lib/data/` — all content (personal info, projects, experience, skills, project case studies). Data is identical to the original portfolio; everything on screen derives from these files.
+- `src/components/sections/` — homepage sections (hero, marquee, about, experience, projects, contact)
+- `src/components/project-detail.tsx` — case-study page template with sticky sidebar, features grid, Mermaid architecture diagrams, demos, screenshots, and prev/next navigation
+- `src/app/projects/[slug]/` — statically generated case-study routes
+
+## Development
+
+```bash
+npm install
+npm run dev
+```
 
 ## Environment Variables
 
-To enable the contact form email functionality, you need to set up the following environment variable:
+The contact form requires a [Resend](https://resend.com) API key:
 
-### Required
+```
+RESEND_API_KEY=your_resend_api_key_here
+```
 
-- `RESEND_API_KEY` - Your Resend API key for sending emails
-
-### Setup Instructions
-
-1. Get your Resend API key from [https://resend.com](https://resend.com)
-2. For local development, create a `.env.local` file in the root directory:
-   ```
-   RESEND_API_KEY=your_resend_api_key_here
-   ```
-3. For production (Vercel), add the environment variable in your Vercel project settings:
-   - Go to your project settings → Environment Variables
-   - Add `RESEND_API_KEY` with your API key value
-
-**Note:** The contact form sends emails to the address defined in `src/lib/data/personal.ts` (currently `business@zisiskostakakis.com`).
+Set it in `.env.local` for local development, or in Vercel project settings for production. Emails are sent to the address in `src/lib/data/personal.ts` (`business@zisiskostakakis.com`).

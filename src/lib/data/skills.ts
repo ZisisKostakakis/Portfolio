@@ -37,8 +37,3 @@ export const getAllSkills = () => {
     }))
   );
 };
-
-export const getSkillsByCategory = (category: string) => {
-  const section = skillSections.find((s) => s.id === category);
-  return section ? section.skills : [];
-};
