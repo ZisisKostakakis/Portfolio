@@ -54,7 +54,16 @@ const projectsData: Project[] = [
     image: '/images/Transport-Info.png',
     githubUrl: 'https://github.com/ZisisKostakakis',
     liveUrl: 'https://transportinfo.zisiskostakakis.com',
-    technologies: ['Python', 'Flask', 'AWS Lambda', 'DynamoDB', 'API Gateway', 'S3', 'CloudWatch', 'Terraform'],
+    technologies: [
+      'Python',
+      'Flask',
+      'AWS Lambda',
+      'DynamoDB',
+      'API Gateway',
+      'S3',
+      'CloudWatch',
+      'Terraform',
+    ],
     category: 'Full Stack',
     date: '2023',
     features: [
@@ -77,7 +86,18 @@ const projectsData: Project[] = [
     image: '/images/Date-Calculator.png',
     githubUrl: 'https://github.com/ZisisKostakakis/date-calculator',
     liveUrl: 'https://date-calc.zisiskostakakis.com',
-    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Flask', 'Python', 'AWS Lambda', 'AWS API Gateway', 'Docker', 'Vercel'],
+    technologies: [
+      'Next.js',
+      'React',
+      'TypeScript',
+      'Tailwind CSS',
+      'Flask',
+      'Python',
+      'AWS Lambda',
+      'AWS API Gateway',
+      'Docker',
+      'Vercel',
+    ],
     category: 'Full Stack',
     date: '2025',
     features: [
@@ -221,7 +241,15 @@ const projectsData: Project[] = [
     image: '/images/Property-Pal-Scraper.png',
     githubUrl: 'https://github.com/ZisisKostakakis/property-pal-scraper',
     liveUrl: 'https://property-pal-analyser.zisiskostakakis.com/',
-    technologies: ['Python', 'Scrapy', 'Perplexity API', 'Pydantic', 'Web Scraping', 'Data Pipelines', 'Geocoding'],
+    technologies: [
+      'Python',
+      'Scrapy',
+      'Perplexity API',
+      'Pydantic',
+      'Web Scraping',
+      'Data Pipelines',
+      'Geocoding',
+    ],
     category: 'Automation',
     date: '2026',
     features: [
@@ -242,10 +270,9 @@ export const projects: Project[] = [...projectsData].sort((a, b) => {
   return (a.order ?? 999) - (b.order ?? 999);
 });
 
+export const featuredProjects = projects.slice(0, 3);
+export const moreProjects = projects.slice(3);
+
 export const getProjectById = cache((id: string): Project | undefined => {
   return projects.find((project) => project.id === id);
-});
-
-export const getProjectsByCategory = cache((category: string): Project[] => {
-  return projects.filter((project) => project.category === category);
 });

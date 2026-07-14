@@ -34,3 +34,20 @@ export const navItems: NavItem[] = [
   { label: 'Projects', href: '#projects' },
   { label: 'Contact', href: '#contact' },
 ];
+
+export const SITE_CONFIG = {
+  name: 'Zisis Kostakakis Portfolio',
+  url: 'https://www.zisiskostakakis.com',
+  description: 'Software Engineer specializing in AWS cloud solutions and modern web development',
+  author: 'Zisis Kostakakis',
+  keywords: [
+    'Software Engineer',
+    'AWS',
+    'Python',
+    'TypeScript',
+    'Next.js',
+    'React',
+    'Cloud Computing',
+    'Terraform',
+  ],
+} as const;

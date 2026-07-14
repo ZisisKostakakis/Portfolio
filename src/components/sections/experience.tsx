@@ -1,76 +1,77 @@
-'use client';
-
-import { experiences } from '@/lib/data/experience';
-import { Badge } from '@/components/ui/badge';
-import Reveal from '@/components/reveal';
+import { sortedExperiences } from '@/lib/data/experience';
 import SectionHeading from '@/components/section-heading';
-
-function ExperienceCard({ exp }: { exp: (typeof experiences)[number] }) {
-  return (
-    <div className="relative p-6 rounded-xl bg-primary-navy-light border border-primary-gray-dark hover:border-primary-gold/30 hover:shadow-glow-sm transition-all duration-200 before:absolute before:left-0 before:top-6 before:bottom-6 before:w-0.5 before:rounded-full before:bg-gradient-to-b before:from-primary-gold/60 before:to-transparent">
-      <p className="font-mono text-sm text-primary-slate mb-1">{exp.duration}</p>
-      <h3 className="text-xl font-bold text-primary-white">{exp.company}</h3>
-      <p className="text-primary-gold font-medium mb-3">{exp.position}</p>
-      {exp.location && <p className="text-sm text-primary-slate mb-3">{exp.location}</p>}
-      <ul className="space-y-2 mb-4">
-        {exp.description.map((item, i) => (
-          <li key={i} className="text-sm text-primary-slate flex items-start gap-2">
-            <span className="text-primary-gold mt-1.5 flex-shrink-0">&#8226;</span>
-            {item}
-          </li>
-        ))}
-      </ul>
-      <div className="flex flex-wrap gap-2">
-        {exp.technologies.map((tech) => (
-          <Badge key={tech} variant="secondary" size="sm">
-            {tech}
-          </Badge>
-        ))}
-      </div>
-    </div>
-  );
-}
+import Reveal from '@/components/reveal';
+import { Badge } from '@/components/ui/badge';
 
 export default function ExperienceSection() {
-  const permanent = experiences.filter((e) => e.type === 'permanent');
-  const contracts = experiences.filter((e) => e.type === 'contract');
-
   return (
-    <section id="experience" className="py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
+    <section id="experience" className="relative px-4 py-28 sm:px-6">
+      <div className="mx-auto max-w-6xl">
         <SectionHeading index="02" eyebrow="where I've been">
-          Work <span className="text-gradient">Experience</span>
+          Professional <span className="text-gradient">journey</span>
         </SectionHeading>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Permanent column */}
-          <div>
-            <p className="font-mono text-xs font-semibold tracking-widest uppercase text-primary-gold/70 mb-6">
-              Permanent
-            </p>
-            <div className="flex flex-col gap-6">
-              {permanent.map((exp, i) => (
-                <Reveal key={exp.id} delay={i * 0.08}>
-                  <ExperienceCard exp={exp} />
-                </Reveal>
-              ))}
-            </div>
-          </div>
+        <ol className="relative before:absolute before:top-2 before:bottom-2 before:left-[7px] before:w-px before:bg-gradient-to-b before:from-accent/70 before:via-line before:to-transparent">
+          {sortedExperiences.map((exp, i) => (
+            <li
+              key={exp.id}
+              className="relative mb-12 border-b border-line-soft pb-12 pl-10 last:mb-0 last:border-b-0 last:pb-0 sm:pl-14"
+            >
+              {/* Timeline node */}
+              <span
+                aria-hidden
+                className="absolute top-2 left-0 flex h-[15px] w-[15px] items-center justify-center"
+              >
+                <span className="absolute h-full w-full rounded-full border border-accent/60 bg-void" />
+                <span className="relative h-[5px] w-[5px] rounded-full bg-accent" />
+              </span>
 
-          {/* Contract column */}
-          <div>
-            <p className="font-mono text-xs font-semibold tracking-widest uppercase text-primary-gold/70 mb-6">
-              Contract
-            </p>
-            <div className="flex flex-col gap-6">
-              {contracts.map((exp, i) => (
-                <Reveal key={exp.id} delay={i * 0.08}>
-                  <ExperienceCard exp={exp} />
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </div>
+              <Reveal delay={i * 0.05}>
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <h3 className="font-display text-xl font-bold text-ink sm:text-2xl">
+                      {exp.position}
+                    </h3>
+                    <p className="mt-1 text-lg text-accent-soft">{exp.company}</p>
+                  </div>
+                  <div className="flex flex-col items-start gap-2 sm:items-end">
+                    <span className="font-mono text-sm text-muted">{exp.duration}</span>
+                    <div className="flex gap-2">
+                      <Badge variant={exp.type === 'contract' ? 'accent' : 'neutral'}>
+                        {exp.type}
+                      </Badge>
+                      {exp.location && <Badge variant="outline">{exp.location}</Badge>}
+                    </div>
+                  </div>
+                </div>
+
+                {exp.description.length > 0 && (
+                  <ul className="mt-6 space-y-2.5">
+                    {exp.description.map((point, j) => (
+                      <li key={j} className="flex items-start gap-3 text-[15px] leading-relaxed text-muted">
+                        <span aria-hidden className="mt-2 h-1 w-4 shrink-0 rounded-full bg-accent/50" />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {exp.technologies.length > 0 && (
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {exp.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded-md bg-white/[0.04] px-2.5 py-1 font-mono text-xs text-ink-soft"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </Reveal>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );
