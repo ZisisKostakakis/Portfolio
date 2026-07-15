@@ -51,9 +51,6 @@ export default function AboutSection() {
               <span className="rounded-full border border-line px-4 py-2 font-mono text-sm text-ink-soft">
                 {personalInfo.location}
               </span>
-              <span className="rounded-full border border-mint/30 bg-mint/5 px-4 py-2 font-mono text-sm text-mint">
-                ● {personalInfo.availability}
-              </span>
             </div>
           </Reveal>
 

@@ -5,7 +5,7 @@ export const experiences: Experience[] = [
     id: 'experience-paiwe',
     company: 'Paiwe',
     position: 'Software Engineer & Cloud Architect',
-    duration: '2025 – Present',
+    duration: '2025 - Present',
     location: 'United Kingdom',
     type: 'contract' as const,
     description: [
@@ -51,7 +51,7 @@ export const experiences: Experience[] = [
     id: 'experience-zerion',
     company: 'Zerion Software',
     position: 'Full Stack Engineer',
-    duration: 'Apr 2026 – Present',
+    duration: 'Apr 2026 - Present',
     location: 'Belfast, Northern Ireland',
     type: 'permanent' as const,
     description: [],
@@ -62,7 +62,7 @@ export const experiences: Experience[] = [
     id: 'experience-stormharvester',
     company: 'StormHarvester Limited',
     position: 'Software Development Engineer R&D',
-    duration: 'Aug 2022 – Apr 2026',
+    duration: 'Aug 2022 - Apr 2026',
     location: 'Belfast, Northern Ireland',
     type: 'permanent' as const,
     description: [

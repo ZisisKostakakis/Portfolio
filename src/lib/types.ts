@@ -63,7 +63,6 @@ export interface PersonalInfo {
   tagline: string;
   email: string;
   location?: string;
-  availability?: string;
   yearsOfExperience?: number;
 }
 

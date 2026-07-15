@@ -7,7 +7,6 @@ export const personalInfo: PersonalInfo = {
     'I build cloud systems in Python and AWS, automate infrastructure with Terraform, lead teams to MVP delivery, and integrate private AI/LLM systems.',
   email: 'business@zisiskostakakis.com',
   location: 'United Kingdom',
-  availability: 'Open to opportunities',
   yearsOfExperience: 3,
 };
 
