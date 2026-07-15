@@ -4,7 +4,7 @@ export const personalInfo: PersonalInfo = {
   name: 'Zisis Kostakakis',
   title: 'Software Engineer & Cloud Architect',
   tagline:
-    'Software Engineer & Cloud Architect specialising in Python and AWS — I architect scalable cloud solutions, automate infrastructure with Terraform, lead teams to MVP delivery, and integrate private AI/LLM systems.',
+    'I build cloud systems in Python and AWS, automate infrastructure with Terraform, lead teams to MVP delivery, and integrate private AI/LLM systems.',
   email: 'business@zisiskostakakis.com',
   location: 'United Kingdom',
   availability: 'Open to opportunities',
@@ -38,7 +38,7 @@ export const navItems: NavItem[] = [
 export const SITE_CONFIG = {
   name: 'Zisis Kostakakis Portfolio',
   url: 'https://www.zisiskostakakis.com',
-  description: 'Software Engineer specializing in AWS cloud solutions and modern web development',
+  description: 'Software Engineer working with Python, AWS, and web development',
   author: 'Zisis Kostakakis',
   keywords: [
     'Software Engineer',

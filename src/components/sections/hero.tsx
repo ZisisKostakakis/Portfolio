@@ -24,12 +24,9 @@ export default function HeroSection() {
   const [firstName, ...restName] = personalInfo.name.split(' ');
 
   return (
-    <section className="noise relative flex min-h-screen flex-col justify-center overflow-hidden px-4 sm:px-6">
-      {/* Aurora background */}
+    <section className="relative flex min-h-screen flex-col justify-center overflow-hidden px-4 sm:px-6">
       <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-1/4 left-[8%] h-[34rem] w-[34rem] rounded-full bg-accent/[0.16] blur-[130px] animate-drift-a" />
-        <div className="absolute top-[30%] right-[-10%] h-[30rem] w-[30rem] rounded-full bg-violet/[0.15] blur-[130px] animate-drift-b" />
-        <div className="absolute bottom-[-20%] left-[35%] h-[26rem] w-[26rem] rounded-full bg-accent-2/[0.11] blur-[130px] animate-drift-c" />
+        <div className="absolute -top-1/4 left-[8%] h-[34rem] w-[34rem] rounded-full bg-accent/[0.08] blur-[130px]" />
         <div className="bg-grid absolute inset-0 [mask-image:radial-gradient(ellipse_75%_60%_at_50%_40%,black_25%,transparent_100%)]" />
       </div>
 
@@ -57,7 +54,7 @@ export default function HeroSection() {
           >
             {firstName}
             <br />
-            <span className="text-gradient">{restName.join(' ')}</span>
+            <span className="text-accent">{restName.join(' ')}</span>
           </motion.h1>
 
           <motion.p
@@ -82,71 +79,43 @@ export default function HeroSection() {
           </motion.div>
         </motion.div>
 
-        {/* Right — terminal card */}
+        {/* Right: summary card */}
         <motion.div
           className="hidden items-center lg:flex"
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 36, scale: 0.97 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 36 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
         >
-          <div className="group relative w-full">
-            <div
-              aria-hidden
-              className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-accent/40 via-transparent to-violet/40 opacity-60 blur-xl transition-opacity duration-500 group-hover:opacity-100"
-            />
-            <div className="glass relative overflow-hidden rounded-2xl">
-              <div className="flex items-center gap-2 border-b border-line-soft bg-white/[0.03] px-4 py-3">
-                <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
-                <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
-                <span className="h-3 w-3 rounded-full bg-[#28c840]" />
-                <span className="ml-3 font-mono text-xs text-muted">~/zisis — zsh</span>
+          <div className="glass w-full rounded-2xl p-8">
+            <h2 className="font-mono text-xs tracking-[0.2em] text-muted uppercase">
+              At a glance
+            </h2>
+            <dl className="mt-6 space-y-5">
+              <div>
+                <dt className="font-mono text-xs text-muted">Role</dt>
+                <dd className="mt-1 text-sm text-ink-soft">{personalInfo.title}</dd>
               </div>
-              <div className="p-6 font-mono text-[13px] leading-7">
-                <p>
-                  <span className="text-mint">➜</span> <span className="text-accent-2">~</span>{' '}
-                  <span className="text-ink">whoami --verbose</span>
-                </p>
-                <p className="text-muted">
-                  <span className="text-accent">name</span>
-                  {'      '}
-                  <span className="text-ink-soft">{personalInfo.name}</span>
-                </p>
-                <p className="text-muted">
-                  <span className="text-accent">role</span>
-                  {'      '}
-                  <span className="text-ink-soft">{personalInfo.title}</span>
-                </p>
-                <p className="text-muted">
-                  <span className="text-accent">location</span>
-                  {'  '}
-                  <span className="text-ink-soft">{personalInfo.location}</span>
-                </p>
-                <p className="text-muted">
-                  <span className="text-accent">stack</span>
-                  {'     '}
-                  <span className="text-ink-soft">
-                    [Python, AWS, Terraform, TypeScript, Docker]
-                  </span>
-                </p>
-                <p className="text-muted">
-                  <span className="text-accent">focus</span>
-                  {'     '}
-                  <span className="text-ink-soft">cloud architecture · automation · AI/LLM</span>
-                </p>
-                <p className="mt-2">
-                  <span className="text-mint">➜</span> <span className="text-accent-2">~</span>{' '}
-                  <span className="text-ink">status</span>
-                </p>
-                <p>
-                  <span className="text-mint">● available</span>
-                  <span className="text-muted"> — open to opportunities</span>
-                </p>
-                <p className="mt-2">
-                  <span className="text-mint">➜</span> <span className="text-accent-2">~</span>{' '}
-                  <span className="inline-block h-4 w-2 translate-y-0.5 animate-blink bg-accent" />
-                </p>
+              <div>
+                <dt className="font-mono text-xs text-muted">Location</dt>
+                <dd className="mt-1 text-sm text-ink-soft">{personalInfo.location}</dd>
               </div>
-            </div>
+              <div>
+                <dt className="font-mono text-xs text-muted">Stack</dt>
+                <dd className="mt-1 text-sm text-ink-soft">
+                  Python, AWS, Terraform, TypeScript, Docker
+                </dd>
+              </div>
+              <div>
+                <dt className="font-mono text-xs text-muted">Focus</dt>
+                <dd className="mt-1 text-sm text-ink-soft">
+                  Cloud architecture, automation, AI/LLM
+                </dd>
+              </div>
+              <div>
+                <dt className="font-mono text-xs text-muted">Status</dt>
+                <dd className="mt-1 text-sm text-mint">{personalInfo.availability}</dd>
+              </div>
+            </dl>
           </div>
         </motion.div>
       </div>

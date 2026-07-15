@@ -18,9 +18,9 @@ export const projectDetails: Record<
       description: 'Java Game with Graphical User Interface and AI Implementation.',
       longDescription: `Connect-Five is a strategic two-player board game similar to tic-tac-toe, featuring an 8-column by 7-row vertical board. Players take turns placing colored pieces (typically black and red) with the goal of being the first to align five pieces horizontally, vertically, or diagonally.
 
-The game implements a sophisticated AI opponent using the minimax algorithm with alpha-beta pruning optimization, providing challenging gameplay at multiple difficulty levels. The vertical board design adds a unique twist where pieces drop to the lowest available position in each column, creating strategic depth and requiring players to think several moves ahead.
+The AI opponent uses the minimax algorithm with alpha-beta pruning and plays at multiple difficulty levels. Pieces drop to the lowest available position in each column, so players have to think several moves ahead.
 
-Built with Java and Swing, the game features a polished graphical user interface that makes gameplay intuitive and enjoyable. The AI implementation showcases advanced game theory concepts and provides an excellent demonstration of algorithmic problem-solving in game development.`,
+The game is built with Java and Swing, with a custom GUI for board rendering and piece animations.`,
       image: '/images/Connect-5-one.png',
       githubUrl: 'https://github.com/ZisisKostakakis/Connect-5-game',
       technologies: [
@@ -35,13 +35,12 @@ Built with Java and Swing, the game features a polished graphical user interface
       date: '2023',
       features: [
         'Custom graphical user interface using Java Swing',
-        'Intelligent AI opponent with minimax algorithm',
+        'AI opponent with minimax algorithm',
         'Alpha-beta pruning for optimal move calculation',
         'Multiple difficulty levels',
         'Two-player mode support',
         'Win detection for horizontal, vertical, and diagonal alignments',
-        'Smooth piece dropping animations',
-        'Strategic gameplay with depth and complexity',
+        'Piece dropping animations',
       ],
       screenshots: [
         {
@@ -60,11 +59,11 @@ Built with Java and Swing, the game features a polished graphical user interface
       href: '/projects/camera-ocr',
       title: 'Camera OCR',
       description: 'iOS App that uses OCR to detect text from camera and ML Emotion Detection.',
-      longDescription: `Camera OCR is an innovative iOS application that leverages Optical Character Recognition to convert pictures into editable text.
+      longDescription: `Camera OCR is an iOS application that uses Optical Character Recognition to convert pictures into editable text.
 
-The app offers multiple practical features including text-to-speech conversion, automatic email address detection with Mail app integration, and to-do list creation capabilities. It also includes local scheduling notifications for enhanced productivity.
+The app includes text-to-speech conversion, automatic email address detection with Mail app integration, to-do list creation, and local scheduled notifications.
 
-This dissertation project uniquely combines OCR technology with machine learning to detect emotional sentiment in text, making it particularly valuable for healthcare communication. For instance, less tech-savvy individuals can write a letter to their doctor, take a photo, and send it as an email with detected emotion metadata. This helps healthcare providers understand patients' emotional states and prioritize care accordingly, bridging the digital divide in healthcare communication.`,
+This dissertation project combines OCR with machine learning to detect emotional sentiment in text, aimed at healthcare communication. A patient can write a letter to their doctor, take a photo, and send it as an email with detected emotion metadata, which helps healthcare providers understand a patient's emotional state and prioritise care.`,
       image: '/images/Camera-OCR.png',
       githubUrl: 'https://github.com/ZisisKostakakis/CameraOCR',
       technologies: [
@@ -85,7 +84,6 @@ This dissertation project uniquely combines OCR technology with machine learning
         'To-do list creation from captured text',
         'Local scheduling notifications',
         'Designed for accessibility and ease of use',
-        'Healthcare communication enhancement',
       ],
       screenshots: [],
       demoVideos: [
@@ -104,13 +102,11 @@ This dissertation project uniquely combines OCR technology with machine learning
       title: 'Transport Info',
       description:
         'Full Stack Web App on AWS that uses public transport data to provide information to users.',
-      longDescription: `Transport-Info is a Full Stack project utilizing both frontend and backend technologies.
+      longDescription: `Transport-Info is a full-stack project for real-time public transport information.
 
 The backend is served by an AWS EC2 server running Flask with Gunicorn and Nginx as web servers. The frontend is served by Vercel using Next.js 13 and TypeScript.
 
-APIs are handled by AWS API Gateway with authentication keys. Data is stored on S3 and DynamoDB and fetched by the backend server upon request from the frontend.
-
-This architecture provides a scalable, secure, and efficient solution for delivering real-time public transport information to users.`,
+APIs are handled by AWS API Gateway with authentication keys. Data is stored on S3 and DynamoDB and fetched by the backend server upon request from the frontend.`,
       image: '/images/Transport-Info.png',
       githubUrl: 'https://github.com/ZisisKostakakis/Transport-Info',
       liveUrl: 'https://transportinfo.zisiskostakakis.com',
@@ -137,8 +133,8 @@ This architecture provides a scalable, secure, and efficient solution for delive
         'Secure API authentication',
         'Scalable data storage with S3 and DynamoDB',
         'Infrastructure as Code with Terraform',
-        'Modern responsive frontend with Next.js 13',
-        'Production-ready deployment on Vercel and AWS',
+        'Responsive frontend with Next.js 13',
+        'Deployed on Vercel and AWS',
       ],
       additionalRepos: [
         { label: 'Backend Repository', url: 'https://github.com/ZisisKostakakis/Web-app-python' },
@@ -149,16 +145,16 @@ This architecture provides a scalable, secure, and efficient solution for delive
   'date-calculator': {
     title: 'Date Calculator | Zisis Kostakakis',
     metaDescription:
-      'Modern web application for calculating and tracking days across custom date ranges with configurable anchor periods.',
+      'Web application for calculating and tracking days across custom date ranges with configurable anchor periods.',
     project: {
       id: 'date-calculator',
       href: '/projects/date-calculator',
       title: 'Date Calculator',
       description:
-        'Modern web application for calculating and tracking days across custom date ranges with configurable anchor periods.',
-      longDescription: `Date Calculator is a full-stack web application designed for calculating and tracking days across custom date ranges with configurable anchor periods. This tool is perfect for tracking travel days, residency requirements, or any time-based calculations that need to be measured against custom yearly periods.
+        'Web application for calculating and tracking days across custom date ranges with configurable anchor periods.',
+      longDescription: `Date Calculator is a full-stack web application for calculating and tracking days across custom date ranges with configurable anchor periods. It was built for tracking travel days, residency requirements, and other counts measured against custom yearly periods.
 
-The frontend is built with Next.js 15 and React 19, featuring an intuitive interface that allows users to add multiple date ranges using a modern date picker, configure custom anchor dates (e.g., September 17 to September 16), and automatically merge overlapping ranges for accurate calculations. The built-in visual heatmap provides a clear visualization of which days fall within each period.
+The frontend is built with Next.js 15 and React 19. Users add date ranges with a calendar picker, configure custom anchor dates (e.g., September 17 to September 16), and overlapping ranges are merged automatically. A heatmap shows which days fall within each period.
 
 The backend is a RESTful API built with Flask (Python) and deployed as a serverless AWS Lambda function using container images. The API handles complex date calculations, overlap merging, heatmap generation, and session management.`,
       image: '/images/Date-Calculator.png',
@@ -181,16 +177,16 @@ The backend is a RESTful API built with Flask (Python) and deployed as a serverl
       category: 'Full Stack',
       date: '2025',
       features: [
-        'Flexible date range management with intuitive range picker interface',
+        'Date range management with a calendar range picker',
         'Custom anchor periods - configure any anchor date (month/day) to define custom yearly periods',
-        'Smart overlap merging - automatically merge overlapping date ranges for accurate calculations',
-        'Visual heatmap - see exactly which days fall within each period with an interactive heatmap',
+        'Overlap merging - overlapping date ranges are merged before counting',
+        'Interactive heatmap showing which days fall within each period',
         'Threshold validation - set minimum day requirements per period and get pass/fail indicators',
-        'Quick presets - fast selection of common ranges (today, last 7/30 days, current/last period)',
+        'Quick presets - today, last 7/30 days, current/last period',
         'Persistent storage - save and load calculation sessions using localStorage',
-        'Modern dark UI - beautiful, responsive dark theme built with Tailwind CSS',
-        'Edge case handling - robust handling of leap years, Feb 29, and invalid dates',
-        'Period boundary calculations - accurate calculations across year transitions',
+        'Responsive dark theme built with Tailwind CSS',
+        'Handles leap years, Feb 29, and invalid dates',
+        'Accurate period boundary calculations across year transitions',
       ],
       additionalRepos: [
         {
@@ -205,11 +201,11 @@ The backend is a RESTful API built with Flask (Python) and deployed as a serverl
           description:
             'The application is split into a statically-deployed Next.js frontend on Vercel and a serverless Flask API on AWS Lambda. The frontend calls the API via API Gateway; Lambda runs the Python calculation engine packaged as a Docker container image.',
           mermaid: `graph TB
-    subgraph CLIENT["🌐 Client (Browser)"]
+    subgraph CLIENT["Client (Browser)"]
         UI["Next.js 15 / React 19\n(Vercel CDN)"]
     end
 
-    subgraph AWS["☁️ AWS"]
+    subgraph AWS["AWS"]
         AG["API Gateway\n(REST)"]
         LM["Lambda Function\n(Flask + Python)"]
     end
@@ -277,11 +273,11 @@ The backend is a RESTful API built with Flask (Python) and deployed as a serverl
       title: 'Student Loan Checker',
       description:
         'Automated Python bot using Playwright to log into the Student Loans Company portal and retrieve loan balance information.',
-      longDescription: `Student Loan Checker is an automated Python bot built with Playwright that securely logs into the Student Loans Company (SLC) portal to retrieve comprehensive loan information. This tool automates the tedious process of manually checking loan balances and provides programmatic access to loan data.
+      longDescription: `Student Loan Checker is a Python bot built with Playwright that logs into the Student Loans Company (SLC) portal and retrieves loan information, replacing the manual process of checking balances and giving programmatic access to the data.
 
-The bot handles the complete authentication flow including email/password login, cookie consent management, and two-factor authentication using secret codes. It navigates through the SLC portal, extracts detailed loan information including current balance, salary repayments, direct repayments, interest added, and current interest rates.
+The bot handles the full authentication flow: email/password login, cookie consent, and two-factor authentication using secret codes. It then navigates the SLC portal and extracts current balance, salary repayments, direct repayments, interest added, and current interest rates.
 
-Built with Python 3.11+ and Playwright, the bot features robust error handling, automatic cookie consent management, and support for both headless and visible browser modes.`,
+It runs on Python 3.11+ and supports both headless and visible browser modes.`,
       image: '/images/Student-Loan-Checker.png',
       githubUrl: 'https://github.com/ZisisKostakakis/student-loan-checker',
       technologies: [
@@ -297,14 +293,14 @@ Built with Python 3.11+ and Playwright, the bot features robust error handling, 
       features: [
         'Automated login with email and password authentication',
         'Two-factor authentication (2FA) / secret code support',
-        'Comprehensive data scraping - extracts balance, salary repayments, direct repayments, interest added, and interest rates',
-        'Secure credential management via environment variables (.env file)',
-        'Robust error handling with detailed error messages',
+        'Extracts balance, salary repayments, direct repayments, interest added, and interest rates',
+        'Credential management via environment variables (.env file)',
+        'Error handling with detailed error messages',
         'Automatic cookie consent management',
-        'Headless and visible browser modes for flexibility',
+        'Headless and visible browser modes',
         'Programmatic API - can be imported and used as a module',
-        'Clean class-based architecture for easy extension',
-        'Comprehensive documentation and setup instructions',
+        'Class-based architecture for easy extension',
+        'Documented setup instructions',
       ],
       screenshots: [],
       architectureSections: [
@@ -382,7 +378,7 @@ Built with Python 3.11+ and Playwright, the bot features robust error handling, 
       title: 'Homelab Media Stack',
       description:
         'Fully automated, self-healing Docker media stack with VPN kill switch, cascade restart recovery, and zero-touch container updates.',
-      longDescription: `A fully automated, self-healing homelab media stack built on Docker Compose. Handles everything from media requests to downloading, extracting, renaming, subtitle fetching, quality management, and streaming — with zero manual intervention after initial setup.
+      longDescription: `A fully automated, self-healing homelab media stack built on Docker Compose. It covers the full pipeline: media requests, downloading, extracting, renaming, subtitle fetching, quality management, and streaming, with no manual intervention after initial setup.
 
 All download traffic routes through a WireGuard VPN with a firewall kill switch. A custom cascade-restart monitor automatically recovers all dependent services when the VPN restarts. Container image updates are detected daily and applied automatically with push notifications at each step.
 
@@ -409,15 +405,15 @@ The stack is split into three independent Docker Compose projects sharing a comm
       category: 'Infrastructure',
       date: '2026',
       features: [
-        'All download traffic routed through ProtonVPN WireGuard with firewall kill switch — no leaks if VPN drops',
+        'All download traffic routed through ProtonVPN WireGuard with firewall kill switch: no leaks if VPN drops',
         'gluetun-monitor cascade restart: detects Gluetun namespace changes, waits for healthy status, stops and recreates all 9 VPN-dependent services with exponential backoff retries',
         'Rate limiting on cascade restarts (max 5/hr) with loop detection and 1-hour pause',
-        "Daily container image updates via What's Up Docker + Python webhook server — zero manual intervention",
+        "Daily container image updates via What's Up Docker and a Python webhook server, with no manual intervention",
         'Push notifications via ntfy.sh at every automation stage (updates, restarts, failures)',
-        'Hardlink-based media import — file exists in two paths, occupies disk space once, seeding continues uninterrupted',
+        'Hardlink-based media import: file exists in two paths, occupies disk space once, seeding continues uninterrupted',
         'Recyclarr syncs TRaSH Guides quality profiles and custom formats to Sonarr/Radarr on a schedule',
         'cross-seed daemon matches completed downloads against other indexers for zero-bandwidth ratio boosting',
-        'Three self-healing layers: Docker healthchecks → Autoheal watchdog → gluetun-monitor cascade restart',
+        'Three self-healing layers: Docker healthchecks, Autoheal watchdog, gluetun-monitor cascade restart',
         'Maintainerr rules automatically remove stale media from Plex based on watch history thresholds',
         'SuggestArr sends AI-powered media recommendations back into Seerr automatically',
         'VPN port forwarding auto-updates qBittorrent listening port on each VPN session via Gluetun API commands',
@@ -430,19 +426,19 @@ The stack is split into three independent Docker Compose projects sharing a comm
           description:
             'The system is split into three independent Docker Compose projects sharing a common bridge network (homelab_media_network). Each stack can be updated or restarted without affecting the others.',
           mermaid: `graph TB
-    subgraph TORRENT["📦 Torrent Stack"]
+    subgraph TORRENT["Torrent Stack"]
         GL["Gluetun (VPN)"]
         QB["qBittorrent"]
         ARR["Sonarr · Radarr · Bazarr\nProwlarr · FlareSolverr\nUnpackerr · Recyclarr · cross-seed"]
         GL --- QB & ARR
     end
 
-    subgraph PLEX["📺 Plex Stack"]
+    subgraph PLEX["Plex Stack"]
         PX["Plex (host network)"]
         PS["SuggestArr · Kitana · Tautulli"]
     end
 
-    subgraph SERVICES["⚙️ Services Stack"]
+    subgraph SERVICES["Services Stack"]
         SR["Seerr · Maintainerr\nFilebrowser"]
         SH["Autoheal · gluetun-monitor\nWUD · wud-webhook"]
         OPS["Portainer · Beszel"]
@@ -457,7 +453,7 @@ The stack is split into three independent Docker Compose projects sharing a comm
           description:
             'Three distinct network zones enforce traffic isolation. All torrent services share the Gluetun VPN namespace and communicate via localhost. No traffic leaves without passing through WireGuard.',
           mermaid: `graph LR
-    subgraph VPN_NS["🔒 Gluetun VPN Namespace"]
+    subgraph VPN_NS["Gluetun VPN Namespace"]
         direction TB
         GL["Gluetun\n(WireGuard tun0)"]
         QB2["qBittorrent\n@localhost:8080"]
@@ -470,7 +466,7 @@ The stack is split into three independent Docker Compose projects sharing a comm
         GL --- QB2 & SN & RD & PW & BZ & FS & CS
     end
 
-    subgraph BRIDGE["🌐 homelab_media_network (bridge 172.19.0.0/16)"]
+    subgraph BRIDGE["homelab_media_network (bridge 172.19.0.0/16)"]
         direction TB
         SEERR2["Seerr :5055"]
         MAINT["Maintainerr :6246"]
@@ -480,7 +476,7 @@ The stack is split into three independent Docker Compose projects sharing a comm
         BSZ["Beszel :8090"]
     end
 
-    subgraph HOST["🖥️ Host Network"]
+    subgraph HOST["Host Network"]
         PLEX_HOST["Plex :32400"]
     end
 
@@ -503,13 +499,13 @@ The stack is split into three independent Docker Compose projects sharing a comm
     Docker->>Monitor: Emit "container start" event
 
     Monitor->>Monitor: Check debounce (30s) + rate limit (5/hr)
-    Monitor->>Monitor: Compare SandboxKey — confirm real restart
+    Monitor->>Monitor: Compare SandboxKey to confirm real restart
 
     Monitor->>Gluetun: Poll health every 5s
     loop Wait for healthy (up to 300s)
         Gluetun-->>Monitor: status = starting
     end
-    Gluetun-->>Monitor: status = healthy ✅
+    Gluetun-->>Monitor: status = healthy
 
     Monitor->>Services: docker stop + docker rm
     Monitor->>Docker: docker compose up -d (up to 3 retries)
@@ -518,9 +514,9 @@ The stack is split into three independent Docker Compose projects sharing a comm
     Monitor->>Services: Verify healthchecks
 
     alt All healthy
-        Monitor->>Ntfy: ✅ Cascade restart successful
+        Monitor->>Ntfy: Cascade restart successful
     else Some unhealthy
-        Monitor->>Ntfy: ⚠️ Some services unhealthy
+        Monitor->>Ntfy: Some services unhealthy
     end`,
         },
         {
@@ -586,9 +582,9 @@ The stack is split into three independent Docker Compose projects sharing a comm
             StackManage->>Docker: docker compose pull
             StackManage->>Docker: docker compose up -d --force-recreate
             alt Success
-                Handler->>Ntfy: ✅ Successfully updated container
+                Handler->>Ntfy: Successfully updated container
             else Failure
-                Handler->>Ntfy: ❌ Failed to update — check logs
+                Handler->>Ntfy: Failed to update, check logs
             end
         end
     end`,
@@ -599,14 +595,14 @@ The stack is split into three independent Docker Compose projects sharing a comm
   stackfordev: {
     title: 'StackForDev | Zisis Kostakakis',
     metaDescription:
-      'CLI tool and web app that generates tailored Dockerfiles so developers only need Docker — no language runtimes to install locally.',
+      'CLI tool and web app that generates tailored Dockerfiles so developers only need Docker, with no language runtimes to install locally.',
     project: {
       id: 'stackfordev',
       href: '/projects/stackfordev',
       title: 'StackForDev',
       description:
-        'CLI tool and web app that generates tailored Dockerfiles so developers only need Docker — no language runtimes to install locally.',
-      longDescription: `StackForDev solves the "works on my machine" problem. The goal is simple: replace dozens of language and framework installations with a single prerequisite — Docker.
+        'CLI tool and web app that generates tailored Dockerfiles so developers only need Docker, with no language runtimes to install locally.',
+      longDescription: `StackForDev solves the "works on my machine" problem by replacing dozens of language and framework installations with a single prerequisite: Docker.
 
 You tell StackForDev your language, stack, and version. It generates a Dockerfile that turns any directory into a fully configured development container. Your project files are volume-mounted inside, so there is nothing to install locally beyond Docker itself.
 
@@ -616,7 +612,7 @@ The CLI is published on PyPI as \`stackfordev\`. It supports interactive prompts
 
 The web UI is built with SvelteKit and offers the same language / stack / version picker in the browser, with a live Dockerfile preview and copy-to-clipboard. An Info page lists every supported language, version, and stack combination.
 
-The entire infrastructure — Lambda, API Gateway, S3, ECR, CloudWatch alarms, and IAM roles — is managed with Terraform Cloud backed by GitHub.`,
+The entire infrastructure (Lambda, API Gateway, S3, ECR, CloudWatch alarms, and IAM roles) is managed with Terraform Cloud backed by GitHub.`,
       image: '/images/StackForDev-banner.png',
       githubUrl: 'https://github.com/ZisisKostakakis/StackForDev',
       liveUrl: 'https://stackfordev.zisiskostakakis.com',
@@ -639,9 +635,9 @@ The entire infrastructure — Lambda, API Gateway, S3, ECR, CloudWatch alarms, a
       date: '2025',
       features: [
         'Generates Dockerfiles for Python, JavaScript, Go, Rust, and Java with 20+ stack variants',
-        'CLI published on PyPI — `pip install stackfordev` with interactive and non-interactive modes',
-        '`--local` flag for fully offline generation — no API call required',
-        'S3-backed deduplication — identical configs return a cached Dockerfile instantly',
+        'CLI published on PyPI (`pip install stackfordev`) with interactive and non-interactive modes',
+        '`--local` flag for fully offline generation without an API call',
+        'S3-backed deduplication: identical configs return a cached Dockerfile instantly',
         'SvelteKit web UI with language / stack / version picker and live Dockerfile preview',
         'Serverless backend on AWS Lambda with API Gateway rate limiting (1 req/s, 10k/month quota)',
         'Infrastructure as Code with Terraform Cloud, including IAM roles, ECR, CloudWatch alarms',
@@ -666,12 +662,12 @@ The entire infrastructure — Lambda, API Gateway, S3, ECR, CloudWatch alarms, a
           description:
             'The SvelteKit frontend is deployed as a static site. The CLI and browser both hit the same AWS API Gateway endpoint, which invokes a containerised Lambda function. Generated Dockerfiles are stored in S3 with SHA-256 content deduplication.',
           mermaid: `graph TB
-    subgraph CLIENT["🌐 Clients"]
+    subgraph CLIENT["Clients"]
         WEB["SvelteKit Web UI\n(Static Site)"]
         CLI["stackfordev CLI\n(PyPI package)"]
     end
 
-    subgraph AWS["☁️ AWS"]
+    subgraph AWS["AWS"]
         AG["API Gateway\n(rate limit: 1 req/s · 10k/mo)"]
         LM["Lambda Function\n(Python 3.11 · Docker image)"]
         S3["S3 Bucket\n(Dockerfile store + dedup)"]
@@ -755,11 +751,11 @@ The entire infrastructure — Lambda, API Gateway, S3, ECR, CloudWatch alarms, a
       title: 'PropertyPal Investment Analyzer',
       description:
         'Scrapy-based web scraper for extracting property listings with AI-powered investment ratings and geocoding analysis.',
-      longDescription: `PropertyPal Investment Analyzer is a production-grade web scraper built with Scrapy that extracts property listings from PropertyPal.com and provides AI-powered investment analysis. This tool automates the process of researching property investments by combining web scraping, AI analysis, and geocoding to provide comprehensive property insights.
+      longDescription: `PropertyPal Investment Analyzer is a web scraper built with Scrapy that extracts property listings from PropertyPal.com and rates them as investments. It automates property research by combining scraping, AI analysis, and geocoding.
 
-The scraper features an interactive CLI with multi-select search functionality, allowing users to configure and run multiple property searches simultaneously. Each property is analyzed using Perplexity's Housing Agent API to provide investment ratings out of 10, along with detailed pros, cons, and market outlook.
+An interactive CLI with multi-select search lets users configure and run multiple property searches at once. Each property is analysed with Perplexity's Housing Agent API, which returns an investment rating out of 10 with pros, cons, and market outlook.
 
-Built with Scrapy for robust web scraping, the application implements ethical scraping practices including rate limiting, robots.txt compliance, and respectful user-agent identification. Data is validated using Pydantic models and exported to both JSON and CSV formats through custom pipelines.`,
+The scraper follows ethical scraping practices: rate limiting, robots.txt compliance, and honest user-agent identification. Data is validated with Pydantic models and exported to JSON and CSV through custom pipelines.`,
       image: '/images/Property-Pal-Scraper.png',
       githubUrl: 'https://github.com/ZisisKostakakis/property-pal-scraper',
       liveUrl: 'https://property-pal-analyser.zisiskostakakis.com/',
@@ -783,7 +779,7 @@ Built with Scrapy for robust web scraping, the application implements ethical sc
         'Automated mortgage payment calculations (configurable parameters)',
         'CSV/JSON export pipelines with Pydantic validation',
         'Ethical scraping with rate limiting and robots.txt compliance',
-        'Comprehensive error handling and retry mechanisms',
+        'Error handling and retry mechanisms',
         'Structured data extraction (descriptions, features, room details)',
         'Makefile for convenient command execution',
       ],

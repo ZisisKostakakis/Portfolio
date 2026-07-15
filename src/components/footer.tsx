@@ -34,7 +34,6 @@ export default function Footer() {
           <p className="text-xs text-faint">
             © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
           </p>
-          <p className="font-mono text-xs text-faint">built with Next.js · deployed on Vercel</p>
         </div>
       </div>
     </footer>

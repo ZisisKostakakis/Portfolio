@@ -67,9 +67,9 @@ export const experiences: Experience[] = [
     type: 'permanent' as const,
     description: [
       'Architected automated cloud monitoring using AWS CloudFormation, reducing incident response times by 30%',
-      'Developed "Crontab Health Check" monitoring tool — 100% reduction in missed failures',
-      'Engineered self-service automation tools, removing engineering support dependency (100% time savings)',
-      'Spearheaded decomposition of monolithic codebases into modular components for EC2 distribution',
+      'Developed "Crontab Health Check" monitoring tool that eliminated missed cron job failures',
+      'Built self-service automation tools that removed the need for engineering support on routine tasks',
+      'Decomposed monolithic codebases into modular components for EC2 distribution',
       'Enhanced CI/CD with Jenkins pipelines integrated with AWS services',
       'Deployed private LLM knowledge base (Llama3 8B) via Docker and OpenWebUI with RBAC',
       'Managed end-to-end Linux server provisioning and maintenance',
