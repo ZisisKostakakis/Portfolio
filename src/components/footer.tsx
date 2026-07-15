@@ -30,10 +30,23 @@ export default function Footer() {
           </nav>
         </div>
 
-        <div className="mt-8 flex flex-col items-start justify-between gap-2 border-t border-line-soft pt-6 sm:flex-row sm:items-center">
+        <div className="mt-8 flex flex-col items-start justify-between gap-3 border-t border-line-soft pt-6 sm:flex-row sm:items-center">
           <p className="text-xs text-faint">
             © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
           </p>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <Link href="/privacy" className="text-xs text-faint transition-colors hover:text-accent">
+              Privacy Policy
+            </Link>
+            <a
+              href="https://icons8.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-faint transition-colors hover:text-accent"
+            >
+              Icons by Icons8
+            </a>
+          </div>
         </div>
       </div>
     </footer>

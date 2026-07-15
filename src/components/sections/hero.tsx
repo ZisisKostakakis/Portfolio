@@ -38,13 +38,7 @@ export default function HeroSection() {
           initial={prefersReducedMotion ? false : 'hidden'}
           animate="show"
         >
-          <motion.div variants={item} className="mb-7 flex items-center gap-2.5">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-mint opacity-60" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-mint" />
-            </span>
-            <span className="font-mono text-sm text-mint">{personalInfo.availability}</span>
-            <span className="text-faint">·</span>
+          <motion.div variants={item} className="mb-7">
             <span className="font-mono text-sm text-muted">{personalInfo.location}</span>
           </motion.div>
 
@@ -110,10 +104,6 @@ export default function HeroSection() {
                 <dd className="mt-1 text-sm text-ink-soft">
                   Cloud architecture, automation, AI/LLM
                 </dd>
-              </div>
-              <div>
-                <dt className="font-mono text-xs text-muted">Status</dt>
-                <dd className="mt-1 text-sm text-mint">{personalInfo.availability}</dd>
               </div>
             </dl>
           </div>

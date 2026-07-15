@@ -204,14 +204,6 @@ export default function ContactSection() {
               ))}
             </div>
 
-            <div className="mt-10 rounded-2xl border border-mint/20 bg-mint/[0.04] p-5">
-              <p className="flex items-center gap-2.5 font-mono text-sm text-mint">
-                <span className="relative flex h-2 w-2">
-                  <span className="relative h-2 w-2 rounded-full bg-mint" />
-                </span>
-                {personalInfo.availability}
-              </p>
-            </div>
           </Reveal>
 
           {/* Right, step-by-step wizard */}
