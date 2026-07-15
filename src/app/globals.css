@@ -94,10 +94,9 @@ body {
   background-size: 56px 56px;
 }
 
-/* Mermaid diagrams: force transparent canvas, readable text */
+/* Mermaid diagrams: natural size (container scrolls), transparent canvas */
 .mermaid-container svg {
-  max-width: 100%;
-  height: auto;
+  max-width: none;
   background: transparent !important;
 }
 
