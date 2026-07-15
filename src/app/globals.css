@@ -94,10 +94,15 @@ body {
   background-size: 56px 56px;
 }
 
-/* Mermaid diagrams: natural size (container scrolls), transparent canvas */
+/* Mermaid diagrams: inline previews fit the column; the fullscreen overlay shows natural size */
 .mermaid-container svg {
-  max-width: none;
+  max-width: 100%;
+  height: auto;
   background: transparent !important;
+}
+.mermaid-full svg {
+  max-width: none;
+  height: auto;
 }
 
 @media (prefers-reduced-motion: reduce) {
