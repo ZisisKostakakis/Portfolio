@@ -47,11 +47,6 @@ export default function AboutSection() {
               AI/LLM integration. I also work with virtualisation (Proxmox), disaster recovery,
               and self-healing infrastructure.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <span className="rounded-full border border-line px-4 py-2 font-mono text-sm text-ink-soft">
-                {personalInfo.location}
-              </span>
-            </div>
           </Reveal>
 
           {/* Toolkit, hairline rows */}
