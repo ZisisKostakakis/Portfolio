@@ -53,7 +53,7 @@ export default function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50">
       {/* Scroll progress */}
       <motion.div
-        className="absolute top-0 left-0 h-[2px] w-full origin-left bg-gradient-to-r from-accent-soft via-accent to-accent-2"
+        className="absolute top-0 left-0 h-[2px] w-full origin-left bg-accent"
         style={{ scaleX: progress }}
         aria-hidden
       />
@@ -105,7 +105,7 @@ export default function Navbar() {
 
         <a
           href={isHome ? '#contact' : '/#contact'}
-          className="hidden rounded-full border border-accent/40 px-4 py-1.5 font-mono text-xs text-accent transition-all duration-200 hover:bg-accent hover:text-[#0b0c1c] md:block"
+          className="hidden rounded-full border border-accent/40 px-4 py-1.5 font-mono text-xs text-accent transition-all duration-200 hover:bg-accent hover:text-[#0b0d0e] md:block"
         >
           hire me
         </a>

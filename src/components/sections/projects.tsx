@@ -28,7 +28,7 @@ function FeaturedProject({ project, index }: { project: Project; index: number }
         >
           <div
             aria-hidden
-            className="absolute -inset-2 rounded-3xl bg-gradient-to-br from-accent/30 via-transparent to-violet/30 opacity-40 blur-xl transition-opacity duration-500 group-hover:opacity-100"
+            className="absolute -inset-2 rounded-3xl bg-accent/[0.12] opacity-40 blur-xl transition-opacity duration-500 group-hover:opacity-100"
           />
           <div className="relative overflow-hidden rounded-2xl border border-line-soft bg-raised shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
             <div className="flex items-center gap-1.5 border-b border-line-soft bg-white/[0.03] px-4 py-2.5">
@@ -223,10 +223,10 @@ export default function ProjectsSection() {
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           index="03"
-          eyebrow="what I've built"
-          description="A selection of production systems, tools, and experiments — each with a full case study covering architecture, features, and lessons learned."
+          eyebrow="projects"
+          description="A selection of production systems, tools, and experiments, each with a full case study covering architecture, features, and lessons learned."
         >
-          Selected <span className="text-gradient">work</span>
+          Things I&apos;ve built
         </SectionHeading>
 
         <div className="space-y-24 lg:space-y-32">

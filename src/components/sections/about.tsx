@@ -7,25 +7,19 @@ import { cn } from '@/lib/cn';
 
 const highlights = [
   {
-    icon: '☁️',
-    title: 'Cloud Native',
-    description:
-      'Architecting scalable AWS solutions with Lambda, EC2, Terraform, and CloudFormation',
+    title: 'Cloud',
+    description: 'AWS solutions built with Lambda, EC2, Terraform, and CloudFormation',
   },
   {
-    icon: '🛡️',
     title: 'DevSecOps',
     description:
       'System hardening, penetration testing, CI/CD pipelines, and private LLM/AI integration',
   },
   {
-    icon: '⚙️',
     title: 'Automation',
-    description:
-      'Self-healing infrastructure, monitoring tools, and engineering overhead elimination',
+    description: 'Self-healing infrastructure, monitoring tools, and removing manual toil',
   },
   {
-    icon: '🧭',
     title: 'Technical Leadership',
     description:
       'Leading cross-functional teams to MVP, conducting interviews, and translating business needs into architecture',
@@ -36,28 +30,26 @@ export default function AboutSection() {
   return (
     <section id="about" className="section-band relative px-4 py-28 sm:px-6">
       <div className="mx-auto max-w-6xl">
-        <SectionHeading index="01" eyebrow="who I am">
-          Engineering with <span className="text-gradient">intent</span>
+        <SectionHeading index="01" eyebrow="about">
+          About me
         </SectionHeading>
 
         <div className="grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
-          {/* Bio — open text */}
+          {/* Bio, open text */}
           <Reveal>
             <p className="text-xl leading-relaxed text-ink sm:text-2xl sm:leading-relaxed">
-              I&apos;m a {personalInfo.title} with extensive expertise in backend development,
-              infrastructure automation, and technical leadership. I architect scalable AWS
-              solutions using Terraform and Python, and have a proven track record of reducing
-              engineering overhead by 100% through strategic automation.
+              I&apos;m a {personalInfo.title} working across backend development, infrastructure
+              automation, and technical leadership. I build AWS systems with Terraform and
+              Python, and I automate away the manual work that slows engineering teams down.
             </p>
             <p className="mt-6 text-lg leading-relaxed text-muted">
-              Skilled in DevSecOps practices including system hardening, penetration testing,
-              and private AI/LLM integration. I bridge the gap between development and
-              operations with advanced knowledge of virtualisation (Proxmox), disaster recovery,
+              On the DevSecOps side I do system hardening, penetration testing, and private
+              AI/LLM integration. I also work with virtualisation (Proxmox), disaster recovery,
               and self-healing infrastructure.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <span className="rounded-full border border-line px-4 py-2 font-mono text-sm text-ink-soft">
-                📍 {personalInfo.location}
+                {personalInfo.location}
               </span>
               <span className="rounded-full border border-mint/30 bg-mint/5 px-4 py-2 font-mono text-sm text-mint">
                 ● {personalInfo.availability}
@@ -65,7 +57,7 @@ export default function AboutSection() {
             </div>
           </Reveal>
 
-          {/* Toolkit — hairline rows */}
+          {/* Toolkit, hairline rows */}
           <Reveal delay={0.1}>
             <h3 className="font-mono text-xs tracking-[0.2em] text-accent-soft uppercase">
               Toolkit
@@ -97,15 +89,12 @@ export default function AboutSection() {
           </Reveal>
         </div>
 
-        {/* Highlights — open grid with accent rules */}
+        {/* Highlights, open grid with accent rules */}
         <div className="mt-20 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
           {highlights.map((item, i) => (
             <Reveal key={item.title} delay={i * 0.06}>
               <div className="relative pt-6 before:absolute before:top-0 before:left-0 before:h-px before:w-full before:bg-line-soft after:absolute after:top-0 after:left-0 after:h-px after:w-12 after:bg-accent">
-                <span className="text-2xl" aria-hidden>
-                  {item.icon}
-                </span>
-                <h3 className="mt-4 font-display text-lg font-semibold text-ink">{item.title}</h3>
+                <h3 className="font-display text-lg font-semibold text-ink">{item.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{item.description}</p>
               </div>
             </Reveal>

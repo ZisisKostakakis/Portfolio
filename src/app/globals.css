@@ -1,23 +1,21 @@
 @import 'tailwindcss';
 
 @theme {
-  /* Palette — violet-warmed dark neutrals + electric indigo / cyan accents */
-  --color-void: #0b0c1c;
-  --color-surface: #111226;
-  --color-raised: #171833;
-  --color-overlay: #1e1f42;
-  --color-line: #2b2d52;
-  --color-line-soft: #201f3e;
+  /* Palette: neutral dark greys with a single teal accent */
+  --color-void: #0b0d0e;
+  --color-surface: #111417;
+  --color-raised: #171b1f;
+  --color-overlay: #1e2328;
+  --color-line: #2b3138;
+  --color-line-soft: #1f2429;
 
-  --color-ink: #eceef8;
-  --color-ink-soft: #c3c8dd;
-  --color-muted: #8e94ad;
-  --color-faint: #5c6078;
+  --color-ink: #eceff1;
+  --color-ink-soft: #c3c9cd;
+  --color-muted: #8e969d;
+  --color-faint: #5c6369;
 
-  --color-accent: #7c6bff;
-  --color-accent-soft: #a297ff;
-  --color-accent-2: #2ee0ff;
-  --color-violet: #a855f7;
+  --color-accent: #2dd4bf;
+  --color-accent-soft: #7ce8d9;
   --color-mint: #4ade80;
 
   /* Typography */
@@ -27,10 +25,6 @@
 
   /* Motion */
   --animate-marquee: marquee 42s linear infinite;
-  --animate-blink: blink 1.1s step-end infinite;
-  --animate-drift-a: drift-a 26s ease-in-out infinite alternate;
-  --animate-drift-b: drift-b 32s ease-in-out infinite alternate;
-  --animate-drift-c: drift-c 38s ease-in-out infinite alternate;
 
   @keyframes marquee {
     from {
@@ -38,39 +32,6 @@
     }
     to {
       transform: translateX(-50%);
-    }
-  }
-  @keyframes blink {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
-    }
-  }
-  @keyframes drift-a {
-    from {
-      transform: translate(-8%, -6%) scale(1);
-    }
-    to {
-      transform: translate(10%, 8%) scale(1.15);
-    }
-  }
-  @keyframes drift-b {
-    from {
-      transform: translate(6%, 10%) scale(1.1);
-    }
-    to {
-      transform: translate(-10%, -8%) scale(0.95);
-    }
-  }
-  @keyframes drift-c {
-    from {
-      transform: translate(0%, 6%) scale(0.9);
-    }
-    to {
-      transform: translate(4%, -10%) scale(1.1);
     }
   }
 }
@@ -90,7 +51,7 @@ body {
 
 ::selection {
   background: color-mix(in srgb, var(--color-accent) 80%, transparent);
-  color: #0b0c1c;
+  color: #0b0d0e;
 }
 
 ::-webkit-scrollbar {
@@ -105,13 +66,6 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-faint);
-}
-
-@utility text-gradient {
-  background: linear-gradient(120deg, var(--color-accent-soft) 0%, var(--color-accent) 45%, var(--color-accent-2) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
 }
 
 @utility glass {
@@ -140,18 +94,7 @@ body {
   background-size: 56px 56px;
 }
 
-@utility noise {
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.028;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-}
-
-/* Mermaid diagrams — force transparent canvas, readable text */
+/* Mermaid diagrams: force transparent canvas, readable text */
 .mermaid-container svg {
   max-width: 100%;
   height: auto;

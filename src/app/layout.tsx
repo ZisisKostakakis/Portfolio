@@ -20,7 +20,7 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: `${personalInfo.name} — ${personalInfo.title}`,
+    default: `${personalInfo.name} | ${personalInfo.title}`,
     template: `%s | ${personalInfo.name}`,
   },
   description: personalInfo.tagline,
@@ -29,20 +29,20 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: SITE_CONFIG.url,
-    title: `${personalInfo.name} — ${personalInfo.title}`,
+    title: `${personalInfo.name} | ${personalInfo.title}`,
     description: personalInfo.tagline,
     siteName: SITE_CONFIG.name,
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${personalInfo.name} — ${personalInfo.title}`,
+    title: `${personalInfo.name} | ${personalInfo.title}`,
     description: personalInfo.tagline,
   },
   icons: { icon: '/favicon.svg' },
 };
 
 export const viewport: Viewport = {
-  themeColor: '#050508',
+  themeColor: '#0b0d0e',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

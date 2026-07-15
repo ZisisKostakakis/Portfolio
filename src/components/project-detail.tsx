@@ -26,11 +26,10 @@ export default function ProjectDetailPage({ project, prev, next }: ProjectDetail
   const paragraphs = (project.longDescription ?? project.description).split('\n\n');
 
   return (
-    <main className="noise relative min-h-screen overflow-hidden px-4 pt-32 pb-20 sm:px-6">
+    <main className="relative min-h-screen overflow-hidden px-4 pt-32 pb-20 sm:px-6">
       {/* Background */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute -top-40 left-1/4 h-[26rem] w-[26rem] rounded-full bg-accent/[0.05] blur-[120px]" />
-        <div className="absolute top-1/3 right-[-10%] h-[24rem] w-[24rem] rounded-full bg-violet/[0.05] blur-[120px]" />
       </div>
 
       <div className="relative mx-auto max-w-6xl">
@@ -82,7 +81,7 @@ export default function ProjectDetailPage({ project, prev, next }: ProjectDetail
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent-soft via-accent to-accent-2 px-5 py-2.5 text-sm font-semibold text-[#0b0c1c] shadow-[0_0_28px_rgba(124,107,255,0.35)] transition-all duration-200 hover:shadow-[0_0_48px_rgba(124,107,255,0.55)]"
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-[#0b0d0e] transition-all duration-200 hover:brightness-110"
               >
                 <ExternalIcon className="h-4 w-4" />
                 View Live Site
@@ -97,7 +96,7 @@ export default function ProjectDetailPage({ project, prev, next }: ProjectDetail
             <div className="relative">
               <div
                 aria-hidden
-                className="absolute -inset-2 rounded-3xl bg-gradient-to-br from-accent/15 via-transparent to-violet/15 opacity-50 blur-xl"
+                className="absolute -inset-2 rounded-3xl bg-accent/[0.07] opacity-50 blur-xl"
               />
               <div className="relative overflow-hidden rounded-2xl border border-line-soft shadow-[0_30px_80px_rgba(0,0,0,0.55)]">
                 <div className="flex items-center gap-1.5 border-b border-line-soft bg-raised px-4 py-2.5">

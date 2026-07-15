@@ -7,8 +7,8 @@ export default function ExperienceSection() {
   return (
     <section id="experience" className="relative px-4 py-28 sm:px-6">
       <div className="mx-auto max-w-6xl">
-        <SectionHeading index="02" eyebrow="where I've been">
-          Professional <span className="text-gradient">journey</span>
+        <SectionHeading index="02" eyebrow="experience">
+          Where I&apos;ve worked
         </SectionHeading>
 
         <ol className="relative before:absolute before:top-2 before:bottom-2 before:left-[7px] before:w-px before:bg-gradient-to-b before:from-accent/70 before:via-line before:to-transparent">

@@ -45,15 +45,15 @@ const steps: Step[] = [
   {
     key: 'subject',
     question: "What's this about?",
-    hint: 'A role, a contract, a project…',
+    hint: 'A role, a contract, or a project',
     placeholder: 'e.g. Senior engineer role at Acme',
     type: 'text',
   },
   {
     key: 'message',
     question: 'Tell me more',
-    hint: 'The details — scope, timeline, anything useful',
-    placeholder: "We're looking for…",
+    hint: 'Scope, timeline, anything useful',
+    placeholder: 'Tell me about the role or project',
     type: 'textarea',
   },
 ];
@@ -82,7 +82,7 @@ export default function ContactSection() {
   const step = steps[stepIndex];
   const atReview = status === 'review' || status === 'sending' || status === 'failed';
 
-  // Autofocus only after the user has engaged with the wizard — focusing on
+  // Autofocus only after the user has engaged with the wizard, focusing on
   // mount steals focus and scrolls the whole page down to this section.
   const engaged = useRef(false);
 
@@ -157,24 +157,24 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="noise section-band relative overflow-hidden px-4 py-28 sm:px-6">
+    <section id="contact" className="section-band relative overflow-hidden px-4 py-28 sm:px-6">
       {/* Background glow */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute bottom-[-30%] left-1/2 h-[30rem] w-[44rem] -translate-x-1/2 rounded-full bg-accent/[0.12] blur-[120px]" />
       </div>
 
       <div className="relative mx-auto max-w-6xl">
-        <SectionHeading index="04" eyebrow="get in touch">
-          Let&apos;s build something <span className="text-gradient">together</span>
+        <SectionHeading index="04" eyebrow="contact">
+          Get in touch
         </SectionHeading>
 
         <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
-          {/* Left — pitch (the single home of email + socials) */}
+          {/* Left, pitch (the single home of email + socials) */}
           <Reveal>
             <p className="text-lg leading-relaxed text-muted">
-              I&apos;m currently open to opportunities — whether that&apos;s a full-time role, a
-              contract engagement, or an interesting problem you think I can help with. Answer a
-              few quick questions and I&apos;ll get back to you.
+              I&apos;m currently open to full-time roles, contract engagements, and interesting
+              problems you think I can help with. Answer a few quick questions and I&apos;ll get
+              back to you.
             </p>
 
             <a
@@ -207,15 +207,14 @@ export default function ContactSection() {
             <div className="mt-10 rounded-2xl border border-mint/20 bg-mint/[0.04] p-5">
               <p className="flex items-center gap-2.5 font-mono text-sm text-mint">
                 <span className="relative flex h-2 w-2">
-                  <span className="absolute h-full w-full animate-ping rounded-full bg-mint opacity-60" />
                   <span className="relative h-2 w-2 rounded-full bg-mint" />
                 </span>
-                {personalInfo.availability} — typically responding within 24h
+                {personalInfo.availability}
               </p>
             </div>
           </Reveal>
 
-          {/* Right — step-by-step wizard */}
+          {/* Right, step-by-step wizard */}
           <Reveal delay={0.1}>
             <div className="glass flex min-h-[26rem] flex-col rounded-2xl p-7 sm:p-10">
               {status === 'sent' ? (
@@ -225,7 +224,7 @@ export default function ContactSection() {
                   </span>
                   <h3 className="mt-6 font-display text-2xl font-bold text-ink">Message sent</h3>
                   <p className="mt-2 max-w-sm text-muted">
-                    Thanks {values.name.split(' ')[0]} — I&apos;ll get back to you at{' '}
+                    Thanks {values.name.split(' ')[0]}, I&apos;ll get back to you at{' '}
                     <span className="text-ink-soft">{values.email}</span> soon.
                   </p>
                   <button
@@ -276,7 +275,7 @@ export default function ContactSection() {
                     </button>
                     {status === 'failed' && (
                       <p className="w-full text-sm text-red-400">
-                        Something went wrong — try again or email me directly.
+                        Something went wrong. Try again or email me directly.
                       </p>
                     )}
                   </div>
