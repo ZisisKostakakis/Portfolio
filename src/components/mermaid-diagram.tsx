@@ -128,7 +128,7 @@ export default function MermaidDiagram({ chart }: MermaidDiagramProps) {
           <ExpandIcon className="h-4 w-4" />
         </button>
         <div
-          className="mermaid-container max-h-[32rem] cursor-zoom-in overflow-auto rounded-xl border border-line-soft bg-void/50 p-4 sm:p-6"
+          className="mermaid-container cursor-zoom-in overflow-x-auto rounded-xl border border-line-soft bg-void/50 p-4 sm:p-6"
           role="img"
           aria-label="Architecture diagram"
           onClick={() => setExpanded(true)}
@@ -157,7 +157,7 @@ export default function MermaidDiagram({ chart }: MermaidDiagramProps) {
           </div>
           <div className="flex-1 overflow-auto" onClick={(e) => e.stopPropagation()}>
             <div
-              className="mermaid-container flex min-h-full min-w-max items-center justify-center p-6"
+              className="mermaid-full flex min-h-full min-w-max items-center justify-center p-6"
               dangerouslySetInnerHTML={{ __html: svg }}
             />
           </div>
