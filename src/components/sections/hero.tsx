@@ -80,32 +80,30 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
         >
-          <div className="glass w-full rounded-2xl p-8">
-            <h2 className="font-mono text-xs tracking-[0.2em] text-muted uppercase">
-              At a glance
-            </h2>
-            <dl className="mt-6 space-y-5">
-              <div>
-                <dt className="font-mono text-xs text-muted">Role</dt>
-                <dd className="mt-1 text-sm text-ink-soft">{personalInfo.title}</dd>
+          <div className="glass w-full overflow-hidden rounded-2xl">
+            <div className="border-b border-line-soft bg-white/[0.03] px-5 py-3">
+              <span className="font-mono text-xs text-muted">zisis@cloud: ~</span>
+            </div>
+            <div className="p-6 font-mono text-[13px] leading-7">
+              <p>
+                <span className="text-accent">$</span>{' '}
+                <span className="text-ink">zisis --info</span>
+              </p>
+              <div className="mt-3 grid grid-cols-[6rem_1fr] gap-y-1">
+                <span className="text-accent">role</span>
+                <span className="text-ink-soft">{personalInfo.title}</span>
+                <span className="text-accent">location</span>
+                <span className="text-ink-soft">{personalInfo.location}</span>
+                <span className="text-accent">stack</span>
+                <span className="text-ink-soft">Python, AWS, Terraform, TypeScript, Docker</span>
+                <span className="text-accent">focus</span>
+                <span className="text-ink-soft">cloud architecture, automation, AI/LLM</span>
               </div>
-              <div>
-                <dt className="font-mono text-xs text-muted">Location</dt>
-                <dd className="mt-1 text-sm text-ink-soft">{personalInfo.location}</dd>
-              </div>
-              <div>
-                <dt className="font-mono text-xs text-muted">Stack</dt>
-                <dd className="mt-1 text-sm text-ink-soft">
-                  Python, AWS, Terraform, TypeScript, Docker
-                </dd>
-              </div>
-              <div>
-                <dt className="font-mono text-xs text-muted">Focus</dt>
-                <dd className="mt-1 text-sm text-ink-soft">
-                  Cloud architecture, automation, AI/LLM
-                </dd>
-              </div>
-            </dl>
+              <p className="mt-3">
+                <span className="text-accent">$</span>{' '}
+                <span className="inline-block h-4 w-2 translate-y-0.5 bg-ink-soft/60" />
+              </p>
+            </div>
           </div>
         </motion.div>
       </div>
