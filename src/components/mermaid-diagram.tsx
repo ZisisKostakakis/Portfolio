@@ -1,226 +1,163 @@
 'use client';
 
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 
 interface MermaidDiagramProps {
   chart: string;
 }
 
+function ExpandIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <path d="M15 3h6v6" />
+      <path d="M9 21H3v-6" />
+      <path d="M21 3l-7 7" />
+      <path d="M3 21l7-7" />
+    </svg>
+  );
+}
+
 export default function MermaidDiagram({ chart }: MermaidDiagramProps) {
+  const id = useId().replace(/[^a-zA-Z0-9]/g, '');
   const [svg, setSvg] = useState<string>('');
-  const [error, setError] = useState(false);
-  const [open, setOpen] = useState(false);
-  const [scale, setScale] = useState(1);
-  const [origin, setOrigin] = useState({ x: 0, y: 0 });
-  const [dragging, setDragging] = useState(false);
-  const dragStart = useRef<{ mx: number; my: number; ox: number; oy: number } | null>(null);
+  const [failed, setFailed] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const closeRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     let cancelled = false;
-
-    async function render() {
+    (async () => {
       try {
         const mermaid = (await import('mermaid')).default;
         mermaid.initialize({
           startOnLoad: false,
-          theme: 'dark',
+          theme: 'base',
+          fontFamily: 'var(--font-jetbrains), monospace',
+          // Render at natural size; the container scrolls instead of shrinking the SVG.
+          flowchart: { useMaxWidth: false },
+          sequence: { useMaxWidth: false },
           themeVariables: {
             darkMode: true,
-            background: '#0a0a0a',
-            primaryColor: '#1e293b',
-            primaryTextColor: '#e2e8f0',
-            primaryBorderColor: '#334155',
-            lineColor: '#64748b',
-            secondaryColor: '#1e293b',
-            tertiaryColor: '#0f172a',
-            edgeLabelBackground: '#1e293b',
-            clusterBkg: '#0f172a',
-            clusterBorder: '#334155',
-            titleColor: '#f8fafc',
-            nodeTextColor: '#e2e8f0',
-            fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
+            background: 'transparent',
+            primaryColor: '#171b1f',
+            primaryTextColor: '#eceff1',
+            primaryBorderColor: '#2dd4bf',
+            lineColor: '#8e969d',
+            secondaryColor: '#111417',
+            tertiaryColor: '#0b0d0e',
+            fontSize: '14px',
+            noteBkgColor: '#171b1f',
+            noteTextColor: '#c3c9cd',
+            noteBorderColor: '#1f2429',
+            actorBkg: '#171b1f',
+            actorBorder: '#2dd4bf',
+            actorTextColor: '#eceff1',
+            signalColor: '#8e969d',
+            signalTextColor: '#c3c9cd',
+            labelBoxBkgColor: '#111417',
+            labelBoxBorderColor: '#1f2429',
+            labelTextColor: '#eceff1',
+            loopTextColor: '#2dd4bf',
+            sequenceNumberColor: '#0b0d0e',
+            clusterBkg: 'rgba(45, 212, 191, 0.04)',
+            clusterBorder: '#1f2429',
+            edgeLabelBackground: '#111417',
           },
-          flowchart: { curve: 'basis', padding: 20 },
-          sequence: { actorMargin: 50, messageMargin: 40 },
         });
-
-        const id = `mermaid-${Math.random().toString(36).slice(2)}`;
-        const { svg: rendered } = await mermaid.render(id, chart);
-        const scaled = rendered
-          .replace(/width="[^"]*"/, 'width="100%"')
-          .replace(/height="[^"]*"/, '')
-          .replace(/style="[^"]*max-width:[^"]*"/, 'style="width:100%;height:auto"');
-        if (!cancelled) setSvg(scaled);
-      } catch {
-        if (!cancelled) setError(true);
+        const { svg } = await mermaid.render(`mermaid-${id}`, chart);
+        if (!cancelled) setSvg(svg);
+      } catch (e) {
+        console.error('Mermaid render error:', e);
+        if (!cancelled) setFailed(true);
       }
-    }
-
-    render();
+    })();
     return () => {
       cancelled = true;
     };
-  }, [chart]);
+  }, [chart, id]);
 
-  // Close on Escape
+  // Fullscreen behaviour: Escape closes, page scroll locks, focus moves to close.
   useEffect(() => {
-    if (!open) return;
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') closeModal();
+    if (!expanded) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setExpanded(false);
     };
-    window.addEventListener('keydown', handler);
-    return () => window.removeEventListener('keydown', handler);
-  }, [open]);
-
-  function openModal() {
-    setScale(1);
-    setOrigin({ x: 0, y: 0 });
-    setOpen(true);
+    document.addEventListener('keydown', onKey);
+    const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+    closeRef.current?.focus();
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [expanded]);
+
+  if (failed) {
+    return (
+      <pre className="overflow-x-auto rounded-xl border border-line-soft bg-void p-4 font-mono text-xs text-muted">
+        {chart}
+      </pre>
+    );
   }
-
-  function closeModal() {
-    setOpen(false);
-    document.body.style.overflow = '';
-  }
-
-  const onWheel = useCallback((e: React.WheelEvent) => {
-    e.preventDefault();
-    setScale((s) => Math.min(8, Math.max(0.5, s - e.deltaY * 0.001)));
-  }, []);
-
-  const onMouseDown = useCallback(
-    (e: React.MouseEvent) => {
-      dragStart.current = { mx: e.clientX, my: e.clientY, ox: origin.x, oy: origin.y };
-      setDragging(true);
-    },
-    [origin]
-  );
-
-  const onMouseMove = useCallback((e: React.MouseEvent) => {
-    if (!dragStart.current) return;
-    setOrigin({
-      x: dragStart.current.ox + (e.clientX - dragStart.current.mx),
-      y: dragStart.current.oy + (e.clientY - dragStart.current.my),
-    });
-  }, []);
-
-  const onMouseUp = useCallback(() => {
-    dragStart.current = null;
-    setDragging(false);
-  }, []);
-
-  if (error) return null;
 
   if (!svg) {
-    return <div className="w-full h-32 bg-black/40 rounded-lg animate-pulse" />;
+    return (
+      <div className="flex h-48 animate-pulse items-center justify-center rounded-xl border border-line-soft bg-void/50">
+        <span className="font-mono text-xs text-faint">rendering diagram…</span>
+      </div>
+    );
   }
 
   return (
     <>
-      {/* Thumbnail — click to open */}
-      <div
-        className="relative w-full overflow-hidden rounded-lg bg-black/40 p-4 cursor-zoom-in group"
-        onClick={openModal}
-        title="Click to view fullscreen"
-      >
-        <div dangerouslySetInnerHTML={{ __html: svg }} />
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 rounded-lg">
-          <span className="flex items-center gap-2 text-sm font-medium text-white bg-black/70 px-4 py-2 rounded-full">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"
-              />
-            </svg>
-            View fullscreen
-          </span>
-        </div>
+      <div className="group relative">
+        <button
+          onClick={() => setExpanded(true)}
+          aria-label="Expand diagram"
+          className="absolute top-3 right-3 z-10 flex h-8 w-8 items-center justify-center rounded-lg border border-line bg-raised/90 text-muted opacity-70 transition-all duration-200 group-hover:opacity-100 hover:border-accent/50 hover:text-accent"
+        >
+          <ExpandIcon className="h-4 w-4" />
+        </button>
+        <div
+          className="mermaid-container cursor-zoom-in overflow-x-auto rounded-xl border border-line-soft bg-void/50 p-4 sm:p-6"
+          role="img"
+          aria-label="Architecture diagram"
+          onClick={() => setExpanded(true)}
+          dangerouslySetInnerHTML={{ __html: svg }}
+        />
       </div>
 
-      {/* Fullscreen modal */}
-      {open && (
+      {expanded && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
-          onClick={closeModal}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Architecture diagram, expanded"
+          className="fixed inset-0 z-[100] flex flex-col bg-void/95 backdrop-blur-sm"
+          onClick={() => setExpanded(false)}
         >
-          {/* Controls */}
-          <div className="absolute top-4 right-4 flex items-center gap-2 z-10">
+          <div className="flex shrink-0 items-center justify-between px-5 py-4">
+            <span className="font-mono text-xs text-muted">architecture diagram</span>
             <button
-              className="bg-white/10 hover:bg-white/20 text-white rounded-full px-3 py-1.5 text-sm font-medium transition-colors"
-              onClick={(e) => {
-                e.stopPropagation();
-                setScale((s) => Math.min(8, s + 0.5));
-              }}
+              ref={closeRef}
+              onClick={() => setExpanded(false)}
+              aria-label="Close expanded diagram"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-line bg-raised text-muted transition-colors hover:border-accent/50 hover:text-accent"
             >
-              +
-            </button>
-            <button
-              className="bg-white/10 hover:bg-white/20 text-white rounded-full px-3 py-1.5 text-sm font-medium transition-colors"
-              onClick={(e) => {
-                e.stopPropagation();
-                setScale((s) => Math.max(0.5, s - 0.5));
-              }}
-            >
-              −
-            </button>
-            <button
-              className="bg-white/10 hover:bg-white/20 text-white rounded-full px-3 py-1.5 text-sm font-medium transition-colors"
-              onClick={(e) => {
-                e.stopPropagation();
-                setScale(1);
-                setOrigin({ x: 0, y: 0 });
-              }}
-            >
-              Reset
-            </button>
-            <button
-              className="bg-white/10 hover:bg-white/20 text-white rounded-full p-1.5 transition-colors"
-              onClick={(e) => {
-                e.stopPropagation();
-                closeModal();
-              }}
-              aria-label="Close"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              ✕
             </button>
           </div>
-
-          <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/40 text-xs">
-            Scroll to zoom · Drag to pan · Esc to close
-          </p>
-
-          {/* Diagram canvas */}
-          <div
-            className="w-full h-full overflow-hidden"
-            style={{ cursor: dragging ? 'grabbing' : 'grab' }}
-            onClick={(e) => e.stopPropagation()}
-            onWheel={onWheel}
-            onMouseDown={onMouseDown}
-            onMouseMove={onMouseMove}
-            onMouseUp={onMouseUp}
-            onMouseLeave={onMouseUp}
-          >
+          <div className="flex-1 overflow-auto" onClick={(e) => e.stopPropagation()}>
             <div
-              style={{
-                transform: `translate(calc(-50% + ${origin.x}px), calc(-50% + ${origin.y}px)) scale(${scale})`,
-                transformOrigin: 'center center',
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                width: '90vw',
-                maxWidth: '1400px',
-                willChange: 'transform',
-              }}
+              className="mermaid-full flex min-h-full min-w-max items-center justify-center p-6"
               dangerouslySetInnerHTML={{ __html: svg }}
             />
           </div>

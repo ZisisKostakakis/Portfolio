@@ -1,96 +1,59 @@
-import React, { forwardRef } from 'react';
-import { motion, HTMLMotionProps } from 'framer-motion';
-import { cn } from '@/lib/utils/cn';
+import { ButtonHTMLAttributes, forwardRef } from 'react';
+import { cn } from '@/lib/cn';
 
-export interface ButtonProps extends Omit<HTMLMotionProps<'button'>, 'children'> {
-  variant?: 'primary' | 'secondary' | 'ghost' | 'outline' | 'gradient';
-  size?: 'sm' | 'md' | 'lg';
-  isLoading?: boolean;
-  leftIcon?: React.ReactNode;
-  rightIcon?: React.ReactNode;
-  children: React.ReactNode;
+type Variant = 'primary' | 'outline' | 'ghost';
+type Size = 'sm' | 'md' | 'lg';
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: Variant;
+  size?: Size;
 }
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
-      className,
-      variant = 'primary',
-      size = 'md',
-      isLoading = false,
-      leftIcon,
-      rightIcon,
-      disabled,
-      children,
-      ...props
-    },
-    ref
-  ) => {
-    const baseStyles =
-      'inline-flex items-center justify-center font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-gold focus-visible:ring-offset-2 focus-visible:ring-offset-primary-navy disabled:pointer-events-none disabled:opacity-50 rounded-lg';
+const variants: Record<Variant, string> = {
+  primary: 'bg-accent text-[#0b0d0e] font-semibold hover:brightness-110',
+  outline:
+    'border border-line text-ink hover:border-accent/60 hover:text-accent hover:bg-accent/5',
+  ghost: 'text-muted hover:text-ink hover:bg-white/5',
+};
 
-    const variants = {
-      primary:
-        'bg-primary-gold text-white hover:bg-primary-gold-dark shadow-glow hover:shadow-glow-lg',
-      secondary: 'bg-primary-gray-light text-primary-charcoal hover:bg-primary-gray-dark',
-      ghost: 'bg-transparent text-primary-charcoal hover:bg-primary-gray-light',
-      outline:
-        'border-2 border-primary-gold text-primary-gold hover:bg-primary-gold hover:text-white',
-      gradient:
-        'bg-gradient-gold text-white shadow-glow hover:shadow-glow-lg bg-[length:200%_100%] hover:bg-right',
-    };
+const sizes: Record<Size, string> = {
+  sm: 'h-9 px-4 text-sm',
+  md: 'h-11 px-6 text-sm',
+  lg: 'h-13 px-8 text-base',
+};
 
-    const sizes = {
-      sm: 'text-sm px-3 py-1.5 gap-1.5',
-      md: 'text-base px-4 py-2 gap-2',
-      lg: 'text-lg px-6 py-3 gap-3',
-    };
-
-    return (
-      <motion.button
-        ref={ref}
-        className={cn(baseStyles, variants[variant], sizes[size], className)}
-        disabled={disabled || isLoading}
-        whileHover={{ scale: disabled || isLoading ? 1 : 1.02 }}
-        whileTap={{ scale: disabled || isLoading ? 1 : 0.98 }}
-        {...props}
-      >
-        {isLoading ? (
-          <>
-            <svg
-              className="animate-spin h-4 w-4"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <circle
-                className="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                strokeWidth="4"
-              ></circle>
-              <path
-                className="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-              ></path>
-            </svg>
-            <span>Loading...</span>
-          </>
-        ) : (
-          <>
-            {leftIcon && <span className="inline-flex">{leftIcon}</span>}
-            {children}
-            {rightIcon && <span className="inline-flex">{rightIcon}</span>}
-          </>
-        )}
-      </motion.button>
-    );
-  }
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant = 'primary', size = 'md', ...props }, ref) => (
+    <button
+      ref={ref}
+      className={cn(
+        'inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none disabled:opacity-50 cursor-pointer',
+        variants[variant],
+        sizes[size],
+        className
+      )}
+      {...props}
+    />
+  )
 );
-
 Button.displayName = 'Button';
 
-export { Button };
+/** Anchor styled identically to Button, for links. */
+export function ButtonLink({
+  className,
+  variant = 'primary',
+  size = 'md',
+  ...props
+}: React.AnchorHTMLAttributes<HTMLAnchorElement> & { variant?: Variant; size?: Size }) {
+  return (
+    <a
+      className={cn(
+        'inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
+        variants[variant],
+        sizes[size],
+        className
+      )}
+      {...props}
+    />
+  );
+}

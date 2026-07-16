@@ -1,222 +1,155 @@
 'use client';
 
-import React, { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { navItems } from '@/lib/data/personal';
-import { cn } from '@/lib/utils/cn';
+import { motion, useScroll, useSpring } from 'framer-motion';
+import { navItems, personalInfo } from '@/lib/data/personal';
+import { cn } from '@/lib/cn';
 
-const sectionIds = ['about', 'experience', 'projects', 'contact'];
-
-const Navbar: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('');
+export default function Navbar() {
   const pathname = usePathname();
-  const isHomePage = pathname === '/';
+  const isHome = pathname === '/';
+  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState('');
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 140, damping: 28, mass: 0.4 });
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // IntersectionObserver for active section highlighting
+  // Scroll-spy over the homepage sections
   useEffect(() => {
-    if (!isHomePage) return;
-
+    if (!isHome) return;
+    const ids = navItems.map((n) => n.href.slice(1));
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
+          if (entry.isIntersecting) setActive(`#${entry.target.id}`);
         }
       },
-      { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+      { rootMargin: '-40% 0px -55% 0px' }
     );
-
-    for (const id of sectionIds) {
+    ids.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
-    }
-
+    });
     return () => observer.disconnect();
-  }, [isHomePage]);
+  }, [isHome]);
 
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setIsMobileMenuOpen(false);
-    };
-    if (isMobileMenuOpen) {
-      document.addEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.removeEventListener('keydown', handleEscape);
-      document.body.style.overflow = '';
-    };
-  }, [isMobileMenuOpen]);
-
-  const toggleMobileMenu = useCallback(() => {
-    setIsMobileMenuOpen((prev) => !prev);
-  }, []);
-
-  const isActive = (href: string) => {
-    if (!isHomePage) return false;
-    const id = href.replace('#', '');
-    return activeSection === id;
-  };
-
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith('#') && isHomePage) {
-      e.preventDefault();
-      const el = document.getElementById(href.replace('#', ''));
-      if (el) {
-        const navHeight = window.innerWidth >= 640 ? 80 : 64;
-        const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-      setIsMobileMenuOpen(false);
-    }
-  };
-
-  const scrollToTop = (e: React.MouseEvent) => {
-    if (isHomePage) {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
+  const initials = personalInfo.name
+    .split(' ')
+    .map((w) => w[0])
+    .join('')
+    .toLowerCase();
 
   return (
-    <>
+    <header className="fixed inset-x-0 top-0 z-50">
+      {/* Scroll progress */}
+      <motion.div
+        className="absolute top-0 left-0 h-[2px] w-full origin-left bg-accent"
+        style={{ scaleX: progress }}
+        aria-hidden
+      />
+
       <nav
         className={cn(
-          'fixed w-full top-0 z-50 transition-all duration-200',
-          isScrolled ? 'bg-primary-navy/95 backdrop-blur-md shadow-custom-lg' : 'bg-transparent'
+          'mx-auto mt-4 flex max-w-6xl items-center justify-between rounded-full px-5 py-2.5 transition-all duration-300 sm:px-6',
+          scrolled ? 'glass mx-4 shadow-[0_8px_40px_rgba(0,0,0,0.45)] sm:mx-auto' : 'bg-transparent'
         )}
       >
-        <div className="max-w-screen-xl flex items-center justify-between mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20">
-          <Link
-            href="/"
-            onClick={scrollToTop}
-            className="flex items-center group"
-            aria-label="Zisis Kostakakis - Home"
-          >
-            <span className="text-xl sm:text-2xl font-semibold text-primary-white transition-colors duration-150 group-hover:text-primary-gold">
-              ZK
-              <span className="hidden sm:inline ml-1"> · Zisis Kostakakis</span>
-            </span>
-          </Link>
+        <Link
+          href="/"
+          className="group flex items-center gap-2 font-mono text-lg font-bold text-ink"
+          aria-label="Back to homepage"
+        >
+          <span className="text-accent transition-transform duration-300 group-hover:rotate-90">
+            ✦
+          </span>
+          {initials}
+          <span className="text-accent">.</span>
+        </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-4">
-            <ul className="flex items-center space-x-1 lg:space-x-2">
-              {navItems.map((item) => {
-                const active = isActive(item.href);
-                const linkHref = isHomePage ? item.href : `/${item.href}`;
-                return (
-                  <li key={item.href}>
-                    <a
-                      href={linkHref}
-                      onClick={(e) => handleNavClick(e, item.href)}
-                      className={cn(
-                        'relative px-4 py-2 text-base lg:text-lg font-medium transition-colors duration-150',
-                        active ? 'text-primary-gold' : 'text-primary-white hover:text-primary-gold'
-                      )}
-                    >
-                      {item.label}
-                      {active && (
-                        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-gold" />
-                      )}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+        <ul className="hidden items-center gap-1 md:flex">
+          {navItems.map((item) => {
+            const href = isHome ? item.href : `/${item.href}`;
+            const isActive = isHome && active === item.href;
+            return (
+              <li key={item.href}>
+                <Link
+                  href={href}
+                  className={cn(
+                    'relative rounded-full px-4 py-2 text-sm transition-colors duration-200',
+                    isActive ? 'text-accent' : 'text-muted hover:text-ink'
+                  )}
+                >
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-pill"
+                      className="absolute inset-0 rounded-full bg-accent/10"
+                      transition={{ type: 'spring', stiffness: 380, damping: 32 }}
+                    />
+                  )}
+                  <span className="relative">{item.label}</span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
 
-          {/* Mobile Menu Button */}
-          <button
-            type="button"
-            onClick={toggleMobileMenu}
-            className="inline-flex items-center justify-center p-2 rounded-lg md:hidden text-primary-white hover:bg-primary-gray-light transition-colors duration-150"
-            aria-controls="mobile-menu"
-            aria-expanded={isMobileMenuOpen}
-            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-          >
-            <span className="sr-only">
-              {isMobileMenuOpen ? 'Close main menu' : 'Open main menu'}
-            </span>
-            <div className="w-6 h-6 flex flex-col justify-center items-center">
-              <span
-                className={cn(
-                  'block w-6 h-0.5 bg-current transition-all duration-200',
-                  isMobileMenuOpen ? 'rotate-45 translate-y-1' : '-translate-y-1'
-                )}
-              />
-              <span
-                className={cn(
-                  'block w-6 h-0.5 bg-current transition-all duration-200',
-                  isMobileMenuOpen ? 'opacity-0' : 'opacity-100 my-1'
-                )}
-              />
-              <span
-                className={cn(
-                  'block w-6 h-0.5 bg-current transition-all duration-200',
-                  isMobileMenuOpen ? '-rotate-45 -translate-y-1' : 'translate-y-1'
-                )}
-              />
-            </div>
-          </button>
-        </div>
+        <a
+          href={isHome ? '#contact' : '/#contact'}
+          className="hidden rounded-full border border-accent/40 px-4 py-1.5 font-mono text-xs text-accent transition-all duration-200 hover:bg-accent hover:text-[#0b0d0e] md:block"
+        >
+          hire me
+        </a>
+
+        {/* Mobile toggle */}
+        <button
+          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
+          onClick={() => setMenuOpen((o) => !o)}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+        >
+          <span
+            className={cn(
+              'h-px w-5 bg-ink transition-transform duration-200',
+              menuOpen && 'translate-y-[3.5px] rotate-45'
+            )}
+          />
+          <span
+            className={cn(
+              'h-px w-5 bg-ink transition-transform duration-200',
+              menuOpen && '-translate-y-[3.5px] -rotate-45'
+            )}
+          />
+        </button>
       </nav>
 
-      {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <>
-          <div
-            className="fixed inset-0 bg-black/60 z-40 md:hidden"
-            onClick={() => setIsMobileMenuOpen(false)}
-          />
-          <div
-            id="mobile-menu"
-            className="fixed top-16 sm:top-20 right-0 bottom-0 w-64 bg-primary-navy border-l border-primary-gray-dark z-40 md:hidden"
-          >
-            <nav className="flex flex-col p-6 space-y-2" aria-label="Mobile navigation">
-              {navItems.map((item) => {
-                const active = isActive(item.href);
-                const linkHref = isHomePage ? item.href : `/${item.href}`;
-                return (
-                  <a
-                    key={item.href}
-                    href={linkHref}
-                    onClick={(e) => handleNavClick(e, item.href)}
-                    className={cn(
-                      'block px-4 py-3 rounded-lg text-lg font-medium transition-colors duration-150',
-                      active
-                        ? 'bg-primary-gold text-white'
-                        : 'text-primary-white hover:bg-primary-gray-light hover:text-primary-gold'
-                    )}
-                  >
-                    {item.label}
-                  </a>
-                );
-              })}
-            </nav>
-          </div>
-        </>
+      {/* Mobile menu */}
+      {menuOpen && (
+        <div className="glass mx-4 mt-2 rounded-2xl p-4 md:hidden">
+          <ul className="flex flex-col gap-1">
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={isHome ? item.href : `/${item.href}`}
+                  onClick={() => setMenuOpen(false)}
+                  className="block rounded-xl px-4 py-3 text-ink-soft transition-colors hover:bg-white/5 hover:text-accent"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
-    </>
+    </header>
   );
-};
-
-export default React.memo(Navbar);
+}

@@ -1,86 +1,119 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-@layer base {
+@theme {
+  /* Palette: neutral dark greys with a single teal accent */
+  --color-void: #0b0d0e;
+  --color-surface: #111417;
+  --color-raised: #171b1f;
+  --color-overlay: #1e2328;
+  --color-line: #2b3138;
+  --color-line-soft: #1f2429;
+
+  --color-ink: #eceff1;
+  --color-ink-soft: #c3c9cd;
+  --color-muted: #8e969d;
+  --color-faint: #5c6369;
+
+  --color-accent: #2dd4bf;
+  --color-accent-soft: #7ce8d9;
+  --color-mint: #4ade80;
+
+  /* Typography */
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, 'SF Mono', monospace;
+
+  /* Motion */
+  --animate-marquee: marquee 42s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background-color: var(--color-void);
+  color: var(--color-ink-soft);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-accent) 80%, transparent);
+  color: #0b0d0e;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-void);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-line);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-faint);
+}
+
+@utility glass {
+  background: color-mix(in srgb, var(--color-surface) 72%, transparent);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border: 1px solid color-mix(in srgb, white 8%, transparent);
+}
+
+@utility section-band {
+  border-top: 1px solid color-mix(in srgb, var(--color-accent) 14%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-accent) 14%, transparent);
+  background:
+    radial-gradient(
+      90% 120% at 50% 0%,
+      color-mix(in srgb, var(--color-accent) 7%, transparent),
+      transparent 70%
+    ),
+    color-mix(in srgb, var(--color-surface) 45%, transparent);
+}
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, white 4%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, white 4%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Mermaid diagrams: inline previews fit the column; the fullscreen overlay shows natural size */
+.mermaid-container svg {
+  max-width: 100%;
+  height: auto;
+  background: transparent !important;
+}
+.mermaid-full svg {
+  max-width: none;
+  height: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
   html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 64px;
+    scroll-behavior: auto;
   }
-
-  @screen sm {
-    html {
-      scroll-padding-top: 80px;
-    }
-  }
-
-  body {
-    @apply bg-primary-navy text-primary-charcoal;
-    font-feature-settings:
-      'rlig' 1,
-      'calt' 1;
-  }
-
-  h1,
-  h2,
-  h3 {
-    @apply font-display;
-  }
-
-  ::selection {
-    @apply bg-primary-gold/40 text-primary-white;
-  }
-
-  *:focus-visible {
-    @apply outline-none ring-2 ring-primary-gold ring-offset-2 ring-offset-primary-navy;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
-  }
-}
-
-@layer components {
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-gold;
-  }
-
-  .shimmer {
-    @apply relative overflow-hidden;
-  }
-
-  .shimmer::after {
-    @apply absolute inset-0 translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer;
-    content: '';
-  }
-
-  .skip-to-content {
-    @apply absolute left-0 top-0 -translate-y-full bg-primary-gold px-4 py-2 text-white transition-transform focus:translate-y-0 z-50;
-  }
-}
-
-@layer utilities {
-  .scrollbar-thin::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-
-  .scrollbar-thin::-webkit-scrollbar-track {
-    @apply bg-primary-navy;
-  }
-
-  .scrollbar-thin::-webkit-scrollbar-thumb {
-    @apply bg-primary-gray-dark rounded-full;
-  }
-
-  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary-gold;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
