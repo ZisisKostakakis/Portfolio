@@ -5,7 +5,7 @@ export const experiences: Experience[] = [
     id: 'experience-paiwe',
     company: 'Paiwe',
     position: 'Software Engineer & Cloud Architect',
-    duration: '2025 – Present',
+    duration: '2025 - Present',
     location: 'United Kingdom',
     type: 'contract' as const,
     description: [
@@ -16,7 +16,19 @@ export const experiences: Experience[] = [
       'Built internal database tool for watch management',
       'Created automated scripts for EC2 provisioning using Terraform and Bash',
     ],
-    technologies: ['Python', 'Terraform', 'AWS Lambda', 'API Gateway', 'DynamoDB', 'ECR', 'IAM', 'Cognito', 'EC2', 'Bash', 'Docker'],
+    technologies: [
+      'Python',
+      'Terraform',
+      'AWS Lambda',
+      'API Gateway',
+      'DynamoDB',
+      'ECR',
+      'IAM',
+      'Cognito',
+      'EC2',
+      'Bash',
+      'Docker',
+    ],
     startDate: '2025-01',
   },
   {
@@ -39,7 +51,7 @@ export const experiences: Experience[] = [
     id: 'experience-zerion',
     company: 'Zerion Software',
     position: 'Full Stack Engineer',
-    duration: 'Apr 2026 – Present',
+    duration: 'Apr 2026 - Present',
     location: 'Belfast, Northern Ireland',
     type: 'permanent' as const,
     description: [],
@@ -50,14 +62,14 @@ export const experiences: Experience[] = [
     id: 'experience-stormharvester',
     company: 'StormHarvester Limited',
     position: 'Software Development Engineer R&D',
-    duration: 'Aug 2022 – Apr 2026',
+    duration: 'Aug 2022 - Apr 2026',
     location: 'Belfast, Northern Ireland',
     type: 'permanent' as const,
     description: [
       'Architected automated cloud monitoring using AWS CloudFormation, reducing incident response times by 30%',
-      'Developed "Crontab Health Check" monitoring tool — 100% reduction in missed failures',
-      'Engineered self-service automation tools, removing engineering support dependency (100% time savings)',
-      'Spearheaded decomposition of monolithic codebases into modular components for EC2 distribution',
+      'Developed "Crontab Health Check" monitoring tool that eliminated missed cron job failures',
+      'Built self-service automation tools that removed the need for engineering support on routine tasks',
+      'Decomposed monolithic codebases into modular components for EC2 distribution',
       'Enhanced CI/CD with Jenkins pipelines integrated with AWS services',
       'Deployed private LLM knowledge base (Llama3 8B) via Docker and OpenWebUI with RBAC',
       'Managed end-to-end Linux server provisioning and maintenance',
@@ -67,3 +79,8 @@ export const experiences: Experience[] = [
     endDate: '2026-04',
   },
 ];
+
+/** Experiences sorted most-recent first for the timeline. */
+export const sortedExperiences = [...experiences].sort((a, b) =>
+  b.startDate.localeCompare(a.startDate)
+);

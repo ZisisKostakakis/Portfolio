@@ -1,16 +1,26 @@
 import { MetadataRoute } from 'next';
+import { SITE_CONFIG } from '@/lib/data/personal';
+import { projectSlugs } from '@/lib/data/project-details';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.zisiskostakakis.com';
-
   return [
-    { url: baseUrl, lastModified: new Date() },
-    { url: `${baseUrl}/projects/connect-5`, lastModified: new Date() },
-    { url: `${baseUrl}/projects/camera-ocr`, lastModified: new Date() },
-    { url: `${baseUrl}/projects/transport-info`, lastModified: new Date() },
-    { url: `${baseUrl}/projects/date-calculator`, lastModified: new Date() },
-    { url: `${baseUrl}/projects/student-loan-checker`, lastModified: new Date() },
-    { url: `${baseUrl}/projects/property-pal-scraper`, lastModified: new Date() },
-    { url: `${baseUrl}/projects/homelab`, lastModified: new Date() },
+    {
+      url: SITE_CONFIG.url,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 1,
+    },
+    ...projectSlugs.map((slug) => ({
+      url: `${SITE_CONFIG.url}/projects/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    })),
+    {
+      url: `${SITE_CONFIG.url}/privacy`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.2,
+    },
   ];
 }

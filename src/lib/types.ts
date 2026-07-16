@@ -18,8 +18,15 @@ export interface Project {
   duration?: string;
   challenges?: string[];
   features?: string[];
-  delay?: string; // For animation delays
   order?: number; // Explicit display order (lower = first)
+}
+
+export interface ProjectDetail extends Project {
+  additionalRepos?: { label: string; url: string }[];
+  demoVideos?: { title: string; src: string }[];
+  screenshots?: { src: string; alt: string; caption?: string }[];
+  architectureSections?: { title: string; description: string; mermaid?: string }[];
+  pypiUrl?: string;
 }
 
 export interface Skill {
@@ -50,21 +57,12 @@ export interface NavItem {
   href: string;
 }
 
-export interface SEOMetadata {
-  title: string;
-  description: string;
-  keywords?: string[];
-  ogImage?: string;
-  twitterCard?: 'summary' | 'summary_large_image';
-}
-
 export interface PersonalInfo {
   name: string;
   title: string;
   tagline: string;
   email: string;
   location?: string;
-  availability?: string;
   yearsOfExperience?: number;
 }
 
@@ -79,12 +77,4 @@ export interface Experience {
   startDate: string;
   endDate?: string;
   type: 'permanent' | 'contract';
-}
-
-export interface Achievement {
-  id: string;
-  title: string;
-  description: string;
-  date?: string;
-  icon?: string;
 }

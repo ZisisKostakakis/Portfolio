@@ -29,7 +29,7 @@ const projectsData: Project[] = [
     title: 'CameraOCR',
     description: 'IOS App that uses OCR to detect text from camera and ML Emotion Detection.',
     longDescription:
-      'An iOS application that leverages computer vision and machine learning to extract text from camera images and detect emotions in real-time.',
+      'An iOS application that uses computer vision and machine learning to extract text from camera images and detect emotions in real time.',
     image: '/images/Camera-OCR.png',
     githubUrl: 'https://github.com/ZisisKostakakis',
     technologies: ['Swift', 'CoreML', 'Vision', 'OCR', 'Machine Learning'],
@@ -50,11 +50,20 @@ const projectsData: Project[] = [
     description:
       'Full Stack Web App on AWS that uses public transport data to provide information to users.',
     longDescription:
-      'A comprehensive full-stack application deployed on AWS infrastructure that aggregates and displays real-time public transportation data to help users plan their journeys.',
+      'A full-stack application on AWS that aggregates and displays real-time public transport data for journey planning.',
     image: '/images/Transport-Info.png',
     githubUrl: 'https://github.com/ZisisKostakakis',
     liveUrl: 'https://transportinfo.zisiskostakakis.com',
-    technologies: ['Python', 'Flask', 'AWS Lambda', 'DynamoDB', 'API Gateway', 'S3', 'CloudWatch', 'Terraform'],
+    technologies: [
+      'Python',
+      'Flask',
+      'AWS Lambda',
+      'DynamoDB',
+      'API Gateway',
+      'S3',
+      'CloudWatch',
+      'Terraform',
+    ],
     category: 'Full Stack',
     date: '2023',
     features: [
@@ -71,17 +80,28 @@ const projectsData: Project[] = [
     href: '/projects/date-calculator',
     title: 'Date Calculator',
     description:
-      'Modern web application for calculating and tracking days across custom date ranges with configurable anchor periods.',
+      'Web application for calculating and tracking days across custom date ranges with configurable anchor periods.',
     longDescription:
-      'A full-stack date calculation tool with a Next.js 15/React 19 frontend and a Flask (Python) backend deployed on AWS Lambda. Perfect for tracking travel days, residency requirements, or any time-based calculations that need to be measured against custom yearly periods.',
+      'A full-stack date calculation tool with a Next.js 15/React 19 frontend and a Flask (Python) backend deployed on AWS Lambda. Built for tracking travel days, residency requirements, and other counts measured against custom yearly periods.',
     image: '/images/Date-Calculator.png',
     githubUrl: 'https://github.com/ZisisKostakakis/date-calculator',
     liveUrl: 'https://date-calc.zisiskostakakis.com',
-    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Flask', 'Python', 'AWS Lambda', 'AWS API Gateway', 'Docker', 'Vercel'],
+    technologies: [
+      'Next.js',
+      'React',
+      'TypeScript',
+      'Tailwind CSS',
+      'Flask',
+      'Python',
+      'AWS Lambda',
+      'AWS API Gateway',
+      'Docker',
+      'Vercel',
+    ],
     category: 'Full Stack',
     date: '2025',
     features: [
-      'Flexible date range management with intuitive range picker',
+      'Date range management with a calendar range picker',
       'Custom anchor periods (e.g., Sept 17 - Sept 16)',
       'Smart overlap merging for accurate calculations',
       'Visual heatmap to see which days fall within each period',
@@ -89,7 +109,7 @@ const projectsData: Project[] = [
       'Threshold validation with pass/fail indicators',
       'Quick presets for common ranges',
       'Persistent storage with localStorage',
-      'Modern dark UI with responsive design',
+      'Responsive dark UI',
     ],
   },
   {
@@ -100,7 +120,7 @@ const projectsData: Project[] = [
     description:
       'Automated Python bot using Playwright to log into the Student Loans Company portal and retrieve loan balance information.',
     longDescription:
-      'A Python automation bot built with Playwright that securely logs into the Student Loans Company (SLC) portal to retrieve comprehensive loan information. The bot handles authentication, two-factor authentication, and scrapes detailed loan data including balance, repayments, interest rates, and more.',
+      'A Python automation bot built with Playwright that logs into the Student Loans Company (SLC) portal and retrieves loan information. It handles login, two-factor authentication, and scrapes balance, repayments, and interest rates.',
     image: '/images/Student-Loan-Checker.png',
     githubUrl: 'https://github.com/ZisisKostakakis/student-loan-checker',
     technologies: ['Python', 'Playwright', 'Web Scraping', 'Automation', 'Environment Variables'],
@@ -109,9 +129,9 @@ const projectsData: Project[] = [
     features: [
       'Automated login with email and password',
       'Two-factor authentication (2FA) / secret code support',
-      'Comprehensive data scraping (balance, repayments, interest)',
+      'Scrapes balance, repayments, and interest data',
       'Secure credential management via environment variables',
-      'Robust error handling and cookie consent management',
+      'Error handling and cookie consent management',
       'Headless and visible browser modes (`--headless` / `--headed` CLI flags)',
       'Pure-Python currency parser with pytest coverage (no browser required)',
       'Programmatic API for integration',
@@ -125,7 +145,7 @@ const projectsData: Project[] = [
     description:
       'Fully automated, self-healing Docker media stack with VPN kill switch, cascade restart recovery, centralised Loki/Grafana logging, and encrypted off-host backups.',
     longDescription:
-      'A production-grade homelab media stack built on Docker Compose, split into five independent stacks (torrent, Plex, services, music, logging) running 35+ services. It handles everything from media requests to downloading, extracting, renaming, subtitle fetching, quality management, and streaming — with zero manual intervention after initial setup. All download traffic routes through WireGuard VPN with a firewall kill switch, logs are centralised in Loki/Grafana with error-rate alerting, and configs are backed up nightly to S3 with client-side encryption.',
+      'A homelab media stack built on Docker Compose, split into five independent stacks (torrent, Plex, services, music, logging) running 35+ services. It handles the full pipeline: media requests, downloading, extracting, renaming, subtitle fetching, quality management, and streaming, with no manual intervention after initial setup. All download traffic routes through WireGuard VPN with a firewall kill switch, logs are centralised in Loki/Grafana with error-rate alerting, and configs are backed up nightly to S3 with client-side encryption.',
     image: '/images/Homelab-Media-banner.png',
     githubUrl: 'https://github.com/ZisisKostakakis/homelab-media',
     technologies: [
@@ -153,19 +173,19 @@ const projectsData: Project[] = [
     features: [
       'All download traffic routed through ProtonVPN WireGuard with firewall kill switch',
       'Cascade restart monitor automatically recovers all VPN-dependent services on Gluetun restart',
-      'Centralised logging stack — Promtail ships every container log to Loki (90-day retention) with Grafana dashboards',
+      'Centralised logging: Promtail ships every container log to Loki (90-day retention) with Grafana dashboards',
       'Loki ruler evaluates error-rate rules and routes alerts through Alertmanager to a custom ntfy bridge (pytest-covered)',
       'Nightly encrypted off-host backups to AWS S3 via an rclone crypt remote, with a single-command restore script',
       'Whisper ASR generates subtitles locally with AI when no subtitle provider has a match',
       'Cleanuparr blocks malicious files and clears stalled or orphaned downloads automatically',
       'Push notifications via ntfy.sh at every automation stage',
-      'Hardlink-based media import — zero extra disk usage while seeding continues',
+      'Hardlink-based media import: no extra disk usage while seeding continues',
       'Recyclarr syncs TRaSH Guides quality profiles to Sonarr/Radarr on schedule',
       'Three self-healing layers: Docker healthchecks, Autoheal watchdog, gluetun-monitor cascade restart',
       'Plex playback automatically pauses all torrents to prioritise streaming bandwidth (Tautulli hook)',
       'cross-seed daemon maximises seeding ratio with zero extra bandwidth',
       'Maintainerr rules automatically clean up stale media from Plex',
-      'Self-registering cron jobs: nightly stack update, 02:00 S3 backup, weekly Docker resource prune — all TZ-anchored to UK time',
+      'Self-registering cron jobs: nightly stack update, 02:00 S3 backup, weekly Docker resource prune, all TZ-anchored to UK time',
       'Searchable log analyser with per-service grep, severity filter, JSON output, and a permissions category',
       'AI music analysis with AudioMuse (Flask + worker, Redis queue, Postgres) feeding Navidrome',
     ],
@@ -176,7 +196,7 @@ const projectsData: Project[] = [
     href: '/projects/stackfordev',
     title: 'StackForDev',
     description:
-      'CLI tool and web app that generates tailored Dockerfiles so developers only need Docker — no language runtimes to install locally.',
+      'CLI tool and web app that generates tailored Dockerfiles so developers only need Docker, with no language runtimes to install locally.',
     longDescription:
       'A serverless platform that generates custom Dockerfiles for any language and stack. The backend runs on AWS Lambda, the CLI is published on PyPI, and the web UI is built with SvelteKit.',
     image: '/images/StackForDev-banner.png',
@@ -201,7 +221,7 @@ const projectsData: Project[] = [
       'Generates Dockerfiles for Python, JavaScript, Go, Rust, and Java with 20+ stack variants',
       'CLI tool published on PyPI (`pip install stackfordev`)',
       'Interactive and non-interactive CLI modes',
-      'S3-backed deduplication — identical configs return a cached Dockerfile',
+      'S3-backed deduplication: identical configs return a cached Dockerfile',
       'SvelteKit web UI for browser-based generation and preview',
       'Serverless backend on AWS Lambda with API Gateway rate limiting',
       'Infrastructure as Code with Terraform Cloud',
@@ -217,11 +237,19 @@ const projectsData: Project[] = [
     description:
       'Scrapy-based web scraper for extracting property listings with AI-powered investment ratings and geocoding analysis.',
     longDescription:
-      'A production-grade web scraper built with Scrapy that extracts property listings from PropertyPal.com and provides AI-powered investment analysis using Perplexity API. Features automated geocoding with distance calculations, mortgage payment estimations, and comprehensive data export pipelines with Pydantic validation.',
+      'A web scraper built with Scrapy that extracts property listings from PropertyPal.com and rates them as investments using the Perplexity API. Includes geocoding with distance calculations, mortgage payment estimates, and CSV/JSON export pipelines validated with Pydantic.',
     image: '/images/Property-Pal-Scraper.png',
     githubUrl: 'https://github.com/ZisisKostakakis/property-pal-scraper',
     liveUrl: 'https://property-pal-analyser.zisiskostakakis.com/',
-    technologies: ['Python', 'Scrapy', 'Perplexity API', 'Pydantic', 'Web Scraping', 'Data Pipelines', 'Geocoding'],
+    technologies: [
+      'Python',
+      'Scrapy',
+      'Perplexity API',
+      'Pydantic',
+      'Web Scraping',
+      'Data Pipelines',
+      'Geocoding',
+    ],
     category: 'Automation',
     date: '2026',
     features: [
@@ -232,7 +260,7 @@ const projectsData: Project[] = [
       'Automated mortgage payment calculations',
       'CSV/JSON export pipelines with Pydantic validation',
       'Ethical scraping with rate limiting and robots.txt compliance',
-      'Comprehensive error handling and retry mechanisms',
+      'Error handling and retry mechanisms',
       '`--limit N` CLI flag for capped dev runs via Scrapy CLOSESPIDER_ITEMCOUNT',
     ],
   },
@@ -242,10 +270,9 @@ export const projects: Project[] = [...projectsData].sort((a, b) => {
   return (a.order ?? 999) - (b.order ?? 999);
 });
 
+export const featuredProjects = projects.slice(0, 3);
+export const moreProjects = projects.slice(3);
+
 export const getProjectById = cache((id: string): Project | undefined => {
   return projects.find((project) => project.id === id);
-});
-
-export const getProjectsByCategory = cache((category: string): Project[] => {
-  return projects.filter((project) => project.category === category);
 });

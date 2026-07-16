@@ -1,80 +1,57 @@
-import { Analytics } from '@vercel/analytics/react';
+import type { Metadata, Viewport } from 'next';
+import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
+import { personalInfo, SITE_CONFIG } from '@/lib/data/personal';
 import Navbar from '@/components/navbar';
+import Footer from '@/components/footer';
 import './globals.css';
-import { Inter, Sora, JetBrains_Mono } from 'next/font/google';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 
-const inter = Inter({
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
+  variable: '--font-space-grotesk',
   display: 'swap',
-  preload: true,
-  variable: '--font-inter',
+});
+const jetbrains = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-jetbrains',
+  display: 'swap',
 });
 
-const sora = Sora({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-sora',
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-jetbrains-mono',
-});
-
-export const metadata = {
-  metadataBase: new URL('https://www.zisiskostakakis.com'),
-  title: 'Zisis Kostakakis - Software Engineer',
-  description:
-    'Software Engineer specializing in AWS cloud development with Python and TypeScript. Portfolio showcasing innovative projects and technical expertise.',
-  keywords: [
-    'Software Engineer',
-    'AWS',
-    'Python',
-    'TypeScript',
-    'Next.js',
-    'React',
-    'Cloud Computing',
-    'Terraform',
-  ],
-  authors: [{ name: 'Zisis Kostakakis' }],
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_CONFIG.url),
+  title: {
+    default: `${personalInfo.name} | ${personalInfo.title}`,
+    template: `%s | ${personalInfo.name}`,
+  },
+  description: personalInfo.tagline,
+  keywords: [...SITE_CONFIG.keywords],
+  authors: [{ name: SITE_CONFIG.author, url: SITE_CONFIG.url }],
   openGraph: {
-    title: 'Zisis Kostakakis - Software Engineer',
-    description:
-      'Software Engineer specializing in AWS cloud development. View my portfolio of innovative projects.',
-    url: 'https://www.zisiskostakakis.com',
-    siteName: 'Zisis Kostakakis Portfolio',
-    locale: 'en_US',
     type: 'website',
+    url: SITE_CONFIG.url,
+    title: `${personalInfo.name} | ${personalInfo.title}`,
+    description: personalInfo.tagline,
+    siteName: SITE_CONFIG.name,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Zisis Kostakakis - Software Engineer',
-    description:
-      'Software Engineer specializing in AWS cloud development. View my portfolio of innovative projects.',
+    title: `${personalInfo.name} | ${personalInfo.title}`,
+    description: personalInfo.tagline,
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  icons: {
-    icon: '/favicon.svg',
-    shortcut: '/favicon.svg',
-  },
+  icons: { icon: '/favicon.svg' },
+};
+
+export const viewport: Viewport = {
+  themeColor: '#0b0d0e',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${sora.variable} ${jetbrainsMono.variable}`}>
-      <body className={inter.className} suppressHydrationWarning>
-        <a href="#main-content" className="skip-to-content">
-          Skip to main content
-        </a>
-        <SpeedInsights />
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrains.variable}`}>
+      <body>
         <Navbar />
-        <main id="main-content">{children}</main>
-        <Analytics />
+        {children}
+        <Footer />
       </body>
     </html>
   );
