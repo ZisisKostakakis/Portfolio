@@ -4,7 +4,7 @@ import { Project } from '@/lib/types';
 const projectsData: Project[] = [
   {
     id: 'connect-5',
-    order: 8,
+    order: 9,
     href: '/projects/connect-5',
     title: 'Connect 5 Java Game',
     description: 'Java Game with Graphical User Interface and AI Implementation.',
@@ -24,7 +24,7 @@ const projectsData: Project[] = [
   },
   {
     id: 'camera-ocr',
-    order: 7,
+    order: 8,
     href: '/projects/camera-ocr',
     title: 'CameraOCR',
     description: 'IOS App that uses OCR to detect text from camera and ML Emotion Detection.',
@@ -44,7 +44,7 @@ const projectsData: Project[] = [
   },
   {
     id: 'transport-info',
-    order: 6,
+    order: 7,
     href: '/projects/transport-info',
     title: 'Transport Info',
     description:
@@ -76,7 +76,7 @@ const projectsData: Project[] = [
   },
   {
     id: 'date-calculator',
-    order: 5,
+    order: 6,
     href: '/projects/date-calculator',
     title: 'Date Calculator',
     description:
@@ -114,7 +114,7 @@ const projectsData: Project[] = [
   },
   {
     id: 'student-loan-checker',
-    order: 4,
+    order: 5,
     href: '/projects/student-loan-checker',
     title: 'Student Loan Checker',
     description:
@@ -191,8 +191,45 @@ const projectsData: Project[] = [
     ],
   },
   {
-    id: 'stackfordev',
+    id: 'kanbanminator',
     order: 2,
+    href: '/projects/kanbanminator',
+    title: 'Kanbanminator',
+    description: 'Kanban board for managing PR review comments with AI-assisted code changes.',
+    longDescription:
+      'A full-stack tool that syncs unresolved Bitbucket PR comments into a kanban workflow. Accepting a task triggers an AI agent that drafts code fixes in an isolated git workspace, with a human reviewing every diff before commit. FastAPI backend on AWS Lambda, React 19 frontend on Vercel.',
+    image: '/images/Kanbanminator-banner.png',
+    githubUrl: 'https://github.com/ZisisKostakakis/kanbanminator',
+    liveUrl: 'https://kanbanminator.zisiskostakakis.com',
+    technologies: [
+      'FastAPI',
+      'Python',
+      'SQLAlchemy',
+      'React 19',
+      'TypeScript',
+      'Vite',
+      'Tailwind CSS',
+      'AWS Lambda',
+      'API Gateway',
+      'Terraform',
+      'Docker',
+      'Vercel',
+    ],
+    category: 'Full Stack',
+    date: '2026',
+    features: [
+      'Syncs unresolved Bitbucket PR comments into a kanban workflow (Comments → Todo → In Progress → Review → Done)',
+      'Accept/reject triggers an AI agent (Cursor Agent) that drafts code fixes or reply drafts',
+      'Isolated per-task git workspaces: the human reviews the diff before commit, push, and resolve',
+      'Real-time board updates with drag-and-drop and undo/redo',
+      'PR rebase/squash management with conflict detection',
+      'Multi-user with Google OAuth and per-user encrypted Bitbucket OAuth tokens',
+      'Fully interactive hosted demo mode: no login needed, seeded data, auto-resets after 5 minutes of inactivity',
+    ],
+  },
+  {
+    id: 'stackfordev',
+    order: 3,
     href: '/projects/stackfordev',
     title: 'StackForDev',
     description:
@@ -231,7 +268,7 @@ const projectsData: Project[] = [
   },
   {
     id: 'property-pal-scraper',
-    order: 3,
+    order: 4,
     href: '/projects/property-pal-scraper',
     title: 'PropertyPal Investment Analyzer',
     description:
