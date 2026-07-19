@@ -592,6 +592,146 @@ The stack is split into three independent Docker Compose projects sharing a comm
       ],
     },
   },
+  kanbanminator: {
+    title: 'Kanbanminator | Zisis Kostakakis',
+    metaDescription: 'Kanban board for managing PR review comments with AI-assisted code changes.',
+    project: {
+      id: 'kanbanminator',
+      href: '/projects/kanbanminator',
+      title: 'Kanbanminator',
+      description: 'Kanban board for managing PR review comments with AI-assisted code changes.',
+      longDescription: `Kanbanminator turns pull request review comments into a kanban workflow. It syncs unresolved Bitbucket PR comments onto a board (Comments → Todo → In Progress → Review → Done) so review feedback becomes trackable tasks instead of a scattered comment thread.
+
+Accepting a task triggers an AI agent (Cursor Agent) that drafts a code fix in an isolated per-task git workspace; rejecting one drafts a reply instead. The human stays in the loop throughout: every diff is reviewed on the board before commit, push, and resolving the comment. The board supports drag-and-drop, undo/redo, real-time updates, and PR rebase/squash management with conflict detection.
+
+The backend is a FastAPI (Python 3.11) service with SQLAlchemy on SQLite, deployed as a container-image AWS Lambda behind API Gateway and provisioned with Terraform. The React 19 / Vite frontend is deployed on Vercel. Because Lambda cannot hold WebSocket connections open, the hosted deployment uses an event buffer with an HTTP polling fallback: the client polls GET /api/events with a sequence cursor that detects Lambda cold starts and triggers a full refetch, while local/self-hosted mode keeps native WebSockets.
+
+The hosted demo runs in demo mode: Bitbucket, OAuth, and the AI agent are mocked server-side, so the full workflow is explorable without any login or secrets. Seeded data resets automatically after 5 minutes of inactivity. Self-hosted mode supports multiple users with Google OAuth and per-user encrypted Bitbucket OAuth tokens.`,
+      image: '/images/Kanbanminator-banner.png',
+      githubUrl: 'https://github.com/ZisisKostakakis/kanbanminator',
+      liveUrl: 'https://kanbanminator.zisiskostakakis.com',
+      technologies: [
+        'FastAPI',
+        'Python 3.11',
+        'SQLAlchemy',
+        'SQLite',
+        'React 19',
+        'TypeScript',
+        'Vite',
+        'Tailwind CSS',
+        'AWS Lambda',
+        'API Gateway',
+        'AWS ECR',
+        'Terraform',
+        'Docker',
+        'Vercel',
+      ],
+      category: 'Full Stack',
+      date: '2026',
+      features: [
+        'Syncs unresolved Bitbucket PR comments into a kanban workflow (Comments → Todo → In Progress → Review → Done)',
+        'Accept triggers an AI agent (Cursor Agent) that drafts a code fix; reject drafts a reply instead',
+        'Isolated per-task git workspaces keep AI changes sandboxed until approved',
+        'Human-in-the-loop: every diff is reviewed before commit, push, and comment resolution',
+        'Real-time board updates: native WebSockets locally, event-buffer + HTTP polling fallback on Lambda',
+        'Drag-and-drop board with undo/redo',
+        'PR rebase/squash management with conflict detection',
+        'Multi-user with Google OAuth and per-user encrypted Bitbucket OAuth tokens',
+        'Hosted demo mode: Bitbucket, OAuth, and the AI agent mocked server-side, seeded data, auto-reset after 5 minutes of inactivity',
+        'Infrastructure as Code with Terraform (Lambda, API Gateway, ECR)',
+      ],
+      screenshots: [],
+      architectureSections: [
+        {
+          title: 'System Architecture',
+          description:
+            'The React/Vite frontend is deployed on Vercel. The FastAPI backend runs as a container-image AWS Lambda behind API Gateway, with the image stored in ECR and all resources provisioned with Terraform. In the hosted demo, Bitbucket, OAuth, and the AI agent are mocked server-side.',
+          mermaid: `graph TB
+    subgraph CLIENT["Client (Browser)"]
+        UI["React 19 / Vite\n(Vercel)"]
+    end
+
+    subgraph AWS["AWS (Terraform-provisioned)"]
+        AG["API Gateway\n(REST)"]
+        LM["Lambda Function\n(FastAPI · container image)"]
+        ECR["ECR\n(Lambda container image)"]
+        DB["SQLite\n(SQLAlchemy)"]
+    end
+
+    subgraph EXT["External (mocked in demo mode)"]
+        BB["Bitbucket API"]
+        OAUTH["Google OAuth"]
+        AI["Cursor Agent"]
+    end
+
+    UI -->|"HTTPS REST + event polling"| AG
+    AG -->|"invoke"| LM
+    LM --> DB
+    ECR -->|"image"| LM
+    LM -.->|"PR comments · push · resolve"| BB
+    LM -.->|"auth"| OAUTH
+    LM -.->|"draft fixes / replies"| AI`,
+        },
+        {
+          title: 'Real-Time Updates Without WebSockets',
+          description:
+            'Lambda cannot hold WebSocket connections open, so the hosted deployment buffers board events server-side and the client polls GET /api/events with a sequence cursor. A cursor mismatch signals a Lambda cold start (empty buffer), triggering a full board refetch. Local/self-hosted mode keeps native WebSockets.',
+          mermaid: `sequenceDiagram
+    participant FE as React Frontend
+    participant API as FastAPI (Lambda)
+    participant BUF as Event Buffer
+
+    Note over API,BUF: Board change (move, AI result, sync)
+    API->>BUF: Append event with sequence number
+
+    loop Poll interval
+        FE->>API: GET /api/events?cursor=N
+        alt Cursor valid
+            BUF-->>FE: Events N+1..latest
+            FE->>FE: Apply incremental updates
+        else Cold start detected (cursor ahead of buffer)
+            API-->>FE: Cursor mismatch
+            FE->>API: GET full board state
+            FE->>FE: Rebuild board + reset cursor
+        end
+    end
+
+    Note over FE,API: Local / self-hosted mode uses<br/>native WebSockets instead`,
+        },
+        {
+          title: 'AI Task Workflow',
+          description:
+            'Each accepted task gets an isolated git workspace where the AI agent drafts a fix. Nothing reaches the PR without human approval: the diff is reviewed on the board before commit, push, and resolving the original comment.',
+          mermaid: `sequenceDiagram
+    actor User
+    participant Board as Kanban Board
+    participant API as FastAPI Backend
+    participant WS as Per-Task Git Workspace
+    participant Agent as AI Agent (Cursor)
+    participant BB as Bitbucket
+
+    BB-->>API: Sync unresolved PR comments
+    API-->>Board: Cards in "Comments" column
+
+    User->>Board: Accept task
+    Board->>API: Trigger AI fix
+    API->>WS: Create isolated workspace (branch checkout)
+    API->>Agent: Run with comment context
+    Agent->>WS: Draft code changes
+    API-->>Board: Card → "Review" with diff
+
+    User->>Board: Review diff
+    alt Approve
+        Board->>API: Commit + push
+        API->>BB: Push fix + resolve comment
+        API-->>Board: Card → "Done"
+    else Request changes / reject
+        Board->>API: Discard workspace or re-run agent
+    end`,
+        },
+      ],
+    },
+  },
   stackfordev: {
     title: 'StackForDev | Zisis Kostakakis',
     metaDescription:
@@ -860,6 +1000,7 @@ export const projectSlugs = Object.keys(projectDetails);
 /** Ordered slugs matching the homepage project order, for prev/next navigation. */
 export const orderedSlugs = [
   'homelab-media',
+  'kanbanminator',
   'stackfordev',
   'property-pal-scraper',
   'student-loan-checker',
